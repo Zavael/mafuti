@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.badand.mafuti.ui.facilities.FacilitiesMenuController">
+    <children>
+        <Button mnemonicParsing="false" text="%btn.continue" disable="true"  />
+        <Button mnemonicParsing="false" onAction="#showDashboard" text="%btn.dashboard" />
+        <Button mnemonicParsing="false" onAction="#showOffice" text="%btn.office" />
+        <Button mnemonicParsing="false" onAction="#showYouthAcademy" text="%btn.youth-academy" />
+        <Button mnemonicParsing="false" onAction="#showStadium" text="%btn.stadium" />
+        <Button mnemonicParsing="false" onAction="#showFitnessMedic" text="%btn.fitness-medic" />
+    </children>
+</VBox>

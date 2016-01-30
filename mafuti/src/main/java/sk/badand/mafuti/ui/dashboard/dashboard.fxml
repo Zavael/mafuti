@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane styleClass="mainFxmlClass" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.badand.mafuti.ui.dashboard.DashboardController">
+    <stylesheets>
+        <URL value="@/styles/dashboard.css" />
+    </stylesheets>
+    <children>
+        <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <HBox styleClass="timeline" HBox.hgrow="ALWAYS" >
+                    <children>
+                        <Label text="day -1" HBox.hgrow="ALWAYS" prefWidth="500" />
+                        <Label text="day 0" HBox.hgrow="ALWAYS" prefWidth="500" />
+                        <Label text="day +1" HBox.hgrow="ALWAYS" prefWidth="500" />
+                        <Label text="day +2" HBox.hgrow="ALWAYS" prefWidth="500" />
+                        <Label text="day +3" HBox.hgrow="ALWAYS" prefWidth="500" />
+                        <Label text="day +4" HBox.hgrow="ALWAYS" prefWidth="500" />
+                        <Label text="day +5" HBox.hgrow="ALWAYS" prefWidth="500" />
+                    </children>
+                </HBox>
+                <AnchorPane VBox.vgrow="ALWAYS" />
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

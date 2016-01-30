@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="ftmPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>sk.abadinka.ftm.modelibrary.entities.FacilityInfo</class>
+    <class>sk.abadinka.ftm.modelibrary.entities.Person</class>
+    <class>sk.abadinka.ftm.modelibrary.entities.TrainingBase</class>
+    <class>sk.abadinka.ftm.modelibrary.entities.Stadium</class>
+    <class>sk.abadinka.ftm.modelibrary.entities.PlayerPosition</class>
+    <class>sk.abadinka.ftm.modelibrary.entities.Nation</class>
+    <class>sk.abadinka.ftm.modelibrary.entities.LeagueLevel</class>
+    <class>sk.abadinka.ftm.modelibrary.entities.LeagueSystem</class>
+    <class>sk.abadinka.ftm.modelibrary.entities.Player</class>
+    <class>sk.abadinka.ftm.modelibrary.entities.Team</class>
+    <class>sk.abadinka.ftm.modelibrary.entities.Manager</class>
+    <class>sk.abadinka.ftm.modelibrary.entities.Coach</class>
+    <class>sk.abadinka.ftm.modelibrary.entities.PersonType</class>
+    <class>sk.abadinka.ftm.modelibrary.entities.PhysioBase</class>
+    <class>sk.abadinka.ftm.modelibrary.entities.Office</class>
+    <class>sk.abadinka.ftm.modelibrary.entities.SkillInfo</class>
+    <class>sk.abadinka.ftm.modelibrary.entities.League</class>
+    <class>sk.abadinka.ftm.modelibrary.entities.Physio</class>
+    <class>sk.abadinka.ftm.modelibrary.entities.Scout</class>
+    <class>sk.abadinka.ftm.modelibrary.entities.Season</class>
+    <class>sk.abadinka.ftm.modelibrary.entities.Club</class>
+    <class>sk.abadinka.ftm.modelibrary.entities.Contract</class>
+    <class>sk.abadinka.ftm.modelibrary.entities.Skill</class>
+    <class>sk.abadinka.ftm.modelibrary.entities.ClubBudget</class>
+    <class>sk.abadinka.ftm.modelibrary.entities.PlayerRole</class>
+    <class>sk.abadinka.ftm.modelibrary.entities.TeamRole</class>
+    <class>sk.abadinka.ftm.modelibrary.entities.PlayerMatchStats</class>
+    <class>sk.abadinka.ftm.modelibrary.entities.FacilityType</class>
+    <class>sk.abadinka.ftm.modelibrary.entities.LeagueRoundMatch</class>
+    <class>sk.abadinka.ftm.modelibrary.entities.Match</class>
+    <class>sk.abadinka.ftm.modelibrary.entities.CupRound</class>
+    <class>sk.abadinka.ftm.modelibrary.entities.Cup</class>
+    <class>sk.abadinka.ftm.modelibrary.entities.LeagueRound</class>
+    <class>sk.abadinka.ftm.modelibrary.entities.CupRoundMatch</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:mem:ftm_base"/>
+      <property name="javax.persistence.jdbc.password" value="ftm"/>
+      <property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver"/>
+      <property name="javax.persistence.jdbc.user" value="ftm"/>
+    </properties>
+  </persistence-unit>
+</persistence>
