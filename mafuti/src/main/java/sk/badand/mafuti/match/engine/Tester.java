@@ -21,7 +21,7 @@ public class Tester {
             System.out.println("ex: " + e);
         }
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 1; i++) {
             MatchEngineProvider mep = new MatchEngineProvider(
                     new ITeam() {
                     },

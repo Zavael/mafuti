@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="sk.badand.mafuti.ui.preparation.PreparationPresenter">
+    <stylesheets>
+        <URL value="@/styles/matchtactic.css" />
+    </stylesheets>
+    
+    <top>
+        <Label text="{MATCH} TACTIC" />
+    </top>
+    
+    <left>
+        <VBox>
+            <children>
+                <Label styleClass="header1" text="passing style" />
+            </children>
+        </VBox>
+    </left>
+    
+    <center>
+        <VBox alignment="CENTER">
+            <children>
+                <Label styleClass="header1" text="lineup" />
+            </children>  
+        </VBox>
+    </center>
+    
+    <right>
+        <VBox>
+            <children>
+                <Label styleClass="header1" text="aggresivnes" />
+            </children>
+        </VBox>
+    </right>
+    
+    <bottom>
+        <Button alignment="CENTER_RIGHT" contentDisplay="CENTER" onAction="#showMatch" text="Next" BorderPane.alignment="CENTER_RIGHT" /> 
+    </bottom>
+</BorderPane>

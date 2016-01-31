@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import java.net.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane id="BorderPane" BorderPane.alignment="TOP_CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"
+            xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="sk.badand.mafuti.ui.prematch.PrematchPresenter">
+    <stylesheets>
+        <URL value="@/styles/prematch.css"/>
+    </stylesheets>
+    
+    <top>
+        <Label text="{MATCH} PREVIEW" />
+    </top>
+    
+    <left>
+        <VBox>
+            <children>
+                <Label styleClass="header1" text="{TEAM A} name" />
+                <javafx.scene.image.ImageView fitHeight="100" fitWidth="100" styleClass="bordered" />
+                <Label styleClass="header2" text="Key players" />
+                <ListView minHeight="400" />
+            </children>
+        </VBox>
+    </left>
+    
+    <center>
+        <VBox alignment="CENTER">
+            <children>
+                <javafx.scene.image.ImageView />
+                <javafx.scene.image.ImageView fitHeight="200.0" fitWidth="300.0" styleClass="bordered" />
+                <Label text="Highbury" />
+                <Label text="48200" /> 
+                <Label text="16.05.2017" /> 
+                <Label text="16:00" />  
+                <Label text="Sunny and windy" />
+            </children>  
+        </VBox>
+    </center>
+    
+    <right>
+        <VBox>
+            <children>
+                <Label styleClass="header1" text="{TEAM B} name" />
+                <javafx.scene.image.ImageView fitHeight="100" fitWidth="100" styleClass="bordered" />
+                <Label styleClass="header2" text="Key players" />
+                <ListView minHeight="400" />
+            </children>
+        </VBox>
+    </right>
+    
+    <bottom>
+        <Button alignment="CENTER_RIGHT" contentDisplay="CENTER" onAction="#showMatchTactic" text="%btn.next" BorderPane.alignment="CENTER_RIGHT" /> 
+    </bottom>
+</BorderPane>

@@ -12,16 +12,12 @@ import javafx.scene.layout.Pane;
  */
 public class Navigator {        
     private static Pane contentPane;
-    private static Pane menuPane;
     
-    public void init(Pane menu, Pane content) {
+    public void init(Pane content) {
         contentPane = content;
-        menuPane = menu;
     }    
     
-    public void load(FXMLView menuView, FXMLView contentView) {
-        menuPane.getChildren().clear();
-        menuPane.getChildren().add(menuView.getView());
+    public void load(FXMLView contentView) {
         contentPane.getChildren().clear();
         contentPane.getChildren().add(contentView.getView());
     }  

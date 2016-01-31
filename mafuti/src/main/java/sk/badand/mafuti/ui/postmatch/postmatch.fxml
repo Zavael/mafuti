@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.badand.mafuti.ui.postmatch.PostmatchPresenter">
+    <stylesheets>
+        <URL value="@/styles/postmatch.css"/>
+    </stylesheets>
+    
+    <top>
+        <Label text="{MATCH} RESULT" />
+    </top>
+    
+    <left>
+        <VBox>
+            <children>
+                <Label styleClass="header1" text="{TEAM A} name" />
+                <javafx.scene.image.ImageView fitHeight="100" fitWidth="100" styleClass="bordered" />
+                <Label styleClass="header2" text="Best players" />
+                <ListView minHeight="400" />
+            </children>
+        </VBox>
+    </left>
+    
+    <center>
+        <VBox alignment="CENTER">
+            <children>
+                <javafx.scene.image.ImageView />
+                <javafx.scene.image.ImageView fitHeight="200.0" fitWidth="300.0" styleClass="bordered" />
+                <Label styleClass="header1" text="3:2" />
+                <Label text="5   shots   10" /> 
+                <Label text="3   fauls   4" /> 
+                <Label text="15  outs    12" />  
+                <Label text="15  ins     12" />  
+            </children>  
+        </VBox>
+    </center>
+    
+    <right>
+        <VBox>
+            <children>
+                <Label styleClass="header1" text="{TEAM B} name" />
+                <javafx.scene.image.ImageView fitHeight="100" fitWidth="100" styleClass="bordered" />
+                <Label styleClass="header2" text="Best players" />
+                <ListView minHeight="400" />
+            </children>
+        </VBox>
+    </right>
+    
+    <bottom>
+        <Button alignment="CENTER_RIGHT" contentDisplay="CENTER" onAction="#showDashboard" text="%btn.next" BorderPane.alignment="CENTER_RIGHT" /> 
+    </bottom>
+</BorderPane>

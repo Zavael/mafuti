@@ -3,30 +3,65 @@
 <?import java.lang.*?>
 <?import java.net.*?>
 <?import java.util.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane styleClass="mainFxmlClass" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.badand.mafuti.ui.dashboard.DashboardController">
+<HBox styleClass="mainFxmlClass" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.badand.mafuti.ui.dashboard.DashboardPresenter">
     <stylesheets>
         <URL value="@/styles/dashboard.css" />
     </stylesheets>
     <children>
-        <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                
+        <AnchorPane fx:id="menu">
+            <padding>
+                <Insets bottom="10.0" top="10.0" />
+            </padding>
             <children>
-                <HBox styleClass="timeline" HBox.hgrow="ALWAYS" >
-                    <children>
-                        <Label text="day -1" HBox.hgrow="ALWAYS" prefWidth="500" />
-                        <Label text="day 0" HBox.hgrow="ALWAYS" prefWidth="500" />
-                        <Label text="day +1" HBox.hgrow="ALWAYS" prefWidth="500" />
-                        <Label text="day +2" HBox.hgrow="ALWAYS" prefWidth="500" />
-                        <Label text="day +3" HBox.hgrow="ALWAYS" prefWidth="500" />
-                        <Label text="day +4" HBox.hgrow="ALWAYS" prefWidth="500" />
-                        <Label text="day +5" HBox.hgrow="ALWAYS" prefWidth="500" />
-                    </children>
-                </HBox>
-                <AnchorPane VBox.vgrow="ALWAYS" />
+                <fx:include source="dashboardMenu.fxml"/>
             </children>
-        </VBox>
+        </AnchorPane>
+        <AnchorPane fx:id="content" HBox.hgrow="ALWAYS" >
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+            <children>
+                <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <HBox styleClass="timeline" HBox.hgrow="ALWAYS" >
+                            <children>
+                                <Label text="day -1" HBox.hgrow="ALWAYS" prefWidth="500" />
+                                <Label text="day 0" HBox.hgrow="ALWAYS" prefWidth="500" />
+                                <Label text="day +1" HBox.hgrow="ALWAYS" prefWidth="500" />
+                                <Label text="day +2" HBox.hgrow="ALWAYS" prefWidth="500" />
+                                <Label text="day +3" HBox.hgrow="ALWAYS" prefWidth="500" />
+                                <Label text="day +4" HBox.hgrow="ALWAYS" prefWidth="500" />
+                                <Label text="day +5" HBox.hgrow="ALWAYS" prefWidth="500" />
+                            </children>
+                        </HBox>
+<!--                        <BorderPane VBox.vgrow="ALWAYS">
+                            <top>
+                                <fx:include source="parts/mails.fxml" />
+                            </top>
+                            <left>
+                                <VBox maxWidth="200" >
+                                    <fx:include source="parts/upcoming.fxml"/>
+                                    <fx:include source="parts/leagueTable.fxml"/>
+                                </VBox>
+                            </left>
+                            <center>
+                            </center>
+                            <right>
+                                <fx:include source="parts/MainStatistics.fxml" />
+                            </right>
+                            <bottom>
+                                <fx:include source="parts/mediaNews.fxml" />
+                            </bottom>
+                        </BorderPane>-->
+                    </children>
+                </VBox>
+            </children>
+        </AnchorPane>
     </children>
-</AnchorPane>
+</HBox>

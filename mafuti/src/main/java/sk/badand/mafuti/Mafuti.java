@@ -41,14 +41,14 @@ public class Mafuti extends Application {
         UiView uiView = new UiView();
         
         Scene scene = new Scene(uiView.getView(), 1024, 768);
-        primaryStage.initStyle(StageStyle.UNIFIED);
-        primaryStage.setTitle("mafuti");
-        scene.getStylesheets().add("/styles/LightTheme-blue.css");
-        primaryStage.centerOnScreen();
-        primaryStage.setResizable(false);
-        primaryStage.setScene(scene);
-        primaryStage.show();
-        initEventHandlers(uiView.getView(), primaryStage);
+        mainStage.initStyle(StageStyle.UNIFIED);
+        mainStage.setTitle("mafuti");
+        scene.getStylesheets().add("/styles/mafuti-dark-blue.css");
+        mainStage.centerOnScreen();
+        mainStage.setResizable(false);
+        mainStage.setScene(scene);
+        mainStage.show();
+        initEventHandlers(uiView.getView(), mainStage);
     }
 
     private void initEventHandlers(Parent root, final Stage stageRef) {
@@ -71,6 +71,10 @@ public class Mafuti extends Application {
             }
         });
 
+    }
+    
+    public static void setScene(Scene scene){
+        mainStage.setScene(scene);
     }
 
 }

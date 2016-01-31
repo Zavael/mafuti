@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 
 
-<VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="sk.badand.mafuti.ui.finances.FinancesMenuController">
+<VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="sk.badand.mafuti.ui.finances.FinancesMenuPresenter">
    <children>
       <Button mnemonicParsing="false" text="%btn.continue" disable="true" />
       <Button mnemonicParsing="false" onAction="#showDashboard" text="%btn.dashboard" />

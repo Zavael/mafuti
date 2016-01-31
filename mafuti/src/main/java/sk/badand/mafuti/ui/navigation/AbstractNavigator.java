@@ -34,42 +34,38 @@ public abstract class AbstractNavigator implements Initializable {
     @Inject
     protected Navigator navigator;
 
-    public void processTime() {
-        LOG.log(Level.INFO, "processTime");
-    }
-
     public void showTraining() {
         LOG.log(Level.INFO, "showTraining");
-        navigator.load(new TrainingMenuView(), new TrainingView());
+        navigator.load(new TrainingView());
     }
 
     public void showClub() {
         LOG.log(Level.INFO, "showClub");
-        navigator.load(new TeamMenuView(), new TeamView());
+        navigator.load(new TeamView());
     }
 
     public void showFacilities() {
         LOG.log(Level.INFO, "showFacilities");
-        navigator.load(new FacilitiesMenuView(), new FacilitiesView());
+        navigator.load(new FacilitiesView());
     }
 
     public void showFinances() {
         LOG.log(Level.INFO, "showFinances");
-        navigator.load(new FinancesMenuView(), new FinancesView());
+        navigator.load(new FinancesView());
     }
 
     public void showWorld() {
         LOG.log(Level.INFO, "showWorld");
-        navigator.load(new WorldMenuView(), new WorldView());
+        navigator.load(new WorldView());
     }
 
     public void showPersonal() {
         LOG.log(Level.INFO, "showPersonal");
-        navigator.load(new ManagerMenuView(), new ManagerView());
+        navigator.load(new ManagerView());
     }
 
     public void showDashboard() {
-        navigator.load(new DashboardMenuView(), new DashboardView());
+        navigator.load(new DashboardView());
     }
 
 }

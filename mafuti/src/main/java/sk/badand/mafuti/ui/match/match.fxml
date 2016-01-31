@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.badand.mafuti.ui.match.MatchPresenter">
+    <stylesheets>
+        <URL value="@/styles/match.css"/>
+    </stylesheets>
+    
+    <top>
+        <VBox alignment="CENTER" >
+            <children>
+                <Label text="{MATCH} RESULT" />       
+                <Label text="(0-2)" />
+                
+                <HBox spacing="10" alignment="CENTER">
+                    <Label text="icon" minWidth="100" minHeight="100" alignment="CENTER" />  
+                    <Label styleClass="header1" text="5-3" alignment="TOP_CENTER" />  
+                    <Label text="icon" minWidth="100" minHeight="100" alignment="CENTER" />  
+                </HBox>
+       
+                <Label styleClass="header2" text="57:18" />  
+            </children>
+        </VBox>
+    </top>
+    
+    <left>
+        <VBox >
+            <children>
+                <Label text="L. Messi      (ball)" />
+                <Label text="L. Messi      (red card)" />
+                <Label text="L. Messi      (injury)" />
+            </children>
+        </VBox>
+    </left>
+    
+    <center>
+        <VBox alignment="TOP_CENTER">
+            <children>   
+       
+                <TabPane GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4" minHeight="410" >
+                    <tabs>
+                        <Tab closable="false" text="Comentary">
+                            <content>
+                                <!--<fx:include source="parts/MatchCommentary.fxml" />-->
+                            </content>            
+                        </Tab>
+                        <Tab closable="false" text="Stats">
+                            <content>
+                                <Label text="Something" />
+                            </content>
+                        </Tab>
+                    </tabs>
+                </TabPane> 
+            </children>  
+        </VBox>
+    </center>
+    
+    <right>
+        <VBox >
+            <children>
+                <Label text="L. Messi      (ball)" />
+                <Label text="L. Messi      (red card)" />
+                <Label text="L. Messi      (injury)" />
+            </children>
+        </VBox>
+    </right>
+    
+    <bottom>
+        <Button alignment="CENTER_RIGHT" contentDisplay="CENTER" onAction="#showPostmatch" text="%btn.next" BorderPane.alignment="CENTER_RIGHT" /> 
+    </bottom>
+</BorderPane>
