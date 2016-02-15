@@ -1,7 +1,7 @@
 /*
  * Copyright 2016 Andrej Badinka
  */
-package sk.badand.mafuti.ui.training;
+package sk.badand.mafuti.ui.training.rehab;
 
 import com.airhacks.afterburner.views.FXMLView;
 
@@ -9,6 +9,6 @@ import com.airhacks.afterburner.views.FXMLView;
  *
  * @author abadinka
  */
-public class TrainingMenuView extends FXMLView {
+public class RehabView extends FXMLView {
     
 }

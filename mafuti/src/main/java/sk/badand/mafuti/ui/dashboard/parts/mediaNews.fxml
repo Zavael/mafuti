@@ -9,7 +9,7 @@
 
 <SplitPane dividerPositions="0.3" orientation="VERTICAL" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.badand.mafuti.ui.dashboard.parts.MediaNewsPresenter">
     <items>    
-        <TextArea />
-        <ListView />
+        <TextArea text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed felis eleifend, gravida urna a, lobortis orci. Vivamus bibendum arcu et rhoncus pharetra. Nam in lorem vel sem laoreet pretium. Ut feugiat sapien posuere lacinia feugiat. Cras eu eros posuere, lobortis turpis vel, porta lectus. Suspendisse libero mauris, venenatis non."  />
+        <ListView fx:id="newsHeaders" />
     </items>
 </SplitPane>

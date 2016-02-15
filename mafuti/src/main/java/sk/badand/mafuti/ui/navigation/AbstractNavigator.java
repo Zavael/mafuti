@@ -7,19 +7,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.fxml.Initializable;
 import javax.inject.Inject;
-import sk.badand.mafuti.ui.dashboard.DashboardMenuView;
 import sk.badand.mafuti.ui.dashboard.DashboardView;
-import sk.badand.mafuti.ui.facilities.FacilitiesMenuView;
 import sk.badand.mafuti.ui.facilities.FacilitiesView;
-import sk.badand.mafuti.ui.finances.FinancesMenuView;
 import sk.badand.mafuti.ui.finances.FinancesView;
-import sk.badand.mafuti.ui.manager.ManagerMenuView;
 import sk.badand.mafuti.ui.manager.ManagerView;
-import sk.badand.mafuti.ui.team.TeamMenuView;
-import sk.badand.mafuti.ui.team.TeamView;
-import sk.badand.mafuti.ui.training.TrainingMenuView;
+import sk.badand.mafuti.ui.club.ClubView;
 import sk.badand.mafuti.ui.training.TrainingView;
-import sk.badand.mafuti.ui.world.WorldMenuView;
 import sk.badand.mafuti.ui.world.WorldView;
 import sk.badand.mafuti.util.Navigator;
 
@@ -41,7 +34,7 @@ public abstract class AbstractNavigator implements Initializable {
 
     public void showClub() {
         LOG.log(Level.INFO, "showClub");
-        navigator.load(new TeamView());
+        navigator.load(new ClubView());
     }
 
     public void showFacilities() {
