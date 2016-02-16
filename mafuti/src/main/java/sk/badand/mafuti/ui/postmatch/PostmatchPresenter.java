@@ -30,5 +30,4 @@ public class PostmatchPresenter extends AbstractNavigator {
         LOG.log(Level.FINE, "showDashboard");
         navigator.load(new DashboardView());
     }
-    
 }

@@ -5,7 +5,6 @@ package sk.badand.mafuti.ui.manager;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.fxml.Initializable;
 import sk.badand.mafuti.ui.navigation.AbstractNavigator;
 
 /**
@@ -21,5 +20,5 @@ public class ManagerMenuPresenter extends AbstractNavigator {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 }

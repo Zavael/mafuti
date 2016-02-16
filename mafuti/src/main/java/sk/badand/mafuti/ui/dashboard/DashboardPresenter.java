@@ -10,8 +10,19 @@ import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.chart.PieChart;
+import javax.inject.Inject;
+import sk.badand.mafuti.services.CalendarService;
+import sk.badand.mafuti.ui.club.ClubView;
+import sk.badand.mafuti.ui.facilities.FacilitiesView;
+import sk.badand.mafuti.ui.finances.FinancesView;
+import sk.badand.mafuti.ui.manager.ManagerView;
 import sk.badand.mafuti.ui.prematch.PrematchView;
 import sk.badand.mafuti.ui.navigation.AbstractNavigator;
+import sk.badand.mafuti.ui.timeprogress.TimeprogressView;
+import sk.badand.mafuti.ui.training.TrainingView;
+import sk.badand.mafuti.ui.world.WorldView;
+import sk.badand.math.OddsDecider;
+import sk.badand.math.Randomizer;
 
 /**
  * FXML Controller class
@@ -24,6 +35,8 @@ public class DashboardPresenter extends AbstractNavigator {
 
     @FXML
     PieChart chart;
+    @Inject
+    CalendarService calendarService;
 
     /**
      * Initializes the controller class.
@@ -39,8 +52,41 @@ public class DashboardPresenter extends AbstractNavigator {
     }
 
     public void processTime() {
-        LOG.log(Level.INFO, "processTime");
-        navigator.load(new PrematchView());
+        LOG.log(Level.FINE, "processTime");
+        if (calendarService.isManagerPlaying(calendarService.currentDate())) {
+            navigator.load(new PrematchView());
+        } else {
+            navigator.load(new TimeprogressView());
+        }
     }
 
+    public void showTraining() {
+        LOG.log(Level.FINE, "showTraining");
+        navigator.load(new TrainingView());
+    }
+
+    public void showClub() {
+        LOG.log(Level.FINE, "showClub");
+        navigator.load(new ClubView());
+    }
+
+    public void showFacilities() {
+        LOG.log(Level.FINE, "showFacilities");
+        navigator.load(new FacilitiesView());
+    }
+
+    public void showFinances() {
+        LOG.log(Level.FINE, "showFinances");
+        navigator.load(new FinancesView());
+    }
+
+    public void showWorld() {
+        LOG.log(Level.FINE, "showWorld");
+        navigator.load(new WorldView());
+    }
+
+    public void showPersonal() {
+        LOG.log(Level.FINE, "showPersonal");
+        navigator.load(new ManagerView());
+    }
 }

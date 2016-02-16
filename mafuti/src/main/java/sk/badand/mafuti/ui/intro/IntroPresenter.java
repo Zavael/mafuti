@@ -27,24 +27,23 @@ public class IntroPresenter extends AbstractNavigator {
     }    
 
     public void continueGame() {
-        LOG.log(Level.INFO, "continueGame");
+        LOG.log(Level.FINE, "continueGame");
         navigator.load(new DashboardView());
     }
 
     public void newGame() {
-        LOG.log(Level.INFO, "newGame");
+        LOG.log(Level.FINE, "newGame");
     }
 
     public void loadGame() {
-        LOG.log(Level.INFO, "loadGame");
+        LOG.log(Level.FINE, "loadGame");
     }
 
     public void exitGame() {
-        LOG.log(Level.INFO, "exitGame");
+        LOG.log(Level.FINE, "exitGame");
     }
 
     public void verifyAccount() {
-        LOG.log(Level.INFO, "verifyAccount");
+        LOG.log(Level.FINE, "verifyAccount");
     }
-    
 }

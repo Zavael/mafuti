@@ -31,5 +31,4 @@ public class PreparationPresenter extends AbstractNavigator {
         LOG.log(Level.FINE, "showMatch");
         navigator.load(new MatchView());
     }
-
 }

@@ -14,26 +14,23 @@
     </stylesheets>
    
     <children>
-        <AnchorPane fx:id="menu">
+        <VBox fx:id="menu">
             <padding>
                 <Insets bottom="10.0" top="10.0" />
             </padding>
             <children>
-                <fx:include source="facilitiesMenu.fxml"/>
+                <Button mnemonicParsing="false" text="%btn.continue" disable="true"  />
+                <Button mnemonicParsing="false" onAction="#showDashboard" text="%btn.dashboard" />
+                <Button mnemonicParsing="false" onAction="#showOffice" text="%btn.office" />
+                <Button mnemonicParsing="false" onAction="#showYouthAcademy" text="%btn.youth-academy" />
+                <Button mnemonicParsing="false" onAction="#showStadium" text="%btn.stadium" />
+                <Button mnemonicParsing="false" onAction="#showFitnessMedic" text="%btn.fitness-medic" />
             </children>
-        </AnchorPane>
+        </VBox>
         <AnchorPane fx:id="content" HBox.hgrow="ALWAYS" >
             <padding>
                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </padding>
-            <children>                
-                <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                    <children>
-                        <Label styleClass="header1" text="%lbl.facilities" />
-                        <BorderPane prefHeight="200.0" prefWidth="200.0" />
-                    </children>
-                </VBox>
-            </children>
         </AnchorPane>
     </children>
 </HBox>

@@ -10,7 +10,7 @@
 <VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.badand.mafuti.ui.club.team.TeamPresenter"
       AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
     <children>
-        <Label fx:id="title" styleClass="header1" text="%lbl.team" />
+        <Label fx:id="title" styleClass="header1" text="%lbl.heading" />
         <TabPane tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS" >
             <tabs>
                 <Tab text="%tab.players">

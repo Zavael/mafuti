@@ -3,16 +3,15 @@
  */
 package sk.badand.mafuti.ui.navigation;
 
+import com.airhacks.afterburner.views.FXMLView;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.layout.Pane;
 import javax.inject.Inject;
 import sk.badand.mafuti.ui.dashboard.DashboardView;
-import sk.badand.mafuti.ui.facilities.FacilitiesView;
-import sk.badand.mafuti.ui.finances.FinancesView;
-import sk.badand.mafuti.ui.manager.ManagerView;
-import sk.badand.mafuti.ui.club.ClubView;
-import sk.badand.mafuti.ui.training.TrainingView;
+import sk.badand.mafuti.ui.world.WorldPresenter;
 import sk.badand.mafuti.ui.world.WorldView;
 import sk.badand.mafuti.util.Navigator;
 
@@ -22,43 +21,28 @@ import sk.badand.mafuti.util.Navigator;
  */
 public abstract class AbstractNavigator implements Initializable {
 
-    private static final Logger LOG = Logger.getLogger(AbstractNavigator.class.getName());
+    protected static final Logger LOG = Logger.getLogger(AbstractNavigator.class.getName());
 
     @Inject
     protected Navigator navigator;
-
-    public void showTraining() {
-        LOG.log(Level.INFO, "showTraining");
-        navigator.load(new TrainingView());
-    }
-
-    public void showClub() {
-        LOG.log(Level.INFO, "showClub");
-        navigator.load(new ClubView());
-    }
-
-    public void showFacilities() {
-        LOG.log(Level.INFO, "showFacilities");
-        navigator.load(new FacilitiesView());
-    }
-
-    public void showFinances() {
-        LOG.log(Level.INFO, "showFinances");
-        navigator.load(new FinancesView());
-    }
-
-    public void showWorld() {
-        LOG.log(Level.INFO, "showWorld");
-        navigator.load(new WorldView());
-    }
-
-    public void showPersonal() {
-        LOG.log(Level.INFO, "showPersonal");
-        navigator.load(new ManagerView());
-    }
+    @FXML
+    Pane content;
 
     public void showDashboard() {
+        LOG.log(Level.FINE, "showDashboard");
         navigator.load(new DashboardView());
+    }
+    
+    public void setContent(FXMLView view) {
+        content.getChildren().clear();
+        content.getChildren().add(view.getView());
+    }
+
+    public void showSearch() {
+        LOG.log(Level.FINE, "showSearch");
+        final WorldView worldView = new WorldView();
+        ((WorldPresenter)worldView.getPresenter()).showSearch();
+        navigator.load(worldView);
     }
 
 }

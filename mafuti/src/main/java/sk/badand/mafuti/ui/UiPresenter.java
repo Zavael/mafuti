@@ -32,5 +32,4 @@ public class UiPresenter extends AbstractNavigator {
         navigator.load(new IntroView());
 //        navigator.load(new DashboardMenuView(), new DashboardView());
     }
-
 }

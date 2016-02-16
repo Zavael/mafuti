@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.badand.mafuti.ui.timeprogress.TimeprogressPresenter">
+    <stylesheets>
+        <URL value="@/styles/timeprogress.css"/>
+    </stylesheets>
+    <children>
+        <Label styleClass="header1" text="collecting results.." />
+        <ListView />
+        <Button mnemonicParsing="false" text="%btn.abort" onAction="#abortTimeProgress" />
+    </children>
+</VBox>

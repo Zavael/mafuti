@@ -8,11 +8,5 @@
 
 <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.badand.mafuti.ui.world.WorldMenuPresenter">
    <children>
-      <Button disable="true" mnemonicParsing="false" text="%btn.continue" />
-      <Button mnemonicParsing="false" onAction="#showDashboard" text="%btn.dashboard" />
-      <Button mnemonicParsing="false" onAction="#showCompetitions" text="%btn.competitions" />
-      <Button mnemonicParsing="false" onAction="#showStatistics" text="%btn.statistics" />
-      <Button mnemonicParsing="false" onAction="#showJobs" text="%btn.jobs" />
-      <Button mnemonicParsing="false" onAction="#showSearch" text="%btn.search" />
    </children>
 </VBox>

@@ -13,29 +13,23 @@
         <URL value="@/styles/world.css" />
     </stylesheets>
     <children>
-        <AnchorPane fx:id="menu">
+        <VBox fx:id="menu">
             <padding>
                 <Insets bottom="10.0" top="10.0" />
             </padding>
             <children>
-                <fx:include source="worldMenu.fxml"/>
+                <Button disable="true" mnemonicParsing="false" text="%btn.continue" />
+                <Button mnemonicParsing="false" onAction="#showDashboard" text="%btn.dashboard" />
+                <Button mnemonicParsing="false" onAction="#showCompetitions" text="%btn.competitions" />
+                <Button mnemonicParsing="false" onAction="#showStatistics" text="%btn.statistics" />
+                <Button mnemonicParsing="false" onAction="#showJobs" text="%btn.jobs" />
+                <Button mnemonicParsing="false" onAction="#showSearch" text="%btn.search" />
             </children>
-        </AnchorPane>
+        </VBox>
         <AnchorPane fx:id="content" HBox.hgrow="ALWAYS" >
             <padding>
                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </padding>
-            <children>
-                <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                    <stylesheets>
-                        <URL value="@/styles/world.css" />
-                    </stylesheets>
-                    <children>
-                        <Label styleClass="header1" text="%lbl.world" />
-                        <FlowPane VBox.vgrow="ALWAYS" />
-                    </children>
-                </VBox>
-            </children>
         </AnchorPane>
     </children>
 </HBox>

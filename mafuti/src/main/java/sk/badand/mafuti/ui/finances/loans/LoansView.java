@@ -1,7 +1,8 @@
 /*
  * Copyright 2016 Andrej Badinka
  */
-package sk.badand.mafuti.ui.facilities;
+
+package sk.badand.mafuti.ui.finances.loans;
 
 import com.airhacks.afterburner.views.FXMLView;
 
@@ -9,6 +10,6 @@ import com.airhacks.afterburner.views.FXMLView;
  *
  * @author abadinka
  */
-public class FacilitiesMenuView extends FXMLView {
+public class LoansView extends FXMLView {
 
 }

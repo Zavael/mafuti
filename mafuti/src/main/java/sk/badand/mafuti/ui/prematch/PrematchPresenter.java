@@ -9,7 +9,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import sk.badand.mafuti.ui.preparation.PreparationView;
 import sk.badand.mafuti.ui.navigation.AbstractNavigator;
 
@@ -35,5 +34,4 @@ public class PrematchPresenter extends AbstractNavigator {
         LOG.log(Level.FINE, "showMatchTactic");
         navigator.load(new PreparationView());
     }
-
 }
