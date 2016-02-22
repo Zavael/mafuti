@@ -20,7 +20,7 @@ public class CalendarService {
     private Calendar calendar;
     private static LocalDate currentDate; // maybe need to synchronize the progress of days
 
-    public PlayingMatch managerMatchForDay(LocalDate date) {
+    public PlayableMatch managerMatchForDay(LocalDate date) {
         return new MockMatch();
     }
 

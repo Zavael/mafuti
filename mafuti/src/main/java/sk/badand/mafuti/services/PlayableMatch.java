@@ -10,7 +10,7 @@ import sk.badand.mafuti.model.common.Weather;
  *
  * @author abadinka
  */
-public interface PlayingMatch extends Match {
+public interface PlayableMatch extends Match {
 
     List<Player> getAwayTop5Players();
 
@@ -20,4 +20,5 @@ public interface PlayingMatch extends Match {
 
     String getPlayTime();
 
+    public PlayableTeam getManagerTeam();
 }

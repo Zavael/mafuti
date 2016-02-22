@@ -19,7 +19,7 @@
     </top>
     
     <left>
-        <VBox alignment="BOTTOM_RIGHT" >
+        <VBox alignment="BOTTOM_CENTER" >
             <children>
                 <Label fx:id="homeTeamName" styleClass="header2" text="{TEAM A} name" />
                 <javafx.scene.image.ImageView fitHeight="100" fitWidth="100">
@@ -27,7 +27,7 @@
                         <Image url="@/images/mock_profile_100x100.png" />
                     </image>
                 </javafx.scene.image.ImageView>
-                <Label styleClass="header2" text="Key players" />
+                <Label styleClass="header3" text="Key players" />
                 <ListView fx:id="homeKeyPlayers" minHeight="400" />
             </children>
         </VBox>
@@ -52,7 +52,7 @@
     </center>
     
     <right>
-        <VBox alignment="BOTTOM_LEFT">
+        <VBox alignment="BOTTOM_CENTER">
             <children>
                 <Label fx:id="awayTeamName" styleClass="header2" text="{TEAM B} name" />
                 <javafx.scene.image.ImageView fitHeight="100" fitWidth="100">
@@ -60,7 +60,7 @@
                         <Image url="@/images/mock_profile_100x100.png" />
                     </image>
                 </javafx.scene.image.ImageView>
-                <Label styleClass="header2" text="Key players" />
+                <Label styleClass="header3" text="Key players" />
                 <ListView fx:id="awayKeyPlayers" minHeight="400" />
             </children>
         </VBox>

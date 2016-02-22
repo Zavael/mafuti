@@ -3,6 +3,7 @@
  */
 package sk.badand.mafuti.ui.prematch;
 
+import com.airhacks.afterburner.injection.Injector;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -14,9 +15,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javax.inject.Inject;
+import sk.badand.mafuti.services.ManagerTeam;
 import sk.badand.mafuti.services.mock.MockMatch;
 import sk.badand.mafuti.services.Player;
-import sk.badand.mafuti.services.PlayingMatch;
+import sk.badand.mafuti.services.PlayableMatch;
+import sk.badand.mafuti.services.PlayableTeam;
 import sk.badand.mafuti.ui.preparation.PreparationView;
 import sk.badand.mafuti.ui.navigation.AbstractNavigator;
 
@@ -29,7 +32,7 @@ public class PrematchPresenter extends AbstractNavigator {
 
     private static final Logger LOG = Logger.getLogger(PrematchPresenter.class.getName());
     @Inject
-    private PlayingMatch match;
+    private PlayableMatch match;
 
     @FXML
     private Label stadiumName;
@@ -61,10 +64,13 @@ public class PrematchPresenter extends AbstractNavigator {
     @FXML
     public void showMatchTactic(ActionEvent event) {
         LOG.log(Level.FINE, "showMatchTactic");
+        
+        Injector.setModelOrService(PlayableTeam.class, match.getManagerTeam());
+        
         navigator.load(new PreparationView());
     }
 
-    private void initControls(PlayingMatch match) {
+    private void initControls(PlayableMatch match) {
         LOG.log(Level.FINE, "match: {0}", match);
         homeTeamName.setText(match.getHomeTeamName());
         awayTeamName.setText(match.getAwayTeamName());

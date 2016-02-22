@@ -96,7 +96,12 @@
 }
 
 .header2 {
-    -fx-font: 30pt "Segoe UI Light";
+    -fx-font: 25pt "Segoe UI Light";
+    -fx-text-fill: color-1;
+}
+
+.header3 {
+    -fx-font: 14pt "Segoe UI Light";
     -fx-text-fill: color-1;
 }
 

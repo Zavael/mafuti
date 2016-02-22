@@ -22,37 +22,13 @@
             <children>
                 <Label styleClass="header2" text="strategy" />
                 <Label text="philosophy" />
-                <ComboBox >
-                    <items>
-                        <FXCollections fx:factory="observableArrayList">
-                            <String fx:value="2 minutes" />
-                            <String fx:value="5 minutes" />
-                            <String fx:value="15 minutes" />
-                        </FXCollections>
-                    </items>
-                </ComboBox>
+                <ComboBox fx:id="philosophyChoice" />
                 <Separator />
                 <Label text="passing style" />
-                <ComboBox >
-                    <items>
-                        <FXCollections fx:factory="observableArrayList">
-                            <String fx:value="2 minutes" />
-                            <String fx:value="5 minutes" />
-                            <String fx:value="15 minutes" />
-                        </FXCollections>
-                    </items>
-                </ComboBox>
+                <ComboBox fx:id="passStyleChoice" />
                 <Separator />
                 <Label text="passing focus" />
-                <ComboBox >
-                    <items>
-                        <FXCollections fx:factory="observableArrayList">
-                            <String fx:value="2 minutes" />
-                            <String fx:value="5 minutes" />
-                            <String fx:value="15 minutes" />
-                        </FXCollections>
-                    </items>
-                </ComboBox>
+                <ComboBox fx:id="passFocusChoice" />
             </children>
         </VBox>
     </left>
@@ -70,37 +46,13 @@
             <children>
                 <Label styleClass="header2" text="instructions" />
                 <Label text="tackling" />
-                <ComboBox >
-                    <items>
-                        <FXCollections fx:factory="observableArrayList">
-                            <String fx:value="2 minutes" />
-                            <String fx:value="5 minutes" />
-                            <String fx:value="15 minutes" />
-                        </FXCollections>
-                    </items>
-                </ComboBox>
+                <ComboBox fx:id="tacklingChoice" />
                 <Separator />
                 <Label text="marking" />
-                <ComboBox >
-                    <items>
-                        <FXCollections fx:factory="observableArrayList">
-                            <String fx:value="2 minutes" />
-                            <String fx:value="5 minutes" />
-                            <String fx:value="15 minutes" />
-                        </FXCollections>
-                    </items>
-                </ComboBox>
+                <ComboBox fx:id="markingChoice" />
                 <Separator />
                 <Label text="counter-attacks" />
-                <ComboBox value="sometimes" >
-                    <items>
-                        <FXCollections fx:factory="observableArrayList">
-                            <String fx:value="never" />
-                            <String fx:value="sometimes" />
-                            <String fx:value="always" />
-                        </FXCollections>
-                    </items>
-                </ComboBox>
+                <ComboBox fx:id="counterAttChoice" />
             </children>
         </VBox>
     </right>

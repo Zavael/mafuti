@@ -11,13 +11,13 @@ import sk.badand.mafuti.model.common.Weather;
 import sk.badand.mafuti.services.PlayableStadium;
 import sk.badand.mafuti.services.PlayableTeam;
 import sk.badand.mafuti.services.Player;
-import sk.badand.mafuti.services.PlayingMatch;
+import sk.badand.mafuti.services.PlayableMatch;
 
 /**
  *
  * @author abadinka
  */
-public class MockMatch implements PlayingMatch {
+public class MockMatch implements PlayableMatch {
     private static final int TOP_PLAYERS_COUNT = 5;
     
     private PlayableTeam homeTeam = new MockTeam();
@@ -98,4 +98,9 @@ public class MockMatch implements PlayingMatch {
     public Weather getWeather() {
         return Weather.CLOUDY;
     }    
+
+    @Override
+    public PlayableTeam getManagerTeam() {
+        return homeTeam;
+    }
 }

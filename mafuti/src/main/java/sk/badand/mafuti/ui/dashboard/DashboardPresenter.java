@@ -15,7 +15,7 @@ import javafx.scene.control.ButtonType;
 import javax.inject.Inject;
 import sk.badand.mafuti.services.CalendarService;
 import sk.badand.mafuti.services.mock.MockMatch;
-import sk.badand.mafuti.services.PlayingMatch;
+import sk.badand.mafuti.services.PlayableMatch;
 import sk.badand.mafuti.services.QuestionDialog;
 import sk.badand.mafuti.ui.club.ClubView;
 import sk.badand.mafuti.ui.facilities.FacilitiesView;
@@ -61,8 +61,8 @@ public class DashboardPresenter extends AbstractNavigator {
             new QuestionDialog("yes or no").showAndWait()
                     .filter(result -> result == ButtonType.OK)
                     .ifPresent(result -> {
-                        PlayingMatch managerMatch = calendarService.managerMatchForDay(calendarService.currentDate());
-                        Injector.setModelOrService(PlayingMatch.class, managerMatch);
+                        PlayableMatch managerMatch = calendarService.managerMatchForDay(calendarService.currentDate());
+                        Injector.setModelOrService(PlayableMatch.class, managerMatch);
                         final PrematchView prematchView = new PrematchView();
 //                        ((PrematchPresenter) prematchView.getPresenter()).setMatch(managerMatch);
                         navigator.load(prematchView);
