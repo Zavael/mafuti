@@ -7,8 +7,16 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javax.inject.Inject;
+import sk.badand.mafuti.services.mock.MockMatch;
+import sk.badand.mafuti.services.Player;
+import sk.badand.mafuti.services.PlayingMatch;
 import sk.badand.mafuti.ui.preparation.PreparationView;
 import sk.badand.mafuti.ui.navigation.AbstractNavigator;
 
@@ -20,18 +28,53 @@ import sk.badand.mafuti.ui.navigation.AbstractNavigator;
 public class PrematchPresenter extends AbstractNavigator {
 
     private static final Logger LOG = Logger.getLogger(PrematchPresenter.class.getName());
+    @Inject
+    private PlayingMatch match;
+
+    @FXML
+    private Label stadiumName;
+    @FXML
+    private Label attendance;
+    @FXML
+    private Label playDate;
+    @FXML
+    private Label playTime;
+    @FXML
+    private Label weather;
+    @FXML
+    private Label homeTeamName;
+    @FXML
+    private Label awayTeamName;
+    @FXML
+    private ListView<Player> homeKeyPlayers;
+    @FXML
+    private ListView<Player> awayKeyPlayers;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        initControls(match);
     }
 
     @FXML
-    private void showMatchTactic(ActionEvent event) {
+    public void showMatchTactic(ActionEvent event) {
         LOG.log(Level.FINE, "showMatchTactic");
         navigator.load(new PreparationView());
+    }
+
+    private void initControls(PlayingMatch match) {
+        LOG.log(Level.FINE, "match: {0}", match);
+        homeTeamName.setText(match.getHomeTeamName());
+        awayTeamName.setText(match.getAwayTeamName());
+        homeKeyPlayers.getItems().addAll(match.getHomeTop5Players());
+        awayKeyPlayers.getItems().addAll(match.getAwayTop5Players());
+
+        stadiumName.setText(match.getStadiumName());
+        attendance.setText(match.getAttendance());
+        playDate.setText(match.getPlayDate().toString());
+        playTime.setText(match.getPlayTime());
+        weather.setText(match.getWeather().toString());
     }
 }

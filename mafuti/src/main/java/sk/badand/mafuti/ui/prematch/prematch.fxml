@@ -9,23 +9,26 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane id="BorderPane" BorderPane.alignment="TOP_CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"
-            xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="sk.badand.mafuti.ui.prematch.PrematchPresenter">
+<BorderPane id="BorderPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" BorderPane.alignment="TOP_CENTER" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.badand.mafuti.ui.prematch.PrematchPresenter">
     <stylesheets>
-        <URL value="@/styles/prematch.css"/>
+        <URL value="@/styles/prematch.css" />
     </stylesheets>
     
     <top>
-        <Label text="{MATCH} PREVIEW" />
+        <Label styleClass="header1" text="%lbl.header" />
     </top>
     
     <left>
-        <VBox>
+        <VBox alignment="BOTTOM_RIGHT" >
             <children>
-                <Label styleClass="header1" text="{TEAM A} name" />
-                <javafx.scene.image.ImageView fitHeight="100" fitWidth="100" styleClass="bordered" />
+                <Label fx:id="homeTeamName" styleClass="header2" text="{TEAM A} name" />
+                <javafx.scene.image.ImageView fitHeight="100" fitWidth="100">
+                    <image>
+                        <Image url="@/images/mock_profile_100x100.png" />
+                    </image>
+                </javafx.scene.image.ImageView>
                 <Label styleClass="header2" text="Key players" />
-                <ListView minHeight="400" />
+                <ListView fx:id="homeKeyPlayers" minHeight="400" />
             </children>
         </VBox>
     </left>
@@ -34,28 +37,40 @@
         <VBox alignment="CENTER">
             <children>
                 <javafx.scene.image.ImageView />
-                <javafx.scene.image.ImageView fitHeight="200.0" fitWidth="300.0" styleClass="bordered" />
-                <Label text="Highbury" />
-                <Label text="48200" /> 
-                <Label text="16.05.2017" /> 
-                <Label text="16:00" />  
-                <Label text="Sunny and windy" />
+                <javafx.scene.image.ImageView fitHeight="200.0" fitWidth="300.0">
+                    <image>
+                        <Image url="@/images/mock_stadium_300x200.png" />
+                    </image>
+                </javafx.scene.image.ImageView>
+                <Label fx:id="stadiumName" text="Stadium name" />
+                <Label fx:id="attendance" text="attendance" /> 
+                <Label fx:id="playDate" text="play date" /> 
+                <Label fx:id="playTime" text="play time" />  
+                <Label fx:id="weather" text="weather" />
             </children>  
         </VBox>
     </center>
     
     <right>
-        <VBox>
+        <VBox alignment="BOTTOM_LEFT">
             <children>
-                <Label styleClass="header1" text="{TEAM B} name" />
-                <javafx.scene.image.ImageView fitHeight="100" fitWidth="100" styleClass="bordered" />
+                <Label fx:id="awayTeamName" styleClass="header2" text="{TEAM B} name" />
+                <javafx.scene.image.ImageView fitHeight="100" fitWidth="100">
+                    <image>
+                        <Image url="@/images/mock_profile_100x100.png" />
+                    </image>
+                </javafx.scene.image.ImageView>
                 <Label styleClass="header2" text="Key players" />
-                <ListView minHeight="400" />
+                <ListView fx:id="awayKeyPlayers" minHeight="400" />
             </children>
         </VBox>
     </right>
     
     <bottom>
-        <Button alignment="CENTER_RIGHT" contentDisplay="CENTER" onAction="#showMatchTactic" text="%btn.next" BorderPane.alignment="CENTER_RIGHT" /> 
+        <HBox alignment="CENTER_RIGHT">
+            <children>
+                <Button onAction="#showMatchTactic" text="%btn.next" /> 
+            </children>
+        </HBox>
     </bottom>
 </BorderPane>

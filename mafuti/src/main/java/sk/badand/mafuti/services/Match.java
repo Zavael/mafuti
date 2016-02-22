@@ -3,23 +3,23 @@
  */
 package sk.badand.mafuti.services;
 
+import java.time.LocalDate;
+
 /**
  *
  * @author abadinka
  */
-public class Match {
-    private PlayableTeam homeTeam;
-    private PlayableTeam awayTeam;
-    private PlayableStadium stadium;
-    
-    public void play() {  
-        /**
-         * ...
-         */
-        
-        createResult();
-    }
+public interface Match {
 
-    private void createResult() {
-    }
+    String getAttendance();
+
+    String getAwayTeamName();
+
+    String getHomeTeamName();
+
+    LocalDate getPlayDate();
+
+    String getStadiumName();
+
+    void play();    
 }

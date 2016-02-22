@@ -3,6 +3,7 @@
 <?import java.lang.*?>
 <?import java.net.*?>
 <?import java.util.*?>
+<?import javafx.collections.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -13,13 +14,45 @@
     </stylesheets>
     
     <top>
-        <Label text="{MATCH} TACTIC" />
+        <Label text="%lbl.header" styleClass="header1" />
     </top>
     
     <left>
         <VBox>
             <children>
-                <Label styleClass="header1" text="passing style" />
+                <Label styleClass="header2" text="strategy" />
+                <Label text="philosophy" />
+                <ComboBox >
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="2 minutes" />
+                            <String fx:value="5 minutes" />
+                            <String fx:value="15 minutes" />
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+                <Separator />
+                <Label text="passing style" />
+                <ComboBox >
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="2 minutes" />
+                            <String fx:value="5 minutes" />
+                            <String fx:value="15 minutes" />
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+                <Separator />
+                <Label text="passing focus" />
+                <ComboBox >
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="2 minutes" />
+                            <String fx:value="5 minutes" />
+                            <String fx:value="15 minutes" />
+                        </FXCollections>
+                    </items>
+                </ComboBox>
             </children>
         </VBox>
     </left>
@@ -27,7 +60,7 @@
     <center>
         <VBox alignment="CENTER">
             <children>
-                <Label styleClass="header1" text="lineup" />
+                <Label styleClass="header2" text="lineup" />
             </children>  
         </VBox>
     </center>
@@ -35,12 +68,49 @@
     <right>
         <VBox>
             <children>
-                <Label styleClass="header1" text="aggresivnes" />
+                <Label styleClass="header2" text="instructions" />
+                <Label text="tackling" />
+                <ComboBox >
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="2 minutes" />
+                            <String fx:value="5 minutes" />
+                            <String fx:value="15 minutes" />
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+                <Separator />
+                <Label text="marking" />
+                <ComboBox >
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="2 minutes" />
+                            <String fx:value="5 minutes" />
+                            <String fx:value="15 minutes" />
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+                <Separator />
+                <Label text="counter-attacks" />
+                <ComboBox value="sometimes" >
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="never" />
+                            <String fx:value="sometimes" />
+                            <String fx:value="always" />
+                        </FXCollections>
+                    </items>
+                </ComboBox>
             </children>
         </VBox>
     </right>
     
     <bottom>
-        <Button alignment="CENTER_RIGHT" contentDisplay="CENTER" onAction="#showMatch" text="Next" BorderPane.alignment="CENTER_RIGHT" /> 
+        <HBox alignment="CENTER_RIGHT" >
+            <children>
+                <Button onAction="#skipMatch" text="%btn.skip.match" /> 
+                <Button onAction="#showMatch" text="%btn.next" /> 
+            </children>
+        </HBox>
     </bottom>
 </BorderPane>

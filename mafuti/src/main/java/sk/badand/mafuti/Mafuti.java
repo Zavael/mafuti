@@ -12,6 +12,7 @@ import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.WindowEvent;
+import sk.badand.mafuti.services.QuestionDialog;
 import sk.badand.mafuti.ui.UiView;
 import sk.badand.mafuti.util.LoggingProperties;
 
@@ -20,9 +21,9 @@ import sk.badand.mafuti.util.LoggingProperties;
  * @author abadinka
  */
 public class Mafuti extends Application {
-    
+
     private static Stage mainStage; // needed as parent for modal dialogs
-    
+
     static {
         LoggingProperties.setUp();
     }
@@ -36,10 +37,10 @@ public class Mafuti extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        
+
         mainStage = primaryStage;
         UiView uiView = new UiView();
-        
+
         Scene scene = new Scene(uiView.getView(), 1024, 768);
         mainStage.initStyle(StageStyle.UNIFIED);
         mainStage.setTitle("mafuti");
@@ -63,18 +64,16 @@ public class Mafuti extends Application {
 //            stageRef.setY(me.getScreenY() - dragAnchorY);
 //        });
         stageRef.setOnCloseRequest((WindowEvent ev) -> {
-            Alert closingConfirm = new Alert(Alert.AlertType.CONFIRMATION);
-            closingConfirm.setTitle("Alert");
-            closingConfirm.setContentText("Close?");
-            Optional<ButtonType> result = closingConfirm.showAndWait();
-            if (result.get() != ButtonType.OK) {
-                ev.consume();
-            }
+            new QuestionDialog("Close?").showAndWait()
+                    .filter(result -> result != ButtonType.OK)
+                    .ifPresent(result -> {
+                        ev.consume();
+                    });
         });
 
     }
-    
-    public static void setScene(Scene scene){
+
+    public static void setScene(Scene scene) {
         mainStage.setScene(scene);
     }
 

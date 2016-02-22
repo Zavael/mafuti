@@ -26,7 +26,7 @@
                 <Button mnemonicParsing="false"  onAction="#continueGame" text="%btn.continue" />
                 <Button mnemonicParsing="false"  onAction="#newGame" text="%btn.newGame" />
                 <Button mnemonicParsing="false"  onAction="#loadGame" text="%btn.loadGame" />
-                <Button mnemonicParsing="false"  onAction="#exitGame" text="%btn.exit" />
+                <Button mnemonicParsing="false"  onAction="#exitGame" text="%btn.exit" />                
             </children>
         </VBox>          
         <VBox maxHeight="100" maxWidth="100" spacing="1" GridPane.columnIndex="0" GridPane.rowIndex="1">

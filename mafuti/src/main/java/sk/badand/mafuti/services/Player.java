@@ -7,8 +7,8 @@ package sk.badand.mafuti.services;
  *
  * @author abadinka
  */
-public interface PlayableStadium {
+public interface Player {
 
-    public String getName();
-    
+    public boolean isPlaying();
+    public int getOverallRating();
 }

@@ -15,12 +15,8 @@
    
     <children>
         <VBox fx:id="menu">
-            <padding>
-                <Insets bottom="10.0" top="10.0" />
-            </padding>
             <children>
-                <Button mnemonicParsing="false" text="%btn.continue" disable="true"  />
-                <Button mnemonicParsing="false" onAction="#showDashboard" text="%btn.dashboard" />
+                <Button mnemonicParsing="false" onAction="#showDashboard" text="%btn.dashboard" styleClass="main-button" />
                 <Button mnemonicParsing="false" onAction="#showOffice" text="%btn.office" />
                 <Button mnemonicParsing="false" onAction="#showYouthAcademy" text="%btn.youth-academy" />
                 <Button mnemonicParsing="false" onAction="#showStadium" text="%btn.stadium" />

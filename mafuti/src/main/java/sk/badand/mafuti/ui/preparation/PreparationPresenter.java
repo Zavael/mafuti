@@ -9,6 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import sk.badand.mafuti.ui.match.MatchView;
 import sk.badand.mafuti.ui.navigation.AbstractNavigator;
+import sk.badand.mafuti.ui.postmatch.PostmatchView;
 
 /**
  * FXML Controller class
@@ -30,5 +31,11 @@ public class PreparationPresenter extends AbstractNavigator {
     public void showMatch() {
         LOG.log(Level.FINE, "showMatch");
         navigator.load(new MatchView());
+    }
+
+    public void skipMatch() {
+        LOG.log(Level.FINE, "skipMatch");
+        //TODO simulate match
+        navigator.load(new PostmatchView());
     }
 }

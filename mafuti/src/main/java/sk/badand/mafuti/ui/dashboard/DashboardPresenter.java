@@ -3,6 +3,7 @@
  */
 package sk.badand.mafuti.ui.dashboard;
 
+import com.airhacks.afterburner.injection.Injector;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -10,19 +11,22 @@ import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.chart.PieChart;
+import javafx.scene.control.ButtonType;
 import javax.inject.Inject;
 import sk.badand.mafuti.services.CalendarService;
+import sk.badand.mafuti.services.mock.MockMatch;
+import sk.badand.mafuti.services.PlayingMatch;
+import sk.badand.mafuti.services.QuestionDialog;
 import sk.badand.mafuti.ui.club.ClubView;
 import sk.badand.mafuti.ui.facilities.FacilitiesView;
 import sk.badand.mafuti.ui.finances.FinancesView;
 import sk.badand.mafuti.ui.manager.ManagerView;
 import sk.badand.mafuti.ui.prematch.PrematchView;
 import sk.badand.mafuti.ui.navigation.AbstractNavigator;
+import sk.badand.mafuti.ui.prematch.PrematchPresenter;
 import sk.badand.mafuti.ui.timeprogress.TimeprogressView;
 import sk.badand.mafuti.ui.training.TrainingView;
 import sk.badand.mafuti.ui.world.WorldView;
-import sk.badand.math.OddsDecider;
-import sk.badand.math.Randomizer;
 
 /**
  * FXML Controller class
@@ -54,7 +58,15 @@ public class DashboardPresenter extends AbstractNavigator {
     public void processTime() {
         LOG.log(Level.FINE, "processTime");
         if (calendarService.isManagerPlaying(calendarService.currentDate())) {
-            navigator.load(new PrematchView());
+            new QuestionDialog("yes or no").showAndWait()
+                    .filter(result -> result == ButtonType.OK)
+                    .ifPresent(result -> {
+                        PlayingMatch managerMatch = calendarService.managerMatchForDay(calendarService.currentDate());
+                        Injector.setModelOrService(PlayingMatch.class, managerMatch);
+                        final PrematchView prematchView = new PrematchView();
+//                        ((PrematchPresenter) prematchView.getPresenter()).setMatch(managerMatch);
+                        navigator.load(prematchView);
+                    });
         } else {
             navigator.load(new TimeprogressView());
         }

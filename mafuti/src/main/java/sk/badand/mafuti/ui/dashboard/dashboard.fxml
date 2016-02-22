@@ -18,17 +18,14 @@
     <children>
                 
         <VBox fx:id="menu">
-            <padding>
-                <Insets bottom="10.0" top="10.0" />
-            </padding>
             <children>
-                <Button mnemonicParsing="false" text="%btn.continue" onAction="#processTime" />
-                <Button mnemonicParsing="false" text="%btn.team" onAction="#showClub" />
-                <Button mnemonicParsing="false" text="%btn.training" onAction="#showTraining" />
-                <Button mnemonicParsing="false" text="%btn.facilities" onAction="#showFacilities" />
-                <Button mnemonicParsing="false" text="%btn.finances" onAction="#showFinances" />
-                <Button mnemonicParsing="false" text="%btn.world" onAction="#showWorld" />
-                <Button mnemonicParsing="false" text="%btn.personal" onAction="#showPersonal" />
+                <Button defaultButton="true" mnemonicParsing="false" onAction="#processTime" styleClass="main-button" text="%btn.continue" />
+                <Button mnemonicParsing="false" onAction="#showClub" text="%btn.team" />
+                <Button mnemonicParsing="false" onAction="#showTraining" text="%btn.training" />
+                <Button mnemonicParsing="false" onAction="#showFacilities" text="%btn.facilities" />
+                <Button mnemonicParsing="false" onAction="#showFinances" text="%btn.finances" />
+                <Button mnemonicParsing="false" onAction="#showWorld" text="%btn.world" />
+                <Button mnemonicParsing="false" onAction="#showPersonal" text="%btn.personal" />
             </children>
         </VBox>
         <AnchorPane fx:id="content" HBox.hgrow="ALWAYS">
@@ -78,7 +75,7 @@
                                     </sortOrder>
                                 </TableView>
                                 <ListView HBox.hgrow="ALWAYS" />
-                                <PieChart fx:id="chart" legendSide="RIGHT" legendVisible="true" labelsVisible="false" >
+                                <PieChart fx:id="chart" labelsVisible="false" legendSide="RIGHT" legendVisible="true">
                                 </PieChart>                                
                             </children>
                         </HBox>
