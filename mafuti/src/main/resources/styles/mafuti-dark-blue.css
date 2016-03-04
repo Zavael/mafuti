@@ -87,6 +87,10 @@
     -fx-text-fill: color-1;
 }
 
+.big {
+    -fx-font: 35pt "Segoe UI Light";
+}
+
 .header1 {
     -fx-font: 35pt "Segoe UI Light";
     -fx-text-fill: color0;

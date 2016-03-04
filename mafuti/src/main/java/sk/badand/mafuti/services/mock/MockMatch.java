@@ -12,6 +12,7 @@ import sk.badand.mafuti.services.PlayableStadium;
 import sk.badand.mafuti.services.PlayableTeam;
 import sk.badand.mafuti.services.Player;
 import sk.badand.mafuti.services.PlayableMatch;
+import sk.badand.mafuti.services.Result;
 
 /**
  *
@@ -23,6 +24,7 @@ public class MockMatch implements PlayableMatch {
     private PlayableTeam homeTeam = new MockTeam();
     private PlayableTeam awayTeam = new MockTeam();
     private PlayableStadium stadium;
+    private Result result;
 
     public MockMatch() {
         this.stadium = homeTeam.getStadium();
@@ -44,6 +46,7 @@ public class MockMatch implements PlayableMatch {
     }
 
     private void createResult() {
+        result = new MockResult(homeTeam, awayTeam, stadium);
     }
     
     @Override
@@ -102,5 +105,10 @@ public class MockMatch implements PlayableMatch {
     @Override
     public PlayableTeam getManagerTeam() {
         return homeTeam;
+    }
+    
+    @Override
+    public Result result(){
+        return result;
     }
 }

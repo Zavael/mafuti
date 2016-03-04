@@ -22,4 +22,6 @@ public interface Match {
     String getStadiumName();
 
     void play();    
+
+    Result result();
 }

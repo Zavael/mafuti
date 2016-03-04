@@ -1,77 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import java.net.*?>
 <?import java.util.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.badand.mafuti.ui.match.MatchPresenter">
+<BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="sk.badand.mafuti.ui.match.MatchPresenter">
     <stylesheets>
-        <URL value="@/styles/match.css"/>
+        <URL value="@/styles/match.css" />
     </stylesheets>
     
     <top>
-        <VBox alignment="CENTER" >
-            <children>
-                <Label text="{MATCH} RESULT" />       
-                <Label text="(0-2)" />
-                
-                <HBox spacing="10" alignment="CENTER">
-                    <Label text="icon" minWidth="100" minHeight="100" alignment="CENTER" />  
-                    <Label styleClass="header1" text="5-3" alignment="TOP_CENTER" />  
-                    <Label text="icon" minWidth="100" minHeight="100" alignment="CENTER" />  
-                </HBox>
-       
-                <Label styleClass="header2" text="57:18" />  
-            </children>
-        </VBox>
+        <Label styleClass="header1" text="%lbl.header" />  
     </top>
     
     <left>
-        <VBox >
+        <VBox alignment="CENTER" spacing="10">
             <children>
-                <Label text="L. Messi      (ball)" />
-                <Label text="L. Messi      (red card)" />
-                <Label text="L. Messi      (injury)" />
+                <Label fx:id="homeTeamName" styleClass="header2" text="{TEAM A} name" />
+                <javafx.scene.image.ImageView fitHeight="100" fitWidth="100">
+                    <image>
+                        <Image url="@/images/mock_profile_100x100.png" />
+                    </image>
+                </javafx.scene.image.ImageView>
+                <ListView fx:id="homePlayerEvents" VBox.vgrow="ALWAYS" />
             </children>
         </VBox>
     </left>
     
     <center>
-        <VBox alignment="TOP_CENTER">
+        <VBox alignment="TOP_CENTER" spacing="20">
             <children>   
+                <Label fx:id="firstMatchResult" />
+                
+                <HBox alignment="CENTER" spacing="30">
+                    <children>
+                        <VBox alignment="BOTTOM_CENTER"> 
+                            <children>
+                                <Label fx:id="homeGoals" styleClass="big" /> 
+                            </children> 
+                        </VBox>
+                        <VBox alignment="BOTTOM_CENTER"> 
+                            <children>
+                                <Label styleClass="big" text="-" />  
+                            </children> 
+                        </VBox>
+                        <VBox alignment="BOTTOM_CENTER"> 
+                            <children>
+                                <Label fx:id="awayGoals" styleClass="big" />  
+                            </children> 
+                        </VBox>
+                    </children>
+                </HBox>
        
-                <TabPane GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4" minHeight="410" >
-                    <tabs>
-                        <Tab closable="false" text="Comentary">
-                            <content>
-                                <!--<fx:include source="parts/MatchCommentary.fxml" />-->
-                            </content>            
-                        </Tab>
-                        <Tab closable="false" text="Stats">
-                            <content>
-                                <Label text="Something" />
-                            </content>
-                        </Tab>
-                    </tabs>
-                </TabPane> 
+                <Label fx:id="playTime" styleClass="header2" />  
+                
+                <Button fx:id="startMatch" text="%btn.start" onAction="#startMatch" /> 
+       
+                <HBox spacing="10" VBox.vgrow="ALWAYS">
+                    <children>
+                        <TabPane HBox.hgrow="ALWAYS">
+                            <tabs>
+                                <Tab closable="false" text="%tab.commentary">
+                                    <content>
+                                        <Label text="Something" />
+                                        <!--<fx:include source="parts/MatchCommentary.fxml" />-->
+                                    </content>            
+                                </Tab>
+                                <Tab closable="false" text="%tab.stats">
+                                    <content>
+                                        <Label text="Something" />
+                                    </content>
+                                </Tab>
+                            </tabs>
+                        </TabPane>
+                    </children>
+                    <padding>
+                        <Insets left="10.0" right="10.0" />
+                    </padding> 
+                </HBox>
             </children>  
         </VBox>
     </center>
     
-    <right>
-        <VBox >
+    <right>        
+        <VBox alignment="CENTER" spacing="10" >
             <children>
-                <Label text="L. Messi      (ball)" />
-                <Label text="L. Messi      (red card)" />
-                <Label text="L. Messi      (injury)" />
+                <Label fx:id="awayTeamName" styleClass="header2" text="{TEAM B} name" />
+                <javafx.scene.image.ImageView fitHeight="100" fitWidth="100">
+                    <image>
+                        <Image url="@/images/mock_profile_100x100.png" />
+                    </image>
+                </javafx.scene.image.ImageView>
+                <ListView fx:id="awayPlayerEvents" VBox.vgrow="ALWAYS" />
             </children>
         </VBox>
     </right>
     
     <bottom>
-        <Button alignment="CENTER_RIGHT" contentDisplay="CENTER" onAction="#showPostmatch" text="%btn.next" BorderPane.alignment="CENTER_RIGHT" /> 
+        <HBox alignment="CENTER_RIGHT">
+            <children>
+                <Button fx:id="next" disable="true" onAction="#showPostmatch" text="%btn.next" /> 
+            </children>
+        </HBox>
     </bottom>
 </BorderPane>

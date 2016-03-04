@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.*?>
-<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import java.net.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
 <BorderPane id="BorderPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" BorderPane.alignment="TOP_CENTER" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.badand.mafuti.ui.prematch.PrematchPresenter">
@@ -19,7 +19,7 @@
     </top>
     
     <left>
-        <VBox alignment="BOTTOM_CENTER" >
+        <VBox alignment="BOTTOM_CENTER" spacing="10">
             <children>
                 <Label fx:id="homeTeamName" styleClass="header2" text="{TEAM A} name" />
                 <javafx.scene.image.ImageView fitHeight="100" fitWidth="100">
@@ -52,7 +52,7 @@
     </center>
     
     <right>
-        <VBox alignment="BOTTOM_CENTER">
+        <VBox alignment="BOTTOM_CENTER" spacing="10">
             <children>
                 <Label fx:id="awayTeamName" styleClass="header2" text="{TEAM B} name" />
                 <javafx.scene.image.ImageView fitHeight="100" fitWidth="100">

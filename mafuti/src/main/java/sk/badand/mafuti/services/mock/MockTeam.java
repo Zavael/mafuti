@@ -24,12 +24,14 @@ import sk.badand.text.StrGenerator;
  */
 public class MockTeam implements PlayableTeam {
 
+    private final String teamName = new StrGenerator().generateDesignation(12) + " FC";
+
     public MockTeam() {
     }
 
     @Override
     public String getNameShort() {
-        return new StrGenerator().generateDesignation(12) + " FC";
+        return teamName;
     }
 
     @Override
@@ -88,12 +90,14 @@ public class MockTeam implements PlayableTeam {
 
     private static class MockStadium implements PlayableStadium {
 
+        private final String stadiumName = new StrGenerator().generateDesignation(8) + " stadium";
+
         public MockStadium() {
         }
 
         @Override
         public String getName() {
-            return new StrGenerator().generateDesignation(8) + " stadium";
+            return stadiumName;
         }
     }
 
