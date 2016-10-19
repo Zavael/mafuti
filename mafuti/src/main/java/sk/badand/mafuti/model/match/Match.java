@@ -1,7 +1,9 @@
 /*
  * Copyright 2016 Andrej Badinka
  */
-package sk.badand.mafuti.services;
+package sk.badand.mafuti.model.match;
+
+import sk.badand.mafuti.model.match.result.Result;
 
 import java.time.LocalDate;
 
@@ -11,8 +13,6 @@ import java.time.LocalDate;
  */
 public interface Match {
 
-    String getAttendance();
-
     String getAwayTeamName();
 
     String getHomeTeamName();
@@ -20,6 +20,8 @@ public interface Match {
     LocalDate getPlayDate();
 
     String getStadiumName();
+
+    String getAttendance();
 
     void play();    
 

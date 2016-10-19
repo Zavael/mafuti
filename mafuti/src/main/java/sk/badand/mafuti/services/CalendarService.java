@@ -3,7 +3,8 @@
  */
 package sk.badand.mafuti.services;
 
-import sk.badand.mafuti.services.mock.MockTeam;
+import sk.badand.mafuti.model.match.PlayableMatch;
+import sk.badand.mafuti.model.match.Match;
 import sk.badand.mafuti.services.mock.MockMatch;
 import java.time.LocalDate;
 import java.util.List;

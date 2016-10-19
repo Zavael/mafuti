@@ -5,6 +5,8 @@
  */
 package sk.badand.mafuti.match.engine;
 
+import sk.badand.mafuti.model.match.PlayingTeam;
+import sk.badand.mafuti.model.match.Player;
 import java.util.HashMap;
 import java.util.Observable;
 import java.util.logging.Level;
@@ -29,14 +31,14 @@ import sk.badand.statemachine.Machine;
 public class MatchEngineProvider extends Observable{
     private static final Logger LOG = Logger.getLogger(MatchEngineProvider.class.getName());
 
-    private final HashMap<TeamSide, ITeam> oponnents;
+    private final HashMap<TeamSide, PlayingTeam> oponnents;
     private TeamSide attacker;
     private final int MATCH_DURATION = 90;
     private FieldPosition actionPosition;
     private CircularFifoQueue<ActionType> lastActions;
-    private CircularFifoQueue<IPlayer> lastPlayersInAction;
+    private CircularFifoQueue<Player> lastPlayersInAction;
 
-    public MatchEngineProvider(ITeam homeTeam, ITeam awayTeam) {
+    public MatchEngineProvider(PlayingTeam homeTeam, PlayingTeam awayTeam) {
         this.oponnents = new HashMap<>(2);
         oponnents.put(TeamSide.HomeTeam, homeTeam);
         oponnents.put(TeamSide.AwayTeam, awayTeam);
@@ -116,15 +118,15 @@ public class MatchEngineProvider extends Observable{
                 : TeamSide.HomeTeam;
     }
 
-    public ITeam getHomeTeam() {
+    public PlayingTeam getHomeTeam() {
         return oponnents.get(TeamSide.HomeTeam);
     }
 
-    public ITeam getAwayTeam() {
+    public PlayingTeam getAwayTeam() {
         return oponnents.get(TeamSide.AwayTeam);
     }
 
-    public ITeam getTeam(TeamSide side) {
+    public PlayingTeam getTeam(TeamSide side) {
         return oponnents.get(side);
     }
     
@@ -146,7 +148,7 @@ public class MatchEngineProvider extends Observable{
     /**
      * @return the lastPlayersInAction
      */
-    public CircularFifoQueue<IPlayer> getLastPlayersInAction() {
+    public CircularFifoQueue<Player> getLastPlayersInAction() {
         return lastPlayersInAction;
     }
 }

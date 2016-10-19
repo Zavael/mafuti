@@ -1,12 +1,12 @@
 /*
  * Copyright 2016 Andrej Badinka
  */
-package sk.badand.mafuti.match.engine;
+package sk.badand.mafuti.model.common;
 
 /**
  *
  * @author abadinka
  */
-public interface IPlayer {
+public interface Contract {
     
 }

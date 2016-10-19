@@ -11,13 +11,13 @@ import java.util.stream.Stream;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javax.inject.Inject;
+import sk.badand.mafuti.model.match.PlayingTeam;
 import sk.badand.mafuti.model.tactic.CounterAttacks;
 import sk.badand.mafuti.model.tactic.Marking;
 import sk.badand.mafuti.model.tactic.PassingFocus;
 import sk.badand.mafuti.model.tactic.PassingStyle;
 import sk.badand.mafuti.model.tactic.Philosophy;
 import sk.badand.mafuti.model.tactic.Tackling;
-import sk.badand.mafuti.services.PlayableTeam;
 import sk.badand.mafuti.ui.match.MatchView;
 import sk.badand.mafuti.ui.navigation.AbstractNavigator;
 import sk.badand.mafuti.ui.postmatch.PostmatchView;
@@ -32,7 +32,7 @@ public class PreparationPresenter extends AbstractNavigator {
     private static final Logger LOG = Logger.getLogger(PreparationPresenter.class.getName());
     
     @Inject
-    PlayableTeam team;
+    PlayingTeam team;
     
     @FXML
     ComboBox<String> markingChoice;

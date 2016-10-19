@@ -1,7 +1,7 @@
 /*
  * Copyright 2016 Andrej Badinka
  */
-package sk.badand.mafuti.services;
+package sk.badand.mafuti.model.match;
 
 import java.util.List;
 import sk.badand.mafuti.model.common.Weather;
@@ -20,5 +20,5 @@ public interface PlayableMatch extends Match {
 
     String getPlayTime();
 
-    public PlayableTeam getManagerTeam();
+    public PlayingTeam getManagerTeam();
 }

@@ -12,9 +12,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javax.inject.Inject;
-import sk.badand.mafuti.services.Player;
-import sk.badand.mafuti.services.Result;
-import sk.badand.mafuti.services.mock.MockPlayer;
+import sk.badand.mafuti.model.match.Player;
+import sk.badand.mafuti.model.match.PlayerStatistics;
+import sk.badand.mafuti.model.match.result.Result;
 import sk.badand.mafuti.ui.dashboard.DashboardView;
 import sk.badand.mafuti.ui.navigation.AbstractNavigator;
 
@@ -28,6 +28,10 @@ public class PostmatchPresenter extends AbstractNavigator {
 
     @Inject
     private Result matchResult;
+    @FXML
+    Label homeGoals;
+    @FXML
+    Label awayGoals;
     @FXML
     private Label homeTeamName;
     @FXML
@@ -49,9 +53,9 @@ public class PostmatchPresenter extends AbstractNavigator {
     @FXML
     private Label awayFouls;
     @FXML
-    private ListView<Player> homeBestPlayers;
+    private ListView<PlayerStatistics> homeBestPlayers;
     @FXML
-    private ListView<Player> awayBestPlayers;
+    private ListView<PlayerStatistics> awayBestPlayers;
     /**
      * Initializes the controller class.
      */
@@ -62,22 +66,20 @@ public class PostmatchPresenter extends AbstractNavigator {
 
     private void initControls() {
         // TODO
+        homeGoals.setText(String.valueOf(matchResult.getHomeGoals()));
+        awayGoals.setText(String.valueOf(matchResult.getAwayGoals()));
         homeTeamName.setText(matchResult.getHomeTeamName());
         awayTeamName.setText(matchResult.getAwayTeamName());
-        homeBestPlayers.getItems().add(new MockPlayer());
-        homeBestPlayers.getItems().add(new MockPlayer());
-        homeBestPlayers.getItems().add(new MockPlayer());
-        awayBestPlayers.getItems().add(new MockPlayer());
-        awayBestPlayers.getItems().add(new MockPlayer());
-        awayBestPlayers.getItems().add(new MockPlayer());
-        homeShots.setText(String.valueOf(matchResult.homeShots()));
-        awayShots.setText(String.valueOf(matchResult.awayShots()));
-        homeCorners.setText(String.valueOf(matchResult.homeCorners()));
-        awayCorners.setText(String.valueOf(matchResult.awayCorners()));
-        homeFreekicks.setText(String.valueOf(matchResult.homeFreekicks()));
-        awayFreekicks.setText(String.valueOf(matchResult.awayFreekicks()));
-        homeFouls.setText(String.valueOf(matchResult.homeFouls()));
-        awayFouls.setText(String.valueOf(matchResult.awayFouls()));
+        homeBestPlayers.getItems().addAll(matchResult.homeBestPlayers());
+        awayBestPlayers.getItems().addAll(matchResult.awayBestPlayers());
+        homeShots.setText(String.valueOf(matchResult.getHomeTeamStatistics().getShotsOnTarget()));
+        awayShots.setText(String.valueOf(matchResult.getAwayTeamStatistics().getShotsOnTarget()));
+        homeCorners.setText(String.valueOf(matchResult.getHomeTeamStatistics().getCorners()));
+        awayCorners.setText(String.valueOf(matchResult.getAwayTeamStatistics().getCorners()));
+        homeFreekicks.setText(String.valueOf(matchResult.getHomeTeamStatistics().getFreeKicks()));
+        awayFreekicks.setText(String.valueOf(matchResult.getAwayTeamStatistics().getFreeKicks()));
+        homeFouls.setText(String.valueOf(matchResult.getHomeTeamStatistics().getFouls()));
+        awayFouls.setText(String.valueOf(matchResult.getAwayTeamStatistics().getFouls()));
     }
 
     @Override

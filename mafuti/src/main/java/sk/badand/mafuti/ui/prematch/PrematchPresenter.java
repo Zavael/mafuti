@@ -8,18 +8,14 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javax.inject.Inject;
-import sk.badand.mafuti.services.ManagerTeam;
-import sk.badand.mafuti.services.mock.MockMatch;
-import sk.badand.mafuti.services.Player;
-import sk.badand.mafuti.services.PlayableMatch;
-import sk.badand.mafuti.services.PlayableTeam;
+import sk.badand.mafuti.model.match.Player;
+import sk.badand.mafuti.model.match.PlayingTeam;
+import sk.badand.mafuti.model.match.PlayableMatch;
 import sk.badand.mafuti.ui.preparation.PreparationView;
 import sk.badand.mafuti.ui.navigation.AbstractNavigator;
 
@@ -65,7 +61,7 @@ public class PrematchPresenter extends AbstractNavigator {
     public void showMatchTactic(ActionEvent event) {
         LOG.log(Level.FINE, "showMatchTactic");
         
-        Injector.setModelOrService(PlayableTeam.class, match.getManagerTeam());
+        Injector.setModelOrService(PlayingTeam.class, match.getManagerTeam());
         
         navigator.load(new PreparationView());
     }

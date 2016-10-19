@@ -1,6 +1,8 @@
 target/
 /dependency-reduced-pom.xml
 .DS_Store
+.idea/
+mafuti.iml
 nbactions.xml
 mafuti.jar
 ScenicView.jar

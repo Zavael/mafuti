@@ -15,7 +15,7 @@ import javafx.scene.control.ButtonType;
 import javax.inject.Inject;
 import sk.badand.mafuti.services.CalendarService;
 import sk.badand.mafuti.services.mock.MockMatch;
-import sk.badand.mafuti.services.PlayableMatch;
+import sk.badand.mafuti.model.match.PlayableMatch;
 import sk.badand.mafuti.services.QuestionDialog;
 import sk.badand.mafuti.ui.club.ClubView;
 import sk.badand.mafuti.ui.facilities.FacilitiesView;
