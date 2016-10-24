@@ -17,7 +17,7 @@ import sk.badand.mafuti.model.match.result.Result;
  */
 public class SimpleResult implements Result {
     private static final Logger LOG = Logger.getLogger(SimpleResult.class.getName());
-    private static final byte BEST_PLAYER_LIMIT = 7;
+    private static final byte BEST_PLAYER_LIMIT = 5;
 
     private Match match;
     protected PlayingTeam awayTeam;
@@ -84,7 +84,8 @@ public class SimpleResult implements Result {
     @Override
     public List<PlayerStatistics> awayBestPlayers() {
         return awayPlayerStats.stream()
-                .sorted((player1, player2) -> player2.matchRating() - player1.matchRating())
+                .filter(playerStats -> playerStats.matchRating() > 6)
+                .sorted((playerStats1, playerStats2) -> playerStats2.matchRating() - playerStats1.matchRating())
                 .limit(BEST_PLAYER_LIMIT)
                 .collect(Collectors.toList());
     }
@@ -92,7 +93,8 @@ public class SimpleResult implements Result {
     @Override
     public List<PlayerStatistics> homeBestPlayers() {
         return homePlayerStats.stream()
-                .sorted((player1, player2) -> player2.matchRating() - player1.matchRating())
+                .filter(playerStats -> playerStats.matchRating() > 6)
+                .sorted((playerStats1, playerStats2) -> playerStats2.matchRating() - playerStats1.matchRating())
                 .limit(BEST_PLAYER_LIMIT)
                 .collect(Collectors.toList());
     }
@@ -118,8 +120,6 @@ public class SimpleResult implements Result {
     }
 
     private void createStats(int goalsToAssign, PlayingTeam team, List<PlayerStatistics> playerStats) {
-
-        LOG.fine("goalsToAssing " + goalsToAssign);
         while (goalsToAssign > 0) {
             final Player scorer = team.getRandomScorer();
             Player randomAssistant = team.getRandomAssistant();
@@ -139,6 +139,5 @@ public class SimpleResult implements Result {
                     });
             goalsToAssign--;
         }
-        LOG.fine("goalsToAssing " + goalsToAssign);
     }
 }

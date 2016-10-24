@@ -20,7 +20,7 @@ import sk.badand.text.StrGenerator;
 public final class MockPlayer implements Player {
 
     private static final StrGenerator strgen = new StrGenerator();
-    private final int rating = new Randomizer().nextRandomInt(100, 500);
+    private final int rating = new Randomizer().nextRandomInt(6, 40);
     private final String shortName;
     private final PlayerPosition position;
     private PlayerPosition currentPosition;

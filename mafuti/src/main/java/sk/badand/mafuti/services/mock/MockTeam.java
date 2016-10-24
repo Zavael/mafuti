@@ -35,7 +35,6 @@ public class MockTeam implements PlayingTeam {
     private final List<Player> players;
 
     public MockTeam(Randomizer randomizer) {
-        overalStrength = randomizer.nextRandomInt(180, 450);
         players = Stream.of(
                 new MockPlayer(PlayerPosition.STRIKER),
                 new MockPlayer(PlayerPosition.STRIKER),
@@ -49,6 +48,9 @@ public class MockTeam implements PlayingTeam {
                 new MockPlayer(PlayerPosition.DEFENDER),
                 new MockPlayer(PlayerPosition.GOALKEEPER))
                 .collect(Collectors.toList());
+        overalStrength = players.stream()
+                .mapToInt(Player::overallRating)
+                .sum();
     }
 
     @Override
