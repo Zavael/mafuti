@@ -28,9 +28,9 @@ public class MailsPresenter implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         mails.getItems().addAll(
                 Stream.of(
-                        "New transfer ongoing",
-                        "Biggest win in premier league",
-                        "New contract offer.",
+                        "New transfer offer",
+                        "Player injured",
+                        "Financial report of last month",
                         "Match delayed",
                         "Youth report",
                         "Training report",

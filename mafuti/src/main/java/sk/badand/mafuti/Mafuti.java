@@ -44,7 +44,7 @@ public class Mafuti extends Application {
         Scene scene = new Scene(uiView.getView(), 1024, 768);
         mainStage.initStyle(StageStyle.UNIFIED);
         mainStage.setTitle("mafuti");
-        scene.getStylesheets().add("/styles/mafuti-dark-blue.css");
+        scene.getStylesheets().add("/styles/mafuti-light-blue.css");
 //        scene.getStylesheets().add("/styles/mafuti-light-blue.css");
 //        scene.getStylesheets().add("/styles/JMetroLightTheme.css");
 //        scene.getStylesheets().add("/styles/JMetroDarkTheme.css");

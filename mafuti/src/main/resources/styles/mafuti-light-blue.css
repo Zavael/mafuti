@@ -4,12 +4,12 @@
     -fx-border-style: dashed;
     -fx-border-color: red; **/
     /** colors definition **/
-    color-2: derive(color0,90%);
-    color-1: derive(color0,30%);
+    color-2: derive(color0,-90%);
+    color-1: derive(color0,-30%);
     color0: #66bdca;
-    color1: derive(color0,-30%);
-    color18: derive(color0,-50%);
-    color2: derive(color0,-60%);
+    color1: derive(color0,30%);
+    color18: derive(color0,50%);
+    color2: derive(color0,60%);
     /*-fx-font-family: "Segoe UI Semibold";*/
     /*-fx-font-family: "Segoe UI Light";*/
     -fx-font-smoothing-type: gray;
@@ -25,7 +25,7 @@
 }
 
 .ui {
-    -fx-background-color: color2;
+    /*-fx-background-color: color2;*/
 }
 
 .right {
@@ -265,35 +265,6 @@
  * ListView                                                                    *
  *                                                                             *
  ******************************************************************************/
-
-.list-view {
-    -fx-border-color: red;
-    -fx-border-width: 1;
-}
-.list-view .virtual-flow {
-    -fx-border-color: red;
-    -fx-border-width: 1;
-}
-.list-view .virtual-flow .sheet {
-    -fx-border-color: red;
-    -fx-border-width: 1;
-}
-.list-view .sheet {
-    -fx-border-color: red;
-    -fx-border-width: 1;
-}
-.list-view .clipped-container {
-    -fx-border-color: red;
-    -fx-border-width: 1;
-}
-.list-view .virtual-flow .clipped-container {
-    -fx-border-color: red;
-    -fx-border-width: 1;
-}
-.list-view .virtual-flow .clipped-container .sheet {
-    -fx-border-color: red;
-    -fx-border-width: 1;
-}
 
 .list-view .sheet .cell.indexed-cell.list-cell {
     -fx-background-color: color18;
