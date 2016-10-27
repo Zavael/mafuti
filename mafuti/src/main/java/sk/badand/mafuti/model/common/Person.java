@@ -34,7 +34,7 @@ public interface Person {
 
     public Collection<Nation> nationalities();
 
-    public Collection<Skill> skills();
+    public Collection skills();
 
     public Contract contract();
 

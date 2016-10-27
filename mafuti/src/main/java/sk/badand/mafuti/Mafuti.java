@@ -46,6 +46,8 @@ public class Mafuti extends Application {
         mainStage.setTitle("mafuti");
         scene.getStylesheets().add("/styles/mafuti-dark-blue.css");
 //        scene.getStylesheets().add("/styles/mafuti-light-blue.css");
+//        scene.getStylesheets().add("/styles/JMetroLightTheme.css");
+//        scene.getStylesheets().add("/styles/JMetroDarkTheme.css");
         mainStage.centerOnScreen();
         mainStage.setResizable(false);
         mainStage.setScene(scene);

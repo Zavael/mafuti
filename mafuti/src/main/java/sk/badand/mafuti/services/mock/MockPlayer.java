@@ -5,15 +5,14 @@ package sk.badand.mafuti.services.mock;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
-import java.time.temporal.TemporalUnit;
 import java.util.Collection;
 import java.util.Collections;
 import sk.badand.mafuti.model.common.Contract;
 import sk.badand.mafuti.model.common.Nation;
 import sk.badand.mafuti.model.common.PersonType;
-import sk.badand.mafuti.model.common.Skill;
 import sk.badand.mafuti.model.match.PlayerPosition;
 import sk.badand.mafuti.model.match.Player;
+import sk.badand.mafuti.model.player.PlayerSkill;
 import sk.badand.math.Randomizer;
 import sk.badand.text.StrGenerator;
 
@@ -109,7 +108,7 @@ public final class MockPlayer implements Player {
     }
 
     @Override
-    public Collection<Skill> skills() {
+    public Collection<PlayerSkill> skills() {
         return Collections.emptyList();
     }
 

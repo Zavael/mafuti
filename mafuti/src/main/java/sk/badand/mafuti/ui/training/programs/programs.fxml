@@ -1,17 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.TextFlow?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.badand.mafuti.ui.training.programs.ProgramsPresenter">
+<VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"
+      xmlns="http://javafx.com/javafx/8.0.112-ea" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="sk.badand.mafuti.ui.training.programs.ProgramsPresenter">
     <stylesheets>
         <URL value="@/styles/program.css"/>
     </stylesheets>
     <children>
-        <Label text="coming soon..." />
+        <Label styleClass="header1" text="%lbl.heading"/>
+        <VBox VBox.vgrow="ALWAYS">
+            <children>
+                <ListView fx:id="programsListView"/>
+                <VBox VBox.vgrow="ALWAYS">
+                    <children>
+                        <Label fx:id="regimeName" styleClass="header3"/>
+                        <HBox fx:id="affectedSkills" spacing="20.0">
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                            </padding>
+                        </HBox>
+                        <TextFlow fx:id="regimeDescription" minHeight="300.0" VBox.vgrow="ALWAYS" styleClass="text-flow"/>
+                    </children>
+                    <VBox.margin>
+                        <Insets top="10.0"/>
+                    </VBox.margin>
+                </VBox>
+            </children>
+        </VBox>
     </children>
-</AnchorPane>
+</VBox>
