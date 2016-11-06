@@ -11,6 +11,11 @@ import java.util.stream.Stream;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
+import sk.badand.mafuti.model.common.MediaStory;
+import sk.badand.mafuti.services.MailService;
+import sk.badand.mafuti.services.MediaNewsService;
+
+import javax.inject.Inject;
 
 /**
  * FXML Controller class
@@ -22,7 +27,10 @@ public class MediaNewsPresenter implements Initializable {
     private static final Logger LOG = Logger.getLogger(MediaNewsPresenter.class.getName());
 
     @FXML
-    ListView newsHeaders;
+    ListView<MediaStory> newsHeaders;
+
+    @Inject
+    MediaNewsService mediaNewsService;
 
     /**
      * Initializes the controller class.
@@ -30,15 +38,7 @@ public class MediaNewsPresenter implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         newsHeaders.getItems().addAll(
-                Stream.of(
-                        "New hot transfer ongoing",
-                        "Biggest win in premier league",
-                        "Club punished for transfer cheat",
-                        "Foreign expert shared best training methods",
-                        "Club went bankrupt",
-                        "Team of the week announced",
-                        "Last league round evaluation")
-                .collect(Collectors.toList())
+            mediaNewsService.getNews()
         );
     }
 

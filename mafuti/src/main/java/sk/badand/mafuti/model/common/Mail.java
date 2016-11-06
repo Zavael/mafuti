@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
  * @author abadinka
  */
 public class Mail {
@@ -17,23 +16,29 @@ public class Mail {
     private final String title;
     private final LocalDate sendDate;
     private final boolean important;
+    private boolean hasBeenRead;
+    private MailResolution resolution;
 
-    public Mail(String message, String title, LocalDate sendDate, boolean important) {
-        this.message = message;
+    public Mail(String title, LocalDate sendDate, boolean important) {
+        this.message = title;
         this.title = title;
         this.sendDate = sendDate;
         this.important = important;
     }
 
-    public static List<Mail> getSampleMails(){
-        List mails = new ArrayList();
-        mails.add(new Mail("Hello there, there is a new transfer leak on the internet.", "New transfer leak!", LocalDate.now(), true));
-        mails.add(new Mail("Hello there, there is a new transfer leak on the internet.", "New transfer leak!", LocalDate.now(), true));
-        mails.add(new Mail("Hello there, there is a new transfer leak on the internet.", "New transfer leak!", LocalDate.now(), true));
-        mails.add(new Mail("Hello there, there is a new transfer leak on the internet.", "New transfer leak!", LocalDate.now(), true));
-        mails.add(new Mail("Hello there, there is a new transfer leak on the internet.", "New transfer leak!", LocalDate.now(), true));
-        mails.add(new Mail("Hello there, there is a new transfer leak on the internet.", "New transfer leak!", LocalDate.now(), true));
-        mails.add(new Mail("Hello there, there is a new transfer leak on the internet.", "New transfer leak!", LocalDate.now(), true));
-        return mails;
+    public void setHasBeenRead(boolean hasBeenRead) {
+        this.hasBeenRead = hasBeenRead;
+    }
+
+    public void setResolution(MailResolution resolution) {
+        this.resolution = resolution;
+    }
+
+    public String title() {
+        return title;
+    }
+
+    public String message() {
+        return message;
     }
 }

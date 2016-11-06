@@ -1,7 +1,7 @@
 /*
  * Copyright 2016 Andrej Badinka
  */
-package sk.badand.mafuti.services;
+package sk.badand.mafuti.util;
 
 import java.util.Optional;
 import javafx.scene.control.Alert;

@@ -10,10 +10,10 @@
    <children>
       <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ListView fx:id="mails" focusTraversable="false" />
+            <ListView fx:id="mailsTitles" focusTraversable="false" />
             <HBox alignment="TOP_RIGHT">
                <children>
-                  <Button mnemonicParsing="false" text="%btn.mails.read" />
+                  <Button mnemonicParsing="false" text="%btn.mails.read" onAction="#readMail" />
                </children>
             </HBox>
          </children>
