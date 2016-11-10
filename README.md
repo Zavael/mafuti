@@ -2,6 +2,7 @@
 Java fx project
 
 ## Requirements
+- git
 - java 8
 - maven >3
 
