@@ -9,7 +9,8 @@ Java fx project
 ## How to run
 
 ```
-cd mafuti
+git clone https://github.com/Zavael/mafuti.git
+cd mafuti\mafuti
 mvn package
 java -jar mafuti.jar
 ```
