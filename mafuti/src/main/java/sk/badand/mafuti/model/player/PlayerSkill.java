@@ -1,6 +1,5 @@
 package sk.badand.mafuti.model.player;
 
-import sk.badand.mafuti.model.common.PlayerSkillType;
 import sk.badand.mafuti.model.common.Skill;
 
 /**
@@ -22,7 +21,7 @@ public enum PlayerSkill implements Skill {
 
     private PlayerSkill(PlayerSkillType skillType, String bundleKey, String abbreviation) {
         this.skillType = skillType;
-        this.bundleKey = bundleKey;
+        this.bundleKey = "lbl." + bundleKey;
         this.abbreviation = abbreviation;
     }
 

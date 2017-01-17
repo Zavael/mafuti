@@ -29,25 +29,9 @@ public interface PlayingTeam extends Team {
     
     public int strengthInMidfield();
     
-    public int strengthInBack();    
-
-    PlayableStadium getStadium();
+    public int strengthInBack();
 
 
-    List<Player> getPlayers();
-
-    Optional<CounterAttacks> predefCounterAttacks();
-
-    Optional<Marking> predefMarking();
-
-    Optional<PassingFocus> predefPassingFocus();
-
-    Optional<PassingStyle> predefPassingStyle();
-
-    Optional<Philosophy> predefPhilosophy();
-
-    Optional<Tackling> predefTackling();
-    
     Player getRandomScorer();
     
     Player getRandomAssistant();

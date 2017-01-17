@@ -17,11 +17,7 @@
                     <content>
                         <AnchorPane>
                             <children>
-                                <BorderPane>
-                                    <center>
-                                        <ListView BorderPane.alignment="CENTER" />
-                                    </center>
-                                </BorderPane>
+                                <fx:include source="parts/players.fxml" />
                             </children>
                         </AnchorPane>
                     </content>
@@ -30,11 +26,7 @@
                     <content>
                         <AnchorPane>
                             <children>
-                                <BorderPane>
-                                    <center>
-                                        <ListView BorderPane.alignment="CENTER" />
-                                    </center>
-                                </BorderPane>
+                                <fx:include source="parts/formation.fxml" />
                             </children>
                         </AnchorPane>
                     </content>
@@ -43,11 +35,7 @@
                     <content>
                         <AnchorPane>
                             <children>
-                                <BorderPane>
-                                    <center>
-                                        <ListView BorderPane.alignment="CENTER" />
-                                    </center>
-                                </BorderPane>
+                                <fx:include source="parts/tactics.fxml" />
                             </children>
                         </AnchorPane>
                     </content>

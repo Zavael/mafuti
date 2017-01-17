@@ -1,4 +1,4 @@
-package sk.badand.mafuti.model.common;
+package sk.badand.mafuti.model.player;
 
 /**
  * Created by zavael on 25.10.2016.

@@ -17,6 +17,6 @@ public enum PersonType {
     private final String bundleKey;
 
     private PersonType(String bundleKey) {
-        this.bundleKey = bundleKey;
+        this.bundleKey = "lbl." + bundleKey;
     }
 }

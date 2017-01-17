@@ -28,8 +28,8 @@ public class MockMatch implements PlayableMatch {
 
     private static final int TOP_PLAYERS_COUNT = 5;
 
-    private PlayingTeam homeTeam = new MockTeam(new Randomizer());
-    private PlayingTeam awayTeam = new MockTeam(new Randomizer());
+    private PlayingTeam homeTeam = new MockTeam((short) 0);
+    private PlayingTeam awayTeam = new MockTeam((short) 0);
     private final PlayableStadium stadium;
     private final MatchEngine matchEngine = new SimpleMatchEngine(homeTeam, awayTeam);
 

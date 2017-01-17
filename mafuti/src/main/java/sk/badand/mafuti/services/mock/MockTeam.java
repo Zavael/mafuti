@@ -7,7 +7,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import sk.badand.mafuti.model.match.Player;
@@ -21,7 +20,6 @@ import sk.badand.mafuti.model.tactic.Philosophy;
 import sk.badand.mafuti.model.tactic.Tackling;
 import sk.badand.mafuti.model.match.PlayableStadium;
 import sk.badand.math.EmpiricDecider;
-import sk.badand.math.Randomizer;
 import sk.badand.text.StrGenerator;
 
 /**
@@ -33,8 +31,10 @@ public class MockTeam implements PlayingTeam {
     private final String teamName = new StrGenerator().generateDesignation(12) + " FC";
     private final int overalStrength;
     private final List<Player> players;
+    private short priority;
 
-    public MockTeam(Randomizer randomizer) {
+    public MockTeam(short priority) {
+        this.priority = priority;
         players = Stream.of(
                 new MockPlayer(PlayerPosition.STRIKER),
                 new MockPlayer(PlayerPosition.STRIKER),
@@ -61,6 +61,11 @@ public class MockTeam implements PlayingTeam {
     @Override
     public List<Player> getPlayers() {
         return players;
+    }
+
+    @Override
+    public short getPriority() {
+        return priority;
     }
 
     @Override

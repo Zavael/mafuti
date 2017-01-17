@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
+
+    <left>
+        <VBox>
+            <Label styleClass="header2" text="strategy" />
+            <Label text="philosophy" />
+            <ComboBox fx:id="philosophyChoice" />
+            <Separator />
+            <Label text="passing style" />
+            <ComboBox fx:id="passStyleChoice" />
+            <Separator />
+            <Label text="passing focus" />
+            <ComboBox fx:id="passFocusChoice" />
+        </VBox>
+    </left>
+
+    <center>
+        <VBox maxWidth="100.0" />
+    </center>
+
+    <right>
+        <VBox>
+            <Label styleClass="header2" text="instructions" />
+            <Label text="tackling" />
+            <ComboBox fx:id="tacklingChoice" />
+            <Separator />
+            <Label text="marking" />
+            <ComboBox fx:id="markingChoice" />
+            <Separator />
+            <Label text="counter-attacks" />
+            <ComboBox fx:id="counterAttChoice" />
+        </VBox>
+    </right>
+
+    <bottom>
+        <TextArea fx:id="tacticDescription" editable="false" focusTraversable="false" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed felis eleifend, gravida urna a, lobortis orci. Vivamus bibendum arcu et rhoncus pharetra. Nam in lorem vel sem laoreet pretium. Ut feugiat sapien posuere lacinia feugiat. Cras eu eros posuere, lobortis turpis vel, porta lectus. Suspendisse libero mauris, venenatis non." wrapText="true" />
+    </bottom>
+</BorderPane>

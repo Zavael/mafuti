@@ -128,43 +128,41 @@
  * Tab pane                                                                       *
  *                                                                             *
  ******************************************************************************/
-//todo prerobit
+
 .tab-pane {
-    -fx-text-fill: #828282;
-    -fx-border-color: color-1;
+    -fx-border-color: transparent;
 }
 
 .tab-pane .tab-header-area .tab-header-background {
-    -fx-text-fill: #828282;
+    -fx-background-color: transparent;
 }
 
-.tab{
-    -fx-text-fill: #828282;
-    -fx-background-insets: 0 1 0 1,0,0;
-}
-.tab-pane .tab
-{
-    -fx-text-fill: #828282;
-    -fx-background-color: #e6e6e6;
+.tab {
 
 }
 
-.tab-pane .tab:selected
-{
-    -fx-text-fill: #828282;
-    -fx-background-color: #3c3c3c;
+.tab-pane .tab {
+    -fx-text-fill: color0;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
 }
 
-.tab .tab-label { 
-    -fx-alignment: CENTER;
-    -fx-text-fill: #828282;
-    -fx-font-size: 12px;
+.tab-pane .tab:selected {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.tab-pane .tab:selected .tab-label {
     -fx-font-weight: bold;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-border-style: none;
 }
 
-.tab:selected .tab-label { 
-    -fx-alignment: CENTER;
-    -fx-text-fill: #828282;
+*.tab-label {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-border-style: none;
 }
 
 .tab-pane:top *.tab-header-area {

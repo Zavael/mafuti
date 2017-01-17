@@ -13,8 +13,11 @@ import javafx.fxml.FXML;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.ButtonType;
 import javax.inject.Inject;
+
+import sk.badand.mafuti.model.ManagerClub;
 import sk.badand.mafuti.services.CalendarService;
 import sk.badand.mafuti.model.match.PlayableMatch;
+import sk.badand.mafuti.services.mock.MockClub;
 import sk.badand.mafuti.util.QuestionDialog;
 import sk.badand.mafuti.ui.club.ClubView;
 import sk.badand.mafuti.ui.facilities.FacilitiesView;
@@ -51,6 +54,7 @@ public class DashboardPresenter extends AbstractNavigator {
                         new PieChart.Data("Draws", 13),
                         new PieChart.Data("Loses", 10))
         );
+        Injector.setModelOrService(ManagerClub.class, new MockClub());
     }
 
     public void processTime() {
