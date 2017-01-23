@@ -77,7 +77,6 @@ public class MatchPresenter extends AbstractNavigator {
 
     public void showPostmatch() {
         LOG.log(Level.FINE, "showPostmatch");
-        Injector.setModelOrService(PlayableMatch.class, null);
         Injector.setModelOrService(Result.class, match.result());
         navigator.load(new PostmatchView());
     }

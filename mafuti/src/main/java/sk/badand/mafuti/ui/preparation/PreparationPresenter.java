@@ -8,10 +8,15 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Stream;
+
+import com.airhacks.afterburner.injection.Injector;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javax.inject.Inject;
+
+import sk.badand.mafuti.model.match.PlayableMatch;
 import sk.badand.mafuti.model.match.PlayingTeam;
+import sk.badand.mafuti.model.match.result.Result;
 import sk.badand.mafuti.model.tactic.CounterAttacks;
 import sk.badand.mafuti.model.tactic.Marking;
 import sk.badand.mafuti.model.tactic.PassingFocus;
@@ -33,6 +38,8 @@ public class PreparationPresenter extends AbstractNavigator {
     
     @Inject
     PlayingTeam team;
+    @Inject
+    private PlayableMatch match;
     
     @FXML
     ComboBox<String> markingChoice;
@@ -79,7 +86,8 @@ public class PreparationPresenter extends AbstractNavigator {
 
     public void skipMatch() {
         LOG.log(Level.FINE, "skipMatch");
-        //TODO simulate match
+        match.play();
+        Injector.setModelOrService(Result.class, match.result());
         navigator.load(new PostmatchView());
     }
 }

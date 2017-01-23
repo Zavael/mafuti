@@ -12,6 +12,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javax.inject.Inject;
+
+import sk.badand.mafuti.model.match.PlayableMatch;
 import sk.badand.mafuti.model.match.Player;
 import sk.badand.mafuti.model.match.PlayerStatistics;
 import sk.badand.mafuti.model.match.result.Result;
@@ -86,6 +88,7 @@ public class PostmatchPresenter extends AbstractNavigator {
     public void showDashboard() {
         LOG.log(Level.FINE, "showDashboard");
         Injector.setModelOrService(Result.class, null);
+        Injector.setModelOrService(PlayableMatch.class, null);
         navigator.load(new DashboardView());
     }
 }
