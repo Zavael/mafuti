@@ -3,6 +3,7 @@
  */
 package sk.badand.mafuti;
 
+import com.airhacks.afterburner.injection.Injector;
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -43,7 +44,7 @@ public class Mafuti extends Application {
         mainStage.initStyle(StageStyle.UNIFIED);
         mainStage.setTitle("mafuti");
         scene.getStylesheets().add("/styles/mafuti-light-blue.css");
-//        scene.getStylesheets().add("/styles/mafuti-light-blue.css");
+//        scene.getStylesheets().add("/styles/mafuti-dark-blue.css");
 //        scene.getStylesheets().add("/styles/JMetroLightTheme.css");
 //        scene.getStylesheets().add("/styles/JMetroDarkTheme.css");
         mainStage.centerOnScreen();
@@ -71,6 +72,12 @@ public class Mafuti extends Application {
                     });
         });
 
+    }
+
+    @Override
+    public void stop() throws Exception {
+        super.stop();
+        Injector.forgetAll();
     }
 
     public static void setScene(Scene scene) {
