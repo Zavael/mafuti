@@ -60,8 +60,8 @@
     <bottom>
         <HBox alignment="CENTER_RIGHT" >
             <children>
-                <Button onAction="#skipMatch" text="%btn.skip.match" /> 
-                <Button onAction="#showMatch" text="%btn.next" /> 
+                <Button onAction="#skipMatch" text="%btn.match.skip" />
+                <Button onAction="#showMatch" text="%btn.match.attend" />
             </children>
         </HBox>
     </bottom>

@@ -59,11 +59,11 @@ public class TacticsPresenter implements Initializable {
     }
 
     private void loadPredefTactic(Team team, ResourceBundle rb) {
-        markingChoice.setValue(rb.getString(team.predefMarking().orElse(Marking.MAN).key()));
-        tacklingChoice.setValue(rb.getString(team.predefTackling().orElse(Tackling.NORMAL).key()));
-        counterAttChoice.setValue(rb.getString(team.predefCounterAttacks().orElse(CounterAttacks.SOMETIMES).key()));
-        passFocusChoice.setValue(rb.getString(team.predefPassingFocus().orElse(PassingFocus.MIXED).key()));
-        passStyleChoice.setValue(rb.getString(team.predefPassingStyle().orElse(PassingStyle.NORMAL).key()));
-        philosophyChoice.setValue(rb.getString(team.predefPhilosophy().orElse(Philosophy.NORMAL).key()));
+        markingChoice.setValue(rb.getString(team.predefMarking().orElse(Marking.predefined()).key()));
+        tacklingChoice.setValue(rb.getString(team.predefTackling().orElse(Tackling.predefined()).key()));
+        counterAttChoice.setValue(rb.getString(team.predefCounterAttacks().orElse(CounterAttacks.predefined()).key()));
+        passFocusChoice.setValue(rb.getString(team.predefPassingFocus().orElse(PassingFocus.predefined()).key()));
+        passStyleChoice.setValue(rb.getString(team.predefPassingStyle().orElse(PassingStyle.predefined()).key()));
+        philosophyChoice.setValue(rb.getString(team.predefPhilosophy().orElse(Philosophy.predefined()).key()));
     }
 }

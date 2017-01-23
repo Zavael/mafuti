@@ -22,4 +22,8 @@ public enum PassingFocus {
     public String key() {
         return key;
     }
+
+    public static PassingFocus predefined() {
+        return MIXED;
+    }
 }

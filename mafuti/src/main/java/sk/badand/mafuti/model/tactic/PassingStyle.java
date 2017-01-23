@@ -9,7 +9,7 @@ package sk.badand.mafuti.model.tactic;
  */
 public enum PassingStyle {
     SHORT("passStyle.short"),
-    NORMAL("passStyle.normal"),
+    MIXED("passStyle.mixed"),
     LONG("passStyle.long");
         
     private String key;
@@ -20,5 +20,9 @@ public enum PassingStyle {
 
     public String key() {
         return key;
+    }
+
+    public static PassingStyle predefined() {
+        return MIXED;
     }
 }

@@ -22,4 +22,8 @@ public enum CounterAttacks {
     public String key() {
         return key;
     }
+
+    public static CounterAttacks predefined() {
+        return SOMETIMES;
+    }
 }

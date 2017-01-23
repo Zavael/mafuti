@@ -22,4 +22,8 @@ public enum Marking {
     public String key() {
         return key;
     }
+
+    public static Marking predefined() {
+        return MIXED;
+    }
 }

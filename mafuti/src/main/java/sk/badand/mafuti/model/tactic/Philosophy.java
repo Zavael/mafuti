@@ -21,4 +21,8 @@ public enum Philosophy {
     public String key() {
         return key;
     }
+
+    public static Philosophy predefined() {
+        return NORMAL;
+    }
 }

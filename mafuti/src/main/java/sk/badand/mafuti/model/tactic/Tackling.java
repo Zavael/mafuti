@@ -21,4 +21,8 @@ public enum Tackling {
     public String key() {
         return key;
     }
+
+    public static Tackling predefined() {
+        return NORMAL;
+    }
 }
