@@ -20,16 +20,16 @@ public interface Player extends Person {
 
     String positionAbbr();
 
-    public boolean isPlayingOnPosition(PlayerPosition position);
+    boolean isPlayingOnPosition(PlayerPosition position);
 
-    default public double scoreProbability() {
+    default double scoreProbability() {
         if (isPlaying()) {
             return getCurrentPosition().getScoringProbability();
         }
         return 0;
     }
 
-    default public double assistProbability() {
+    default double assistProbability() {
         if (isPlaying()) {
             return getCurrentPosition().getAssistProbability();
         }

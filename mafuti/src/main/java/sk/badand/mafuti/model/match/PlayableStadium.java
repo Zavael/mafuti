@@ -9,6 +9,6 @@ package sk.badand.mafuti.model.match;
  */
 public interface PlayableStadium {
 
-    public String getName();
+    String getName();
     
 }

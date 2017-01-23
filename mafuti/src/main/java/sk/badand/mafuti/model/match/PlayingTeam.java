@@ -4,14 +4,6 @@
 package sk.badand.mafuti.model.match;
 
 import sk.badand.mafuti.model.Team;
-import java.util.List;
-import java.util.Optional;
-import sk.badand.mafuti.model.tactic.CounterAttacks;
-import sk.badand.mafuti.model.tactic.Marking;
-import sk.badand.mafuti.model.tactic.PassingFocus;
-import sk.badand.mafuti.model.tactic.PassingStyle;
-import sk.badand.mafuti.model.tactic.Philosophy;
-import sk.badand.mafuti.model.tactic.Tackling;
 
 /**
  *
@@ -23,13 +15,13 @@ public interface PlayingTeam extends Team {
      * ranges from ~(180 - 450)
      * @return 
      */
-    public int strengthOveral();
+    int strengthOveral();
     
-    public int strengthInFront();
+    int strengthInFront();
     
-    public int strengthInMidfield();
+    int strengthInMidfield();
     
-    public int strengthInBack();
+    int strengthInBack();
 
 
     Player getRandomScorer();

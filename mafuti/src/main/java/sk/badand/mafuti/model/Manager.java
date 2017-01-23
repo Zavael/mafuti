@@ -1,6 +1,5 @@
 package sk.badand.mafuti.model;
 
-import sk.badand.mafuti.model.common.Person;
 import sk.badand.mafuti.model.common.PersonType;
 
 /**

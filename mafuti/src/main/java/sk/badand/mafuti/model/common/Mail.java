@@ -4,8 +4,6 @@
 package sk.badand.mafuti.model.common;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author abadinka

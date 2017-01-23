@@ -7,7 +7,6 @@ import sk.badand.mafuti.model.training.TrainingRegime;
 import sk.badand.mafuti.model.training.TrainingType;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * Created by abadinka on 24.10.2016.

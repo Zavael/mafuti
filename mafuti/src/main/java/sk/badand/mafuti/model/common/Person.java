@@ -14,29 +14,29 @@ public interface Person {
     
     Object key();
     
-    public LocalDate birthDate();
+    LocalDate birthDate();
 
-    public String firstName();
+    String firstName();
 
-    public String lastName();
+    String lastName();
 
-    public String middleName();
+    String middleName();
 
-    public String namePrefix();
+    String namePrefix();
 
-    public String nameSuffix();
+    String nameSuffix();
 
-    public String nickname();
+    String nickname();
 
-    public Short morale();
+    Short morale();
 
-    public Integer reputation();
+    Integer reputation();
 
-    public Collection<Nation> nationalities();
+    Collection<Nation> nationalities();
 
-    public Collection skills();
+    Collection skills();
 
-    public Contract contract();
+    Contract contract();
 
-    public PersonType personType();
+    PersonType personType();
 }

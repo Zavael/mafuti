@@ -45,9 +45,8 @@ public class TeamChancesCalc {
         HashMap<ActionType, Double> possibleActions = TransitionTableController.getPossibleActions(actionType);
         
         EmpiricDecider<ActionType> empiricDecider = new EmpiricDecider<>(possibleActions);
-        ActionType nextAction = empiricDecider.getSuccessfulOption();
-        
-        
-        return nextAction;
+
+
+        return empiricDecider.getSuccessfulOption();
     }
 }

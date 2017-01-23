@@ -46,14 +46,14 @@ public class LoggingProperties {
         }
     }
     
-    private static enum LOG_LEVEL {
+    private enum LOG_LEVEL {
         DEV((short)0),
         TEST((short)1),
         PROD((short)2);
         
         private final short id;
 
-        private LOG_LEVEL(short id) {
+        LOG_LEVEL(short id) {
             this.id = id;
         }
     }

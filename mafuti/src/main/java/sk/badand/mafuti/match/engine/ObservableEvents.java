@@ -15,7 +15,7 @@ public enum ObservableEvents {
     
     double key;
 
-    private ObservableEvents(double key) {
+    ObservableEvents(double key) {
         this.key = key;
     }
 }

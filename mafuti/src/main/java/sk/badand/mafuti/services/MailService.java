@@ -4,7 +4,6 @@ import sk.badand.mafuti.model.common.Mail;
 
 import java.time.LocalDate;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 

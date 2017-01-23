@@ -17,7 +17,6 @@ import sk.badand.mafuti.model.match.Player;
 import sk.badand.mafuti.model.match.PlayableStadium;
 import sk.badand.mafuti.model.match.PlayableMatch;
 import sk.badand.mafuti.model.match.result.Result;
-import sk.badand.math.Randomizer;
 
 /**
  *
@@ -66,7 +65,7 @@ public class MockMatch implements PlayableMatch {
     @Override
     public List<Player> getHomeTop5Players() {
         return homeTeam.getPlayers().stream()
-                .filter(player -> player.isPlaying())
+                .filter(Player::isPlaying)
                 .sorted(Comparator.comparing(Player::overallRating).reversed())
                 .limit(TOP_PLAYERS_COUNT)
                 .collect(Collectors.toList());
@@ -75,7 +74,7 @@ public class MockMatch implements PlayableMatch {
     @Override
     public List<Player> getAwayTop5Players() {
         return awayTeam.getPlayers().stream()
-                .filter(player -> player.isPlaying())
+                .filter(Player::isPlaying)
                 .sorted(Comparator.comparing(Player::overallRating).reversed())
                 .limit(TOP_PLAYERS_COUNT)
                 .collect(Collectors.toList());

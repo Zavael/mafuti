@@ -3,10 +3,6 @@
  */
 package sk.badand.mafuti.match.engine;
 
-import sk.badand.mafuti.services.mock.MockTeam;
-import sk.badand.mafuti.util.LoggingProperties;
-import sk.badand.math.Randomizer;
-
 /**
  *
  * @author abadinka

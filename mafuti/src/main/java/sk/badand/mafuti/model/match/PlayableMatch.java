@@ -20,5 +20,5 @@ public interface PlayableMatch extends Match {
 
     String getPlayTime();
 
-    public PlayingTeam getManagerTeam();
+    PlayingTeam getManagerTeam();
 }

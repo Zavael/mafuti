@@ -6,11 +6,9 @@ package sk.badand.mafuti.ui.training.programs;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.control.TextArea;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
@@ -43,9 +41,7 @@ public class ProgramsPresenter implements Initializable {
 
         programsListView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             affectedSkills.getChildren().clear();
-            newValue.getAffectedSkills().forEach(playerSkill -> {
-                affectedSkills.getChildren().add(new Label(playerSkill.getName()));
-            });
+            newValue.getAffectedSkills().forEach(playerSkill -> affectedSkills.getChildren().add(new Label(playerSkill.getName())));
             regimeName.setText(newValue.getName());
             regimeDescription.getChildren().setAll(new Text(newValue.getDescription()));
         });

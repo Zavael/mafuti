@@ -15,7 +15,7 @@ public enum CounterAttacks {
     
     private String key;
 
-    private CounterAttacks(String key) {
+    CounterAttacks(String key) {
         this.key = key;
     }
 

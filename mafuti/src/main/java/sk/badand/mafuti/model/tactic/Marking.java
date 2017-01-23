@@ -15,7 +15,7 @@ public enum Marking {
     
     private String key;
 
-    private Marking(String key) {
+    Marking(String key) {
         this.key = key;
     }
 

@@ -14,7 +14,6 @@ import javafx.scene.control.ListView;
 import javax.inject.Inject;
 
 import sk.badand.mafuti.model.match.PlayableMatch;
-import sk.badand.mafuti.model.match.Player;
 import sk.badand.mafuti.model.match.PlayerStatistics;
 import sk.badand.mafuti.model.match.result.Result;
 import sk.badand.mafuti.ui.dashboard.DashboardView;

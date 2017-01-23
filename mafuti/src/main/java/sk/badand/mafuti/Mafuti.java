@@ -3,7 +3,6 @@
  */
 package sk.badand.mafuti;
 
-import com.airhacks.afterburner.injection.Injector;
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -64,13 +63,10 @@ public class Mafuti extends Application {
 //            stageRef.setX(me.getScreenX() - dragAnchorX);
 //            stageRef.setY(me.getScreenY() - dragAnchorY);
 //        });
-        stageRef.setOnCloseRequest((WindowEvent ev) -> {
-            new QuestionDialog("Close?").showAndWait()
-                    .filter(result -> result != ButtonType.OK)
-                    .ifPresent(result -> {
-                        ev.consume();
-                    });
-        });
+        stageRef.setOnCloseRequest((WindowEvent ev) -> new QuestionDialog("Close?")
+                .showAndWait()
+                .filter(result -> result != ButtonType.OK)
+                .ifPresent(result -> ev.consume()));
 
     }
 

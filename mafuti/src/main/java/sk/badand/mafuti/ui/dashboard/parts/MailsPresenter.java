@@ -43,9 +43,7 @@ public class MailsPresenter implements Initializable {
 
         mailsTitles.setCellFactory(new ListViewMailTitleFactory());
 
-        mailsTitles.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            this.selectedMail = newValue;
-        });
+        mailsTitles.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> this.selectedMail = newValue);
     }
 
     @FXML

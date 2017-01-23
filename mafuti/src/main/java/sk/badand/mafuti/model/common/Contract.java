@@ -14,15 +14,15 @@ import java.util.Optional;
  * @author abadinka
  */
 public interface Contract {
-    public Person person();
+    Person person();
 
-    public Club club();
+    Club club();
 
-    public int wage();
+    int wage();
 
-    public LocalDate start();
+    LocalDate start();
 
-    public Optional<LocalDate> end();
+    Optional<LocalDate> end();
 
-    public SquadStatus promisedStatus();
+    SquadStatus promisedStatus();
 }
