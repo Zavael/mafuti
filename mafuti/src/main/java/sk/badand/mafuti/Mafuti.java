@@ -74,12 +74,6 @@ public class Mafuti extends Application {
 
     }
 
-    @Override
-    public void stop() throws Exception {
-        super.stop();
-        Injector.forgetAll();
-    }
-
     public static void setScene(Scene scene) {
         mainStage.setScene(scene);
     }

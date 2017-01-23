@@ -61,7 +61,7 @@
         <HBox alignment="CENTER_RIGHT" >
             <children>
                 <Button onAction="#skipMatch" text="%btn.match.skip" />
-                <Button onAction="#showMatch" text="%btn.match.attend" />
+                <Button onAction="#showMatch" text="%btn.match.attend" disable="true" />
             </children>
         </HBox>
     </bottom>
