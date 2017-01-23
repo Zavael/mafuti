@@ -8,19 +8,19 @@ package sk.badand.mafuti.model.common;
  * @author abadinka
  */
 public enum Weather {
-    SUNNY("sunny"),
-    PARTIAL("partially cloudy"),
-    CLOUDY("cloudy"),
-    RAINY("rainy");
+    SUNNY("weather.type.sunny"),
+    PARTIAL("weather.type.partialCloudy"),
+    CLOUDY("weather.type.cloudy"),
+    RAINY("weather.type.rainy");
     
-    private String uiText;
+    public final String key;
 
-    Weather(String uiText) {
-        this.uiText = uiText;
+    Weather(String key) {
+        this.key = key;
     }
 
     @Override
     public String toString() {
-        return uiText;
+        return key;
     }
 }

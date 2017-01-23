@@ -13,14 +13,10 @@ public enum PassingFocus {
     MIXED("passFocus.mixed"),
     IN_MIDDLE("passFocus.inMiddle");
         
-    private String key;
+    public final String key;
 
     PassingFocus(String key) {
         this.key = key;
-    }
-
-    public String key() {
-        return key;
     }
 
     public static PassingFocus predefined() {

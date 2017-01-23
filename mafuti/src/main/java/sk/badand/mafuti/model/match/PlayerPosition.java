@@ -15,24 +15,16 @@ public enum PlayerPosition {
     DEFENDER("player.pos.cd", "CD", 0.2, 0.3),
     GOALKEEPER("player.pos.gk", "GK", 0.005, 0.05);
     
-    private final String bundleKey;
-    private final String abbreviation;
+    public final String key;
+    public final String abbreviation;
     private final double scoringProbability;
     private final double assistProbability;
     
-    PlayerPosition(String bundleKey, String abbreviation, double scoringProbability, double assistProbability) {
-        this.bundleKey = bundleKey;
+    PlayerPosition(String key, String abbreviation, double scoringProbability, double assistProbability) {
+        this.key = key;
         this.abbreviation = abbreviation;
         this.scoringProbability = scoringProbability;
         this.assistProbability = assistProbability;
-    }
-
-    public String getBundleKey() {
-        return bundleKey;
-    }
-
-    public String getAbbreviation() {
-        return abbreviation;
     }
 
     @Override

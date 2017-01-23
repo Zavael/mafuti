@@ -15,9 +15,9 @@ public enum SquadStatus {
     DECENTYOUNGSTER("squad.status.decentyoung"),
     NOTNEEDED("squad.status.notneeded");
 
-    private final String bundleKey;
+    public final String key;
 
     SquadStatus(String key) {
-        this.bundleKey = "lbl." + key;
+        this.key = key;
     }
 }

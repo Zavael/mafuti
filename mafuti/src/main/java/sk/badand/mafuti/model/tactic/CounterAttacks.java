@@ -13,14 +13,10 @@ public enum CounterAttacks {
     SOMETIMES("counterAtt.sometimes"),
     OFTEN("counterAtt.often");
     
-    private String key;
+    public final String key;
 
     CounterAttacks(String key) {
         this.key = key;
-    }
-
-    public String key() {
-        return key;
     }
 
     public static CounterAttacks predefined() {

@@ -41,7 +41,7 @@ public class ProgramsPresenter implements Initializable {
 
         programsListView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             affectedSkills.getChildren().clear();
-            newValue.getAffectedSkills().forEach(playerSkill -> affectedSkills.getChildren().add(new Label(playerSkill.getName())));
+            newValue.getAffectedSkills().forEach(playerSkill -> affectedSkills.getChildren().add(new Label(playerSkill.key)));
             regimeName.setText(newValue.getName());
             regimeDescription.getChildren().setAll(new Text(newValue.getDescription()));
         });

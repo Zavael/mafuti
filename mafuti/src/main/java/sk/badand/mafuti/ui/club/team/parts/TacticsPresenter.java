@@ -43,27 +43,27 @@ public class TacticsPresenter implements Initializable {
                 .get();*/
 
         Stream.of(Marking.values())
-                .forEach(val -> markingChoice.getItems().add(rb.getString(val.key())));
+                .forEach(val -> markingChoice.getItems().add(rb.getString(val.key)));
         Stream.of(Tackling.values())
-                .forEach(val -> tacklingChoice.getItems().add(rb.getString(val.key())));
+                .forEach(val -> tacklingChoice.getItems().add(rb.getString(val.key)));
         Stream.of(CounterAttacks.values())
-                .forEach(val -> counterAttChoice.getItems().add(rb.getString(val.key())));
+                .forEach(val -> counterAttChoice.getItems().add(rb.getString(val.key)));
         Stream.of(PassingFocus.values())
-                .forEach(val -> passFocusChoice.getItems().add(rb.getString(val.key())));
+                .forEach(val -> passFocusChoice.getItems().add(rb.getString(val.key)));
         Stream.of(PassingStyle.values())
-                .forEach(val -> passStyleChoice.getItems().add(rb.getString(val.key())));
+                .forEach(val -> passStyleChoice.getItems().add(rb.getString(val.key)));
         Stream.of(Philosophy.values())
-                .forEach(val -> philosophyChoice.getItems().add(rb.getString(val.key())));
+                .forEach(val -> philosophyChoice.getItems().add(rb.getString(val.key)));
 
         //loadPredefTactic(team, rb);
     }
 
     private void loadPredefTactic(Team team, ResourceBundle rb) {
-        markingChoice.setValue(rb.getString(team.predefMarking().orElse(Marking.predefined()).key()));
-        tacklingChoice.setValue(rb.getString(team.predefTackling().orElse(Tackling.predefined()).key()));
-        counterAttChoice.setValue(rb.getString(team.predefCounterAttacks().orElse(CounterAttacks.predefined()).key()));
-        passFocusChoice.setValue(rb.getString(team.predefPassingFocus().orElse(PassingFocus.predefined()).key()));
-        passStyleChoice.setValue(rb.getString(team.predefPassingStyle().orElse(PassingStyle.predefined()).key()));
-        philosophyChoice.setValue(rb.getString(team.predefPhilosophy().orElse(Philosophy.predefined()).key()));
+        markingChoice.setValue(rb.getString(team.predefMarking().orElse(Marking.predefined()).key));
+        tacklingChoice.setValue(rb.getString(team.predefTackling().orElse(Tackling.predefined()).key));
+        counterAttChoice.setValue(rb.getString(team.predefCounterAttacks().orElse(CounterAttacks.predefined()).key));
+        passFocusChoice.setValue(rb.getString(team.predefPassingFocus().orElse(PassingFocus.predefined()).key));
+        passStyleChoice.setValue(rb.getString(team.predefPassingStyle().orElse(PassingStyle.predefined()).key));
+        philosophyChoice.setValue(rb.getString(team.predefPhilosophy().orElse(Philosophy.predefined()).key));
     }
 }

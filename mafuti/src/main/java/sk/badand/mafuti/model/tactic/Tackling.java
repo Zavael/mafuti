@@ -12,14 +12,10 @@ public enum Tackling {
     NORMAL("tackling.normal"),
     HARD("tackling.hard");
     
-    private String key;
+    public final String key;
 
     Tackling(String key) {
         this.key = key;
-    }
-
-    public String key() {
-        return key;
     }
 
     public static Tackling predefined() {

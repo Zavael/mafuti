@@ -12,14 +12,10 @@ public enum Philosophy {
     NORMAL("philosophy.normal"),
     DEFEND("philosophy.defend");
     
-    private String key;
+    public final String key;
 
     Philosophy(String key) {
         this.key = key;
-    }
-
-    public String key() {
-        return key;
     }
 
     public static Philosophy predefined() {

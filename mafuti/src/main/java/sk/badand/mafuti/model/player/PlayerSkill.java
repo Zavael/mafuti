@@ -1,11 +1,9 @@
 package sk.badand.mafuti.model.player;
 
-import sk.badand.mafuti.model.common.Skill;
-
 /**
  * Created by zavael on 25.10.2016.
  */
-public enum PlayerSkill implements Skill {
+public enum PlayerSkill {
     ATTACKING(PlayerSkillType.POSITIONAL, "player.skill.att", "Att"),
     WING(PlayerSkillType.POSITIONAL, "player.skill.wng", "Wng"),
     PLAYMAKING(PlayerSkillType.POSITIONAL, "player.skill.pmg", "Pmg"),
@@ -16,26 +14,16 @@ public enum PlayerSkill implements Skill {
     MENTAL(PlayerSkillType.NATURAL, "player.skill.men", "Men");
 
     private final PlayerSkillType skillType;
-    private final String bundleKey;
-    private final String abbreviation;
+    public final String key;
+    public final String abbreviation;
 
-    PlayerSkill(PlayerSkillType skillType, String bundleKey, String abbreviation) {
+    PlayerSkill(PlayerSkillType skillType, String key, String abbreviation) {
         this.skillType = skillType;
-        this.bundleKey = "lbl." + bundleKey;
-        this.abbreviation = abbreviation;
+        this.key = key;
+        this.abbreviation = abbreviation; //TODO refactor to key + "abbrev" ?
     }
 
-    public PlayerSkillType getSkillType() {
+    public PlayerSkillType skillType() {
         return skillType;
-    }
-
-    @Override
-    public String getName() {
-        return bundleKey; // TODO: 25.10.2016 return localized name
-    }
-
-    @Override
-    public String getAbbreviation() {
-        return abbreviation;
     }
 }

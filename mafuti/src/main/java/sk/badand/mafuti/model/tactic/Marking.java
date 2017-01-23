@@ -13,14 +13,10 @@ public enum Marking {
     MIXED("marking.mixed"),
     MAN("marking.man");
     
-    private String key;
+    public final String key;
 
     Marking(String key) {
         this.key = key;
-    }
-
-    public String key() {
-        return key;
     }
 
     public static Marking predefined() {

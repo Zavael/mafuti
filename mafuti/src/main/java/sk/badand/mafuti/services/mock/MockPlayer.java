@@ -127,7 +127,7 @@ public final class MockPlayer implements Player {
 
     @Override
     public String positionAbbr() {
-        return position.getAbbreviation();
+        return position.abbreviation;
     }
 
     @Override
