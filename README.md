@@ -1,5 +1,5 @@
 # mafuti
-Java fx project
+Java fx project aiming to create football simulation game
 
 ## Requirements
 - git
