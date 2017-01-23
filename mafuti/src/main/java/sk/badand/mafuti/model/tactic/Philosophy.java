@@ -14,7 +14,7 @@ public enum Philosophy {
     
     private String key;
 
-    private Philosophy(String key) {
+    Philosophy(String key) {
         this.key = key;
     }
 

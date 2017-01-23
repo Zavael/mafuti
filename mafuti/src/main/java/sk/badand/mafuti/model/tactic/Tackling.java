@@ -14,7 +14,7 @@ public enum Tackling {
     
     private String key;
 
-    private Tackling(String key) {
+    Tackling(String key) {
         this.key = key;
     }
 

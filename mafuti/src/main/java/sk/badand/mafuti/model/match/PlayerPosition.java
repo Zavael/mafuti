@@ -20,7 +20,7 @@ public enum PlayerPosition {
     private final double scoringProbability;
     private final double assistProbability;
     
-    private PlayerPosition(String bundleKey, String abbreviation, double scoringProbability, double assistProbability) {    
+    PlayerPosition(String bundleKey, String abbreviation, double scoringProbability, double assistProbability) {
         this.bundleKey = bundleKey;
         this.abbreviation = abbreviation;
         this.scoringProbability = scoringProbability;

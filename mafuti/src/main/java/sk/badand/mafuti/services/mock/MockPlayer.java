@@ -34,8 +34,7 @@ public final class MockPlayer implements Player {
         this.position = position;
         this.currentPosition = this.position;
         shortName = firstName().substring(0, 1) + ". " + lastName();
-        contract = new Contract() {
-        };
+        contract = new MockContract();
     }
 
     @Override

@@ -14,7 +14,7 @@ public enum PassingStyle {
         
     private String key;
 
-    private PassingStyle(String key) {
+    PassingStyle(String key) {
         this.key = key;
     }
 

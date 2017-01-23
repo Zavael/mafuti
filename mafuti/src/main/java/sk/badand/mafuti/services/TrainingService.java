@@ -4,12 +4,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import sk.badand.mafuti.model.player.PlayerSkill;
 import sk.badand.mafuti.model.training.TrainingRegime;
+import sk.badand.mafuti.model.training.TrainingType;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * Created by zavael on 24.10.2016.
+ * Created by abadinka on 24.10.2016.
  */
 public class TrainingService {
 
@@ -19,39 +20,32 @@ public class TrainingService {
         if (predefinedRegimes == null) {
             predefinedRegimes = FXCollections.observableArrayList(
                     new TrainingRegime(
-                            "training.regime.natural",
-                            Arrays.asList(PlayerSkill.PHYSICAL, PlayerSkill.TECHNICAL, PlayerSkill.MENTAL),
-                            "training.regime.description.natural"
+                            TrainingType.NATURAL,
+                            Arrays.asList(PlayerSkill.PHYSICAL, PlayerSkill.TECHNICAL, PlayerSkill.MENTAL)
                     ),
                     new TrainingRegime(
-                            "training.regime.attacking",
-                            Arrays.asList(PlayerSkill.PHYSICAL, PlayerSkill.WING, PlayerSkill.ATTACKING),
-                            "training.regime.description.attacking"
+                            TrainingType.ATTACKING,
+                            Arrays.asList(PlayerSkill.PHYSICAL, PlayerSkill.WING, PlayerSkill.ATTACKING)
                     ),
                     new TrainingRegime(
-                            "training.regime.central",
-                            Arrays.asList(PlayerSkill.PLAYMAKING, PlayerSkill.TECHNICAL, PlayerSkill.MENTAL),
-                            "training.regime.description.central"
+                            TrainingType.CENTRAL,
+                            Arrays.asList(PlayerSkill.PLAYMAKING, PlayerSkill.TECHNICAL, PlayerSkill.MENTAL)
                     ),
                     new TrainingRegime(
-                            "training.regime.wing",
-                            Arrays.asList(PlayerSkill.PHYSICAL, PlayerSkill.TECHNICAL, PlayerSkill.WING),
-                            "training.regime.description.wing"
+                            TrainingType.WING,
+                            Arrays.asList(PlayerSkill.PHYSICAL, PlayerSkill.TECHNICAL, PlayerSkill.WING)
                     ),
                     new TrainingRegime(
-                            "training.regime.defending",
-                            Arrays.asList(PlayerSkill.PHYSICAL, PlayerSkill.DEFENDING, PlayerSkill.MENTAL),
-                            "training.regime.description.defending"
+                            TrainingType.DEFENDING,
+                            Arrays.asList(PlayerSkill.PHYSICAL, PlayerSkill.DEFENDING, PlayerSkill.MENTAL)
                     ),
                     new TrainingRegime(
-                            "training.regime.ballcontrol",
-                            Arrays.asList(PlayerSkill.ATTACKING, PlayerSkill.TECHNICAL, PlayerSkill.PLAYMAKING),
-                            "training.regime.description.ballcontrol"
+                            TrainingType.BALLCONTROL,
+                            Arrays.asList(PlayerSkill.ATTACKING, PlayerSkill.TECHNICAL, PlayerSkill.PLAYMAKING)
                     ),
                     new TrainingRegime(
-                            "training.regime.goalkeeping",
-                            Arrays.asList(PlayerSkill.GOALKEEPING, PlayerSkill.DEFENDING, PlayerSkill.TECHNICAL),
-                            "training.regime.description.goalkeeping"
+                            TrainingType.GOALKEEPING,
+                            Arrays.asList(PlayerSkill.GOALKEEPING, PlayerSkill.DEFENDING, PlayerSkill.TECHNICAL)
                     )
             );
 

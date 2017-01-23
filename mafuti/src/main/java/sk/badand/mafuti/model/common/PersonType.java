@@ -14,9 +14,9 @@ public enum PersonType {
     COACH("person.type.coach"),
     PHYSIO("person.type.physio");
     
-    private final String bundleKey;
+    public final String key;
 
-    private PersonType(String bundleKey) {
-        this.bundleKey = "lbl." + bundleKey;
+    PersonType(String key) {
+        this.key = key;
     }
 }

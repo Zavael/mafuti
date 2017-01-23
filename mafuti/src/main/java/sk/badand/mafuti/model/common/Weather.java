@@ -15,7 +15,7 @@ public enum Weather {
     
     private String uiText;
 
-    private Weather(String uiText) {
+    Weather(String uiText) {
         this.uiText = uiText;
     }
 

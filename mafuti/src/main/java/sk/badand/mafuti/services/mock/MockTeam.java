@@ -126,7 +126,7 @@ public class MockTeam implements PlayingTeam {
     @Override
     public Player getRandomScorer() {
         Map<Player, Double> options = new HashMap();
-        getPlayers().stream()
+        getPlayers()
                 .forEach(player -> options.put(player, player.scoreProbability()));
         EmpiricDecider<Player> ed = new EmpiricDecider<>(options);
         return ed.getSuccessfulOption();
@@ -135,7 +135,7 @@ public class MockTeam implements PlayingTeam {
     @Override
     public Player getRandomAssistant() {
         Map<Player, Double> options = new HashMap();
-        getPlayers().stream()
+        getPlayers()
                 .forEach(player -> options.put(player, player.assistProbability()));
         EmpiricDecider<Player> ed = new EmpiricDecider<>(options);
         return ed.getSuccessfulOption();

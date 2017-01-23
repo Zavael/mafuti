@@ -19,7 +19,7 @@ public enum PlayerSkill implements Skill {
     private final String bundleKey;
     private final String abbreviation;
 
-    private PlayerSkill(PlayerSkillType skillType, String bundleKey, String abbreviation) {
+    PlayerSkill(PlayerSkillType skillType, String bundleKey, String abbreviation) {
         this.skillType = skillType;
         this.bundleKey = "lbl." + bundleKey;
         this.abbreviation = abbreviation;

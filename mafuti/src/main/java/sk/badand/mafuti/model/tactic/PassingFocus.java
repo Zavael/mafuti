@@ -15,7 +15,7 @@ public enum PassingFocus {
         
     private String key;
 
-    private PassingFocus(String key) {
+    PassingFocus(String key) {
         this.key = key;
     }
 
