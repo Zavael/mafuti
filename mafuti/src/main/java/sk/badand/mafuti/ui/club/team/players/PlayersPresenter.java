@@ -1,4 +1,4 @@
-package sk.badand.mafuti.ui.club.team.parts;
+package sk.badand.mafuti.ui.club.team.players;
 
 import javafx.fxml.Initializable;
 
@@ -8,7 +8,7 @@ import java.util.ResourceBundle;
 /**
  * Created by abadinka.
  */
-public class FormationPresenter implements Initializable{
+public class PlayersPresenter implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

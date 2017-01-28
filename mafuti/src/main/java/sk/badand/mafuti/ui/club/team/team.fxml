@@ -17,7 +17,7 @@
                     <content>
                         <AnchorPane>
                             <children>
-                                <fx:include source="parts/players.fxml" />
+                                <fx:include source="players/players.fxml" />
                             </children>
                         </AnchorPane>
                     </content>
@@ -26,18 +26,14 @@
                     <content>
                         <AnchorPane>
                             <children>
-                                <fx:include source="parts/formation.fxml" />
+                                <fx:include source="formation/formation.fxml" />
                             </children>
                         </AnchorPane>
                     </content>
                 </Tab>
                 <Tab text="%tab.tactics">
                     <content>
-                        <AnchorPane>
-                            <children>
-                                <fx:include source="parts/tactics.fxml" />
-                            </children>
-                        </AnchorPane>
+                        <AnchorPane fx:id="tabTactics" />
                     </content>
                 </Tab>
             </tabs>

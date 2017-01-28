@@ -1,4 +1,4 @@
-package sk.badand.mafuti.ui.club.team.parts;
+package sk.badand.mafuti.ui.club.team.tactics;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -10,6 +10,7 @@ import sk.badand.mafuti.model.tactic.*;
 import javax.inject.Inject;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Logger;
 import java.util.stream.Stream;
 
 /**
@@ -17,6 +18,7 @@ import java.util.stream.Stream;
  */
 public class TacticsPresenter implements Initializable {
 
+    private static final Logger LOG = Logger.getLogger(TacticsPresenter.class.getName());
 
     @FXML
     ComboBox<String> markingChoice;
@@ -36,12 +38,6 @@ public class TacticsPresenter implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
-        /*Team team = managerClub.getTeams().parallelStream()
-                .filter(t -> t.getPriority() == 0)
-                .findFirst()
-                .get();*/
-
         Stream.of(Marking.values())
                 .forEach(val -> markingChoice.getItems().add(rb.getString(val.key)));
         Stream.of(Tackling.values())
@@ -55,7 +51,11 @@ public class TacticsPresenter implements Initializable {
         Stream.of(Philosophy.values())
                 .forEach(val -> philosophyChoice.getItems().add(rb.getString(val.key)));
 
-        //loadPredefTactic(team, rb);
+        /*Team team = managerClub.getTeams().parallelStream()
+                .filter(t -> t.getPriority() == 0)
+                .findFirst()
+                .get();
+        loadPredefTactic(team, rb);*/
     }
 
     private void loadPredefTactic(Team team, ResourceBundle rb) {
