@@ -3,11 +3,13 @@
  */
 package sk.badand.mafuti.services;
 
+import sk.badand.mafuti.model.Team;
 import sk.badand.mafuti.model.match.PlayableMatch;
 import sk.badand.mafuti.model.match.Match;
 import sk.badand.mafuti.services.mock.MockMatch;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import sk.badand.math.OddsDecider;
@@ -19,13 +21,12 @@ import sk.badand.math.OddsDecider;
 public class CalendarService {
 
     private Calendar calendar;
-    private static LocalDate currentDate; // maybe need to synchronize the progress of days
 
-    public PlayableMatch managerMatchForDay(LocalDate date) {
-        return new MockMatch();
+    public Optional<PlayableMatch> matchToday(Team team) {
+        return Optional.of(new MockMatch());
     }
 
-    public boolean isManagerPlaying(LocalDate date) {
+    public boolean isTeamPlayingToday(Team team) {
         return new OddsDecider().decideSuccess(0.5);
     }
 
@@ -38,11 +39,11 @@ public class CalendarService {
     }
 
     public LocalDate currentDate() {
-        return currentDate;
+        return calendar.currentDate();
     }
     
     public void nextDay() { //TODO synchronized?
-        currentDate = currentDate.plusDays(1);
+        calendar.passOneDay();
     }
     
 }

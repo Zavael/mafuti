@@ -42,6 +42,7 @@ public class DashboardPresenter extends AbstractNavigator {
     PieChart chart;
     @Inject
     CalendarService calendarService;
+    MockClub club = new MockClub();
 
     /**
      * Initializes the controller class.
@@ -54,19 +55,18 @@ public class DashboardPresenter extends AbstractNavigator {
                         new PieChart.Data("Draws", 13),
                         new PieChart.Data("Loses", 10))
         );
-        Injector.setModelOrService(ManagerClub.class, new MockClub());
+        Injector.setModelOrService(ManagerClub.class, club);
     }
 
     public void processTime() {
         LOG.log(Level.FINE, "processTime");
-        if (calendarService.isManagerPlaying(calendarService.currentDate())) {
+        if (calendarService.isTeamPlayingToday(club.getTeams().get(0))) {
             new QuestionDialog("yes or no").showAndWait()
                     .filter(result -> result == ButtonType.OK)
                     .ifPresent(result -> {
-                        PlayableMatch managerMatch = calendarService.managerMatchForDay(calendarService.currentDate());
+                        PlayableMatch managerMatch = calendarService.matchToday(club.getTeams().get(0)).get();
                         Injector.setModelOrService(PlayableMatch.class, managerMatch);
                         final PrematchView prematchView = new PrematchView();
-//                        ((PrematchPresenter) prematchView.getPresenter()).setMatch(managerMatch);
                         navigator.load(prematchView);
                     });
         } else {
