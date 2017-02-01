@@ -14,12 +14,12 @@ public class MailService {
 
     private Collection<Mail> mails = Stream.of(
             new Mail("mail.transfer.offer", LocalDate.now(), true),
-            new Mail("player.injury", LocalDate.now(), true),
-            new Mail("report.finances", LocalDate.now(), true),
-            new Mail("match.delayed", LocalDate.now(), true),
-            new Mail("report.youth", LocalDate.now(), true),
-            new Mail("report.training", LocalDate.now(), true),
-            new Mail("", LocalDate.now(), true))
+            new Mail("mail.player.injury", LocalDate.now(), true),
+            new Mail("mail.report.finances", LocalDate.now(), true),
+            new Mail("mail.match.delayed", LocalDate.now(), true),
+            new Mail("mail.report.youth", LocalDate.now(), true),
+            new Mail("mail.report.training", LocalDate.now(), true),
+            new Mail("mail.finances.loan.approved", LocalDate.now(), true))
             .collect(Collectors.toList());
 
     public Collection<Mail> getMails() {
