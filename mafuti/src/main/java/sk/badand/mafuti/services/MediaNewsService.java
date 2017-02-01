@@ -15,13 +15,13 @@ public class MediaNewsService {
 
     public MediaNewsService() {
         this.news = Stream.of(
-                new MediaStory("New hot transfer ongoing"),
-                new MediaStory("Biggest win in premier league"),
-                new MediaStory("Club punished for transfer cheat"),
-                new MediaStory("Foreign expert shared best training methods"),
-                new MediaStory("Club went bankrupt"),
-                new MediaStory("Team of the week announced"),
-                new MediaStory("Last league round evaluation"))
+                new MediaStory("transfer.new.big"),
+                new MediaStory("match.result.biggest"),
+                new MediaStory("transfer.fraud"),
+                new MediaStory("tips.training.1"),
+                new MediaStory("club.bankrupt"),
+                new MediaStory("league.announcement.tow"),
+                new MediaStory("league.round.eval"))
                 .collect(Collectors.toList());
     }
 

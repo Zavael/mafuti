@@ -10,33 +10,25 @@ import java.time.LocalDate;
  */
 public class Mail {
     //TODO maybe refactor to abstract class and few subclasses
-    private final String message;
-    private final String title;
-    private final LocalDate sendDate;
-    private final boolean important;
+    public final String subjectKey;
+    public final String bodyKey;
+    public final LocalDate sendDate;
+    public final boolean important;
     private boolean hasBeenRead;
     private MailResolution resolution;
 
-    public Mail(String title, LocalDate sendDate, boolean important) {
-        this.message = title;
-        this.title = title;
+    public Mail(String key, LocalDate sendDate, boolean important) {
+        this.subjectKey = key + ".subject";
+        this.bodyKey = key + ".body";
         this.sendDate = sendDate;
         this.important = important;
     }
 
-    public void setHasBeenRead(boolean hasBeenRead) {
-        this.hasBeenRead = hasBeenRead;
+    public void setHasBeenRead() {
+        this.hasBeenRead = true;
     }
 
     public void setResolution(MailResolution resolution) {
         this.resolution = resolution;
-    }
-
-    public String title() {
-        return title;
-    }
-
-    public String message() {
-        return message;
     }
 }

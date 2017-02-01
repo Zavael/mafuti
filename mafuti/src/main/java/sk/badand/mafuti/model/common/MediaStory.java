@@ -1,14 +1,16 @@
 package sk.badand.mafuti.model.common;
 
+import java.util.ResourceBundle;
+
 /**
  * Created by zavael on 6.11.2016.
  */
 public class MediaStory {
-    private final String title;
-    private final String content;
+    public final String titleKey;
+    public final String messageKey;
 
-    public MediaStory(String title) {
-        this.title = title;
-        this.content = title;
+    public MediaStory(String key) {
+        this.titleKey = key + ".title";
+        this.messageKey = key + ".message";
     }
 }

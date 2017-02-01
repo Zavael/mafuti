@@ -24,7 +24,6 @@ public class TimeprogressPresenter extends AbstractNavigator {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        LOG.log(Level.FINE, "init");
 //        create time progress executor, smthing like this
 //        while (PROCESSING) {
 //            LOG.log(Level.FINE, "still processing..");

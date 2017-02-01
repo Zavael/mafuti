@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
 
-<SplitPane dividerPositions="0.3" orientation="VERTICAL" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.badand.mafuti.ui.dashboard.parts.MediaNewsPresenter">
+<SplitPane dividerPositions="0.5" orientation="VERTICAL" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.badand.mafuti.ui.dashboard.parts.MediaNewsPresenter">
     <items>
         <ListView fx:id="newsHeaders" />
-        <TextArea text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sed felis eleifend, gravida urna a, lobortis orci. Vivamus bibendum arcu et rhoncus pharetra. Nam in lorem vel sem laoreet pretium. Ut feugiat sapien posuere lacinia feugiat. Cras eu eros posuere, lobortis turpis vel, porta lectus. Suspendisse libero mauris, venenatis non."  />
+        <TextArea fx:id="mediaStoryMessage" text="" wrapText="true" />
     </items>
 </SplitPane>

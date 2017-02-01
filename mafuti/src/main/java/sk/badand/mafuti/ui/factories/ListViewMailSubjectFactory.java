@@ -5,10 +5,18 @@ import javafx.scene.control.ListView;
 import javafx.util.Callback;
 import sk.badand.mafuti.model.common.Mail;
 
+import java.util.ResourceBundle;
+
 /**
  * Created by zavael on 6.11.2016.
  */
-public class ListViewMailTitleFactory implements Callback<ListView<Mail>, ListCell<Mail>> {
+public class ListViewMailSubjectFactory implements Callback<ListView<Mail>, ListCell<Mail>> {
+
+    private ResourceBundle resourceBundle;
+
+    public ListViewMailSubjectFactory(ResourceBundle rb) {
+        resourceBundle = rb;
+    }
 
     @Override
     public ListCell<Mail> call(ListView<Mail> param) {
@@ -22,7 +30,7 @@ public class ListViewMailTitleFactory implements Callback<ListView<Mail>, ListCe
                     setText(null);
                     setGraphic(null);
                 } else {
-                    setText(item.title());
+                    setText(resourceBundle.containsKey(item.subjectKey) ? resourceBundle.getString(item.subjectKey) : item.subjectKey);
                 }
             }
         };
