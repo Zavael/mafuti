@@ -21,16 +21,16 @@ public class TrainingRegime {
         return affectedSkills;
     }
 
-    public String getName(){
+    public String getKey(){
         return trainingType.key; // TODO: 25.10.2016 return localized name
     }
 
     public String getDescription(){
-        return "Explanation of " + getName() + " skill is reaaaaaalllyyyyyy looooong. Skills" + affectedSkills;
+        return "Explanation of " + getKey() + " skill is reaaaaaalllyyyyyy looooong. Skills" + affectedSkills;
     }
 
     @Override
     public String toString() {
-        return getName();
+        return getKey();
     }
 }

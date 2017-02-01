@@ -1,11 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
 
-
-<HBox xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.badand.mafuti.ui.club.team.formation.FormationPresenter">
+<VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"
+      xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="sk.badand.mafuti.ui.club.team.formation.FormationPresenter">
     <children>
-        <VBox />
+        <HBox alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
+            <children>
+                <Button text="prev"/>
+                <Label prefWidth="300" fx:id="formationTitle" styleClass="header2"/>
+                <Button text="next"/>
+            </children>
+        </HBox>
+        <HBox>
+            <children>
+                <javafx.scene.image.ImageView fitHeight="200.0" fitWidth="300.0">
+                    <image>
+                        <Image url="@/images/mock_tactic_300x200.png"/>
+                    </image>
+                </javafx.scene.image.ImageView>
+                <ListView HBox.hgrow="ALWAYS"/>
+            </children>
+        </HBox>
+        <ListView VBox.vgrow="ALWAYS"/>
     </children>
-</HBox>
+</VBox>

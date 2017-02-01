@@ -12,7 +12,7 @@
                 <Label text="%lbl.team.squad"/>
                 <ListView/>
                 <Label text="%lbl.team.reserves"/>
-                <ListView/>
+                <ListView VBox.vgrow="ALWAYS"/>
             </children>
         </VBox>
         <VBox>

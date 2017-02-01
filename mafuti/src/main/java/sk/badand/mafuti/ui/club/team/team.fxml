@@ -24,11 +24,7 @@
                 </Tab>
                 <Tab text="%tab.formation">
                     <content>
-                        <AnchorPane>
-                            <children>
-                                <fx:include source="formation/formation.fxml" />
-                            </children>
-                        </AnchorPane>
+                        <AnchorPane fx:id="tabFormation" />
                     </content>
                 </Tab>
                 <Tab text="%tab.tactics">
