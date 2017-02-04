@@ -21,7 +21,8 @@ public class TacticService {
                     new Formation(
                             FormationType.FORM442,
                             "no affect"),
-                    new Formation(FormationType.FORM343, "stronger attack, weaker defence")
+                    new Formation(FormationType.FORM343, "stronger attack, weaker defence"),
+                    new Formation(FormationType.FORM433, "stronger attack, weaker midfield")
             );
         }
 

@@ -15,35 +15,35 @@ public enum FormationType {
             PlayerPosition.WINGER, PlayerPosition.MIDFIELDER, PlayerPosition.MIDFIELDER, PlayerPosition.WINGER,
             PlayerPosition.STRIKER, PlayerPosition.STRIKER
     ).collect(Collectors.toList())),
-    FORM433("formation.442", Stream.of(
+    FORM433("formation.433", Stream.of(
             PlayerPosition.WINGBACK, PlayerPosition.DEFENDER, PlayerPosition.DEFENDER, PlayerPosition.WINGBACK,
             PlayerPosition.WINGER, PlayerPosition.MIDFIELDER, PlayerPosition.MIDFIELDER, PlayerPosition.WINGER,
             PlayerPosition.STRIKER, PlayerPosition.STRIKER
     ).collect(Collectors.toList())),
-    FORM451("formation.442", Stream.of(
+    FORM451("formation.451", Stream.of(
             PlayerPosition.WINGBACK, PlayerPosition.DEFENDER, PlayerPosition.DEFENDER, PlayerPosition.WINGBACK,
             PlayerPosition.WINGER, PlayerPosition.MIDFIELDER, PlayerPosition.MIDFIELDER, PlayerPosition.WINGER,
             PlayerPosition.STRIKER, PlayerPosition.STRIKER
     ).collect(Collectors.toList())),
-    FORM343("formation.442", Stream.of(
+    FORM343("formation.343", Stream.of(
             PlayerPosition.WINGBACK, PlayerPosition.DEFENDER, PlayerPosition.DEFENDER, PlayerPosition.WINGBACK,
             PlayerPosition.WINGER, PlayerPosition.MIDFIELDER, PlayerPosition.MIDFIELDER, PlayerPosition.WINGER,
             PlayerPosition.STRIKER, PlayerPosition.STRIKER
     ).collect(Collectors.toList())),
-    FORM352("formation.442", Stream.of(
+    FORM352("formation.352", Stream.of(
             PlayerPosition.WINGBACK, PlayerPosition.DEFENDER, PlayerPosition.DEFENDER, PlayerPosition.WINGBACK,
             PlayerPosition.WINGER, PlayerPosition.MIDFIELDER, PlayerPosition.MIDFIELDER, PlayerPosition.WINGER,
             PlayerPosition.STRIKER, PlayerPosition.STRIKER
     ).collect(Collectors.toList())),
-    FORM541("formation.442", Stream.of(
+    FORM541("formation.541", Stream.of(
             PlayerPosition.WINGBACK, PlayerPosition.DEFENDER, PlayerPosition.DEFENDER, PlayerPosition.WINGBACK,
             PlayerPosition.WINGER, PlayerPosition.MIDFIELDER, PlayerPosition.MIDFIELDER, PlayerPosition.WINGER,
             PlayerPosition.STRIKER, PlayerPosition.STRIKER
     ).collect(Collectors.toList())),
-    FORM532("formation.442", Stream.of(
+    FORM532("formation.532", Stream.of(
             PlayerPosition.WINGBACK, PlayerPosition.DEFENDER, PlayerPosition.DEFENDER, PlayerPosition.WINGBACK,
             PlayerPosition.WINGER, PlayerPosition.MIDFIELDER, PlayerPosition.MIDFIELDER, PlayerPosition.WINGER,
-            PlayerPosition.STRIKER, PlayerPosition.STRIKER
+            PlayerPosition.STRIKER//, PlayerPosition.STRIKER
     ).collect(Collectors.toList()));
 
     private static final int FIELD_PLAYERS_COUNT = 10;
