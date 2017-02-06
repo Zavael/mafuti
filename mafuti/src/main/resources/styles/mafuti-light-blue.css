@@ -53,6 +53,11 @@
     -fx-text-fill: color0;
 }
 
+/* Button with SVGPath icon */
+.button:hover SVGPath{
+    -fx-fill: color0;
+}
+
 .button:pressed, .button:hover:pressed
 {
     -fx-text-fill: color1;
@@ -137,19 +142,22 @@
     -fx-background-color: transparent;
 }
 
-.tab {
-
-}
-
 .tab-pane .tab {
-    -fx-text-fill: color0;
     -fx-background-color: transparent;
     -fx-border-color: transparent;
+    -fx-border-style: none;
+    -fx-focus-color: transparent;
+    -fx-background-radius: 0;
+}
+
+.tab-pane .tab .tab-label {
+    -fx-text-fill: color0;
 }
 
 .tab-pane .tab:selected {
     -fx-background-color: transparent;
     -fx-border-color: transparent;
+    -fx-focus-color: transparent;
 }
 
 .tab-pane .tab:selected .tab-label {
@@ -159,10 +167,11 @@
     -fx-border-style: none;
 }
 
-*.tab-label {
+.tab-label {
     -fx-background-color: transparent;
     -fx-border-color: transparent;
     -fx-border-style: none;
+    -fx-focus-color: transparent;
 }
 
 .tab-pane:top *.tab-header-area {

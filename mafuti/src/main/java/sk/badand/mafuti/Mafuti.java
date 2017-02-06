@@ -10,9 +10,9 @@ import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.WindowEvent;
-import sk.badand.mafuti.util.QuestionDialog;
 import sk.badand.mafuti.ui.UiView;
 import sk.badand.mafuti.util.LoggingProperties;
+import sk.badand.mafuti.util.QuestionDialog;
 
 /**
  *
