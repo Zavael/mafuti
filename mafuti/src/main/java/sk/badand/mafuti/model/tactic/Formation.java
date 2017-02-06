@@ -10,7 +10,7 @@ import java.util.List;
 public class Formation {
 
     private final FormationType formationType;
-    private String affectOnTactic; //TODO
+    public final String affectOnTactic; //TODO
 
     public Formation(FormationType formationType, String affectOnTactic) {
         this.formationType = formationType;
@@ -19,5 +19,9 @@ public class Formation {
 
     public String getKey() {
         return formationType.key;
+    }
+
+    public String getImagePath() {
+        return "/images/formations/" + getKey() + ".png";
     }
 }

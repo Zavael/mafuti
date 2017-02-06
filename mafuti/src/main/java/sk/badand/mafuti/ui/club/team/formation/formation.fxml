@@ -10,6 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 
 <?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.control.TextArea?>
 <VBox spacing="10" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.badand.mafuti.ui.club.team.formation.FormationPresenter">
     <children>
         <HBox alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
@@ -29,12 +30,8 @@
         </HBox>
         <HBox alignment="CENTER" spacing="10">
             <children>
-                <javafx.scene.image.ImageView fx:id="image" fitHeight="200.0" fitWidth="150.0">
-                    <image>
-                        <Image url="@/images/mock_tactic_300x200.png" />
-                    </image>
-                </javafx.scene.image.ImageView>
-                <ListView focusTraversable="false" HBox.hgrow="ALWAYS" />
+                <javafx.scene.image.ImageView fx:id="image" fitHeight="300.0" fitWidth="300.0" />
+                <TextArea fx:id="description" editable="false" focusTraversable="false" HBox.hgrow="ALWAYS" />
             </children>
         </HBox>
         <HBox VBox.vgrow="ALWAYS">

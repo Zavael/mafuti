@@ -20,9 +20,13 @@ public class TacticService {
             formations = FXCollections.observableArrayList(
                     new Formation(
                             FormationType.FORM442,
-                            "no affect"),
+                            "balanced formation"),
+                    new Formation(FormationType.FORM433, "stronger attack, weaker midfield"),
+                    new Formation(FormationType.FORM451, "stronger midfield, weaker attack"),
                     new Formation(FormationType.FORM343, "stronger attack, weaker defence"),
-                    new Formation(FormationType.FORM433, "stronger attack, weaker midfield")
+                    new Formation(FormationType.FORM352, "stronger midfield, weaker defence"),
+                    new Formation(FormationType.FORM541, "stronger defence, weaker attack"),
+                    new Formation(FormationType.FORM532, "stronger defence, weaker midfield")
             );
         }
 

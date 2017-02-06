@@ -6,6 +6,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import sk.badand.mafuti.model.tactic.Formation;
@@ -22,6 +23,7 @@ public class FormationPresenter implements Initializable{
 
     public Label formationTitle;
     public ImageView image;
+    public TextArea description;
 
     private SimpleObjectProperty<Formation> selectedFormation = new SimpleObjectProperty<>();
     @Inject
@@ -31,7 +33,8 @@ public class FormationPresenter implements Initializable{
     public void initialize(URL url, ResourceBundle resourceBundle) {
         selectedFormation.addListener((observableValue, formation, newFormation) -> {
             formationTitle.setText(newFormation.getKey());
-            image.setImage(new Image("/images/mock_tactic_300x200.png"));
+            image.setImage(new Image(newFormation.getImagePath()));
+            description.setText(newFormation.affectOnTactic);
         });
 
         selectedFormation.setValue(tacticService.getFormations().get(0));
