@@ -20,7 +20,7 @@ public enum PlayerSkill {
     PlayerSkill(PlayerSkillType skillType, String key, String abbreviation) {
         this.skillType = skillType;
         this.key = key;
-        this.abbreviation = abbreviation; //TODO refactor to key + "abbrev" ?
+        this.abbreviation = abbreviation; //TODO refactor abbreviation -> bundle
     }
 
     public PlayerSkillType skillType() {

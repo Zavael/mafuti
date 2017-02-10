@@ -22,6 +22,10 @@ public interface Person {
 
     String middleName();
 
+    default String getFullName() {
+        return firstName() + " " + lastName();
+    }
+
     String namePrefix();
 
     String nameSuffix();
@@ -32,11 +36,19 @@ public interface Person {
 
     Integer reputation();
 
+    Reputation getReputation();
+
     Collection<Nation> nationalities();
+
+    Nation getMainNationality();
 
     Collection skills();
 
-    Contract contract();
+    //Contract contract();
+
+    int getWage();
+
+    LocalDate getExpiration();
 
     PersonType personType();
 }

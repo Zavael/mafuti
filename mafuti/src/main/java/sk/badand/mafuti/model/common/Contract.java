@@ -22,7 +22,7 @@ public interface Contract {
 
     LocalDate start();
 
-    Optional<LocalDate> end();
+    LocalDate end();
 
     SquadStatus promisedStatus();
 }

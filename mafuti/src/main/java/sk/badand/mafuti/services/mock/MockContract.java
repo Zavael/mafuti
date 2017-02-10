@@ -31,12 +31,12 @@ public class MockContract implements Contract {
 
     @Override
     public LocalDate start() {
-        return LocalDate.now();
+        return LocalDate.now().minusYears(1);
     }
 
     @Override
-    public Optional<LocalDate> end() {
-        return Optional.of(LocalDate.now().plus(2, ChronoUnit.YEARS));
+    public LocalDate end() {
+        return LocalDate.now().plusYears(2);
     }
 
     @Override

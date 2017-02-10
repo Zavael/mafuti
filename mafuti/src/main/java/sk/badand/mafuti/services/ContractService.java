@@ -21,7 +21,7 @@ public class ContractService {
         return null;
     }
 
-    public void finalizeContract() {
+    public void finalizeContract(Contract contract) {
 
     }
 

@@ -1,0 +1,1 @@
+mvn package; java -jar mafuti.jar

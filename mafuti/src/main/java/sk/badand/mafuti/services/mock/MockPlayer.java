@@ -10,6 +10,7 @@ import java.util.Collections;
 import sk.badand.mafuti.model.common.Contract;
 import sk.badand.mafuti.model.common.Nation;
 import sk.badand.mafuti.model.common.PersonType;
+import sk.badand.mafuti.model.common.Reputation;
 import sk.badand.mafuti.model.match.PlayerPosition;
 import sk.badand.mafuti.model.match.Player;
 import sk.badand.mafuti.model.player.PlayerSkill;
@@ -102,8 +103,18 @@ public final class MockPlayer implements Player {
     }
 
     @Override
+    public Reputation getReputation() {
+        return Reputation.REGIONAL;
+    }
+
+    @Override
     public Collection<Nation> nationalities() {
         return Collections.emptyList();
+    }
+
+    @Override
+    public Nation getMainNationality() {
+        return new MockNation();
     }
 
     @Override
@@ -112,8 +123,13 @@ public final class MockPlayer implements Player {
     }
 
     @Override
-    public Contract contract() {
-        return contract;
+    public int getWage() {
+        return contract.wage();
+    }
+
+    @Override
+    public LocalDate getExpiration() {
+        return contract.end();
     }
 
     @Override
