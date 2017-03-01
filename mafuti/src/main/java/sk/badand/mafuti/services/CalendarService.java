@@ -3,16 +3,17 @@
  */
 package sk.badand.mafuti.services;
 
+import sk.badand.mafuti.data.Data;
 import sk.badand.mafuti.model.Team;
-import sk.badand.mafuti.model.match.PlayableMatch;
 import sk.badand.mafuti.model.match.Match;
+import sk.badand.mafuti.model.match.PlayableMatch;
 import sk.badand.mafuti.services.mock.MockMatch;
+import sk.badand.math.OddsDecider;
+
 import java.time.LocalDate;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-import sk.badand.math.OddsDecider;
 
 /**
  *
@@ -23,7 +24,10 @@ public class CalendarService {
     private Calendar calendar;
 
     public Optional<PlayableMatch> matchToday(Team team) {
-        return Optional.of(new MockMatch());
+        return Optional.of(new MockMatch(
+                team,
+                Data.getClubs().get(1).getTeams().get(0)
+        ));
     }
 
     public boolean isTeamPlayingToday(Team team) {
@@ -31,11 +35,7 @@ public class CalendarService {
     }
 
     public List<Match> matchesForDay(LocalDate date) {
-        return Stream.of(
-                new MockMatch(), 
-                new MockMatch(), 
-                new MockMatch())
-                .collect(Collectors.toList());
+        return Collections.EMPTY_LIST;
     }
 
     public LocalDate currentDate() {

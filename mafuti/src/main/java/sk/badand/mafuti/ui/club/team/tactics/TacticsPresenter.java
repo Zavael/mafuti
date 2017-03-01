@@ -3,9 +3,9 @@ package sk.badand.mafuti.ui.club.team.tactics;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
-import sk.badand.mafuti.model.ManagerClub;
 import sk.badand.mafuti.model.Team;
 import sk.badand.mafuti.model.tactic.*;
+import sk.badand.mafuti.services.inject.UsersClubHolder;
 
 import javax.inject.Inject;
 import java.net.URL;
@@ -34,7 +34,7 @@ public class TacticsPresenter implements Initializable {
     ComboBox<String> passFocusChoice;
 
     @Inject
-    ManagerClub managerClub;
+    UsersClubHolder usersClubHolder;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -51,7 +51,7 @@ public class TacticsPresenter implements Initializable {
         Stream.of(Philosophy.values())
                 .forEach(val -> philosophyChoice.getItems().add(rb.getString(val.key)));
 
-        /*Team team = managerClub.getTeams().parallelStream()
+        /*Team team = usersClubHolder.getTeams().parallelStream()
                 .filter(t -> t.getPriority() == 0)
                 .findFirst()
                 .get();

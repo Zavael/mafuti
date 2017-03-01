@@ -3,20 +3,17 @@
  */
 package sk.badand.mafuti.services.mock;
 
+import sk.badand.mafuti.match.engine.SimpleMatchEngine;
+import sk.badand.mafuti.model.common.Weather;
+import sk.badand.mafuti.model.match.*;
+import sk.badand.mafuti.model.match.result.Result;
+
 import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
-import sk.badand.mafuti.model.match.PlayingTeam;
-import sk.badand.mafuti.match.engine.SimpleMatchEngine;
-import sk.badand.mafuti.model.common.Weather;
-import sk.badand.mafuti.model.match.MatchEngine;
-import sk.badand.mafuti.model.match.Player;
-import sk.badand.mafuti.model.match.PlayableStadium;
-import sk.badand.mafuti.model.match.PlayableMatch;
-import sk.badand.mafuti.model.match.result.Result;
 
 /**
  *
@@ -27,19 +24,15 @@ public class MockMatch implements PlayableMatch {
 
     private static final int TOP_PLAYERS_COUNT = 5;
 
-    private PlayingTeam homeTeam = new MockTeam((short) 0);
-    private PlayingTeam awayTeam = new MockTeam((short) 0);
-    private final PlayableStadium stadium;
-    private final MatchEngine matchEngine = new SimpleMatchEngine(homeTeam, awayTeam);
-
-    public MockMatch() {
-        this.stadium = homeTeam.getStadium();
-    }
+    private PlayingTeam homeTeam;
+    private PlayingTeam awayTeam;
+    private final PlayableStadium stadium = new MockStadium();
+    private final MatchEngine matchEngine;
 
     public MockMatch(PlayingTeam homeTeam, PlayingTeam awayTeam) {
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
-        this.stadium = homeTeam.getStadium();
+        matchEngine = new SimpleMatchEngine(this.homeTeam, this.awayTeam);
     }
 
     @Override

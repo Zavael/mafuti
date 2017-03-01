@@ -4,21 +4,22 @@
 package sk.badand.mafuti.model.match;
 
 import sk.badand.mafuti.model.common.Person;
-import sk.badand.math.OddsDecider;
+import sk.badand.mafuti.model.player.Fitness;
+import sk.badand.mafuti.model.player.Injurable;
 
 /**
  *
  * @author abadinka
  */
-public interface Player extends Person {
-
-    OddsDecider oddsDecider = new OddsDecider();
+public interface Player extends Person, Injurable {
 
     int overallRating();
 
     boolean isPlaying();
 
-    String positionAbbr();
+    Fitness getFitness();
+
+    String getPositionAbbr(); //TODO localize
 
     boolean isPlayingOnPosition(PlayerPosition position);
 

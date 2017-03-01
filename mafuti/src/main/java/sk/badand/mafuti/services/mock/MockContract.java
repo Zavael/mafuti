@@ -7,8 +7,6 @@ import sk.badand.mafuti.model.common.Person;
 import sk.badand.mafuti.model.match.PlayerPosition;
 
 import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
-import java.util.Optional;
 
 /**
  * Created by abadinka.
@@ -21,7 +19,7 @@ public class MockContract implements Contract {
 
     @Override
     public Club club() {
-        return new MockClub();
+        return null;
     }
 
     @Override

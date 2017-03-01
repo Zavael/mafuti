@@ -3,32 +3,37 @@
  */
 package sk.badand.mafuti.services.mock;
 
-import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
-import java.util.Collection;
-import java.util.Collections;
 import sk.badand.mafuti.model.common.Contract;
 import sk.badand.mafuti.model.common.Nation;
 import sk.badand.mafuti.model.common.PersonType;
 import sk.badand.mafuti.model.common.Reputation;
-import sk.badand.mafuti.model.match.PlayerPosition;
 import sk.badand.mafuti.model.match.Player;
+import sk.badand.mafuti.model.match.PlayerPosition;
+import sk.badand.mafuti.model.player.Fitness;
+import sk.badand.mafuti.model.player.FitnessStatus;
 import sk.badand.mafuti.model.player.PlayerSkill;
 import sk.badand.math.Randomizer;
 import sk.badand.text.StrGenerator;
 
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+import java.util.Collection;
+import java.util.Collections;
+
 public final class MockPlayer implements Player {
 
     private static final StrGenerator strgen = new StrGenerator();
-    private final int rating = new Randomizer().nextRandomInt(6, 40);
+    private static final Randomizer rand = new Randomizer();
+    private final int rating = rand.nextRandomInt(6, 40);
     private final String shortName;
     private final PlayerPosition position;
+    private final Fitness fitness;
     private PlayerPosition currentPosition;
-    private final LocalDate birthDate = LocalDate.now().minus(new Randomizer().nextRandomInt(17, 35), ChronoUnit.YEARS).minus(new Randomizer().nextRandomInt(0, 365), ChronoUnit.DAYS);
+    private final LocalDate birthDate = LocalDate.now().minus(rand.nextRandomInt(17, 35), ChronoUnit.YEARS).minus(new Randomizer().nextRandomInt(0, 365), ChronoUnit.DAYS);
     private final String firstName = strgen.generateDesignation(10);
     private final String lastName = strgen.generateDesignation(10);
-    private final Short morale = 200; //??wtf
-    private final Integer reputation = 200; //??wtf;
+    private final Short morale = 200; //TODO ??wtf
+    private final Integer reputation = 200; //TODO ??wtf;
     private final Contract contract;
 
     public MockPlayer(PlayerPosition position) {
@@ -36,11 +41,17 @@ public final class MockPlayer implements Player {
         this.currentPosition = this.position;
         shortName = firstName().substring(0, 1) + ". " + lastName();
         contract = new MockContract();
+        fitness = new Fitness(rand.nextDouble(40.0, 100.0));
     }
 
     @Override
     public boolean isPlaying() {
         return true;
+    }
+
+    @Override
+    public Fitness getFitness() {
+        return fitness;
     }
 
     @Override
@@ -54,7 +65,9 @@ public final class MockPlayer implements Player {
                 + ", skill:"
                 + overallRating()
                 + ", position:"
-                + currentPosition;
+                + currentPosition
+                + ", fitness:"
+                + getFitness();
     }
 
     @Override
@@ -142,7 +155,7 @@ public final class MockPlayer implements Player {
     }
 
     @Override
-    public String positionAbbr() {
+    public String getPositionAbbr() {
         return position.abbreviation;
     }
 
@@ -164,5 +177,15 @@ public final class MockPlayer implements Player {
     @Override
     public boolean equals(Object obj) {
         return obj instanceof Player && this.key().equals(((Player)obj).key());
+    }
+
+    @Override
+    public boolean isInjured() {
+        return getFitness().getStatus() == FitnessStatus.INJURED;
+    }
+
+    @Override
+    public int getHealingTime() {
+        return getFitness().getApproxWeeksToHeal(); //TODO modify by players strength?
     }
 }

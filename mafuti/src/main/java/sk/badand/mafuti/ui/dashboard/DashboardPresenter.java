@@ -4,30 +4,31 @@
 package sk.badand.mafuti.ui.dashboard;
 
 import com.airhacks.afterburner.injection.Injector;
-import java.net.URL;
-import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.ButtonType;
-import javax.inject.Inject;
-
-import sk.badand.mafuti.model.ManagerClub;
-import sk.badand.mafuti.services.CalendarService;
+import sk.badand.mafuti.model.Club;
 import sk.badand.mafuti.model.match.PlayableMatch;
-import sk.badand.mafuti.services.mock.MockClub;
-import sk.badand.mafuti.util.QuestionDialog;
+import sk.badand.mafuti.services.CalendarService;
+import sk.badand.mafuti.services.ClubService;
+import sk.badand.mafuti.services.inject.UsersClubHolder;
 import sk.badand.mafuti.ui.club.ClubView;
 import sk.badand.mafuti.ui.facilities.FacilitiesView;
 import sk.badand.mafuti.ui.finances.FinancesView;
 import sk.badand.mafuti.ui.manager.ManagerView;
-import sk.badand.mafuti.ui.prematch.PrematchView;
 import sk.badand.mafuti.ui.navigation.AbstractNavigator;
+import sk.badand.mafuti.ui.prematch.PrematchView;
 import sk.badand.mafuti.ui.timeprogress.TimeprogressView;
 import sk.badand.mafuti.ui.training.TrainingView;
 import sk.badand.mafuti.ui.world.WorldView;
+import sk.badand.mafuti.util.QuestionDialog;
+
+import javax.inject.Inject;
+import java.net.URL;
+import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * FXML Controller class
@@ -42,20 +43,23 @@ public class DashboardPresenter extends AbstractNavigator {
     PieChart chart;
     @Inject
     CalendarService calendarService;
-    MockClub club = new MockClub();
+    @Inject
+    ClubService clubService;
+    Club club;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        club = clubService.getClubs().stream().findAny().get();
         chart.getData().addAll(
                 FXCollections.observableArrayList(
                         new PieChart.Data("Wins", 25),
                         new PieChart.Data("Draws", 13),
                         new PieChart.Data("Loses", 10))
         );
-        Injector.setModelOrService(ManagerClub.class, club);
+        Injector.setModelOrService(UsersClubHolder.class, new UsersClubHolder(club));
     }
 
     public void processTime() {

@@ -10,27 +10,16 @@ import java.util.Collection;
  *
  * @author abadinka
  */
-public interface Person {
+public interface Person extends Nameable {
     
     Object key();
     
     LocalDate birthDate();
 
-    String firstName();
-
-    String lastName();
-
-    String middleName();
-
+    @Override
     default String getFullName() {
         return firstName() + " " + lastName();
     }
-
-    String namePrefix();
-
-    String nameSuffix();
-
-    String nickname();
 
     Short morale();
 
