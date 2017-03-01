@@ -137,7 +137,7 @@ ALTER TABLE person_nationality ADD FOREIGN KEY (nation_id) REFERENCES nation(nat
 
 
 -- ***************************************** LEAGUE SYSTEM **********************************************************************************
--- Defines nation league system like english league, france league...
+-- Defines nation league system like english league, german league...
 CREATE TABLE league_system(
 	league_system_id INTEGER NOT NULL,
 	levels TINYINT,
@@ -159,7 +159,7 @@ CREATE UNIQUE INDEX league_level_uix on league_level(league_level_id);
 ALTER TABLE league_level ADD CONSTRAINT league_level_pk PRIMARY KEY (league_level_id);
 ALTER TABLE league_level ADD FOREIGN KEY (league_system_id) REFERENCES league_system(league_system_id);
 
--- Defines one league in league level like Premier league, COnference North, Northern Premier League Premier Division etc.
+-- Defines one league in league level like Premier league, Conference North, Northern Premier League Premier Division etc.
 CREATE TABLE league(
 	league_id INTEGER NOT NULL,
 	name VARCHAR(40),
