@@ -3,9 +3,16 @@
  */
 package sk.badand.mafuti.ui.world.competitions;
 
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
+import sk.badand.mafuti.model.common.Nation;
+import sk.badand.mafuti.services.LeagueService;
+import sk.badand.mafuti.ui.factories.ComboBoxNationFactory;
+
+import javax.inject.Inject;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.fxml.Initializable;
 
 /**
  * FXML Controller class
@@ -14,12 +21,21 @@ import javafx.fxml.Initializable;
  */
 public class CompetitionsPresenter implements Initializable {
 
+    @FXML
+    public ComboBox<Nation> nationsCombo;
+
+    @Inject
+    private LeagueService leagueService;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+        nationsCombo.setCellFactory(new ComboBoxNationFactory());
+
+        leagueService.getLeagueSystems().stream()
+                .forEach(leagueSystem -> nationsCombo.getItems().add(leagueSystem.getNation()));
+    }
     
 }

@@ -1,26 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.badand.mafuti.ui.world.competitions.CompetitionsPresenter">
+<VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"
+      xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.60"
+      fx:controller="sk.badand.mafuti.ui.world.competitions.CompetitionsPresenter">
     <stylesheets>
         <URL value="@/styles/competitions.css"/>
     </stylesheets>
-    <children>      
-        <Label styleClass="header1" text="%lbl.heading" />
-        <HBox VBox.vgrow="ALWAYS" >
+    <children>
+
+        <Label styleClass="header1" text="%lbl.heading"/>
+        <ComboBox fx:id="nationsCombo" />
+        <HBox VBox.vgrow="ALWAYS">
             <children>
-                <ListView HBox.hgrow="ALWAYS" />
+                <ListView HBox.hgrow="ALWAYS"/>
                 <VBox>
                     <children>
-                        <Button mnemonicParsing="false" text="Button" />
-                        <Button mnemonicParsing="false" text="Button" />
-                        <Button mnemonicParsing="false" text="Button" />
+                        <Button mnemonicParsing="false" text="Button"/>
+                        <Button mnemonicParsing="false" text="Button"/>
+                        <Button mnemonicParsing="false" text="Button"/>
                     </children>
                 </VBox>
             </children>
