@@ -3,6 +3,8 @@ package sk.badand.mafuti.data;
 import sk.badand.mafuti.model.Club;
 import sk.badand.mafuti.model.Team;
 import sk.badand.mafuti.model.common.Nation;
+import sk.badand.mafuti.model.league.League;
+import sk.badand.mafuti.model.league.LeagueLevel;
 import sk.badand.mafuti.model.league.LeagueSystem;
 import sk.badand.mafuti.model.match.Player;
 import sk.badand.mafuti.model.match.PlayerPosition;
@@ -11,7 +13,6 @@ import sk.badand.mafuti.services.mock.MockPlayer;
 import sk.badand.mafuti.services.mock.MockTeam;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 import java.util.logging.Level;
@@ -77,7 +78,15 @@ public class MockDataProvider implements DataProvider {
         LOG.fine("Generating league systems...");
         int i = 1;
         for (Nation nation : nations) {
-            leagueSystems.add(new LeagueSystem(i++, nation, Collections.emptyList()));
+
+            leagueSystems.add(new LeagueSystem(i++, nation, Stream.of(
+                    new LeagueLevel(1000 + i, (byte) 2, Stream.of(
+                            new League(10000 + i, nation.country + " league " + 1, null)
+                    ).collect(toList())),
+                    new LeagueLevel(1100 + i, (byte) 2, Stream.of(
+                            new League(11000 + i, nation.country + " league " + 2, null)
+                    ).collect(toList()))
+            ).collect(toList())));
         }
         LOG.log(Level.FINE, "Done. Created {0} league systems", leagueSystems.size());
     }

@@ -6,9 +6,14 @@ package sk.badand.mafuti.ui.world.competitions;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import sk.badand.mafuti.model.common.Nation;
+import sk.badand.mafuti.model.league.Cup;
+import sk.badand.mafuti.model.league.League;
 import sk.badand.mafuti.services.LeagueService;
 import sk.badand.mafuti.ui.factories.ComboBoxNationFactory;
+import sk.badand.mafuti.ui.factories.ListViewLeagueFactory;
 
 import javax.inject.Inject;
 import java.net.URL;
@@ -23,6 +28,9 @@ public class CompetitionsPresenter implements Initializable {
 
     @FXML
     public ComboBox<Nation> nationsCombo;
+    public ListView<League> leaguesListView;
+    public ListView<Cup> cupsListView;
+    public Label leagueNameLbl;
 
     @Inject
     private LeagueService leagueService;
@@ -32,7 +40,22 @@ public class CompetitionsPresenter implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        nationsCombo.setButtonCell(new ComboBoxNationFactory().call(null));
+        nationsCombo.setPromptText(rb.getString("cb.nations.prompt"));
         nationsCombo.setCellFactory(new ComboBoxNationFactory());
+        nationsCombo.getSelectionModel().selectedItemProperty().addListener((observableValue, oldNation, newNation) -> {
+            if (newNation != null) {
+                leaguesListView.getItems().clear();
+                leaguesListView.getItems().addAll(leagueService.getLeagues(newNation));
+            }
+        });
+
+        leaguesListView.setCellFactory(new ListViewLeagueFactory());
+        leaguesListView.getSelectionModel().selectedItemProperty().addListener((observableValue, oldLeague, newLeague) -> {
+            if (newLeague != null) {
+                leagueNameLbl.setText(newLeague.getName());
+            }
+        });
 
         leagueService.getLeagueSystems().stream()
                 .forEach(leagueSystem -> nationsCombo.getItems().add(leagueSystem.getNation()));

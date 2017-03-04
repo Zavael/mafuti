@@ -6,20 +6,20 @@ package sk.badand.mafuti.model.league;
 public class League {
     private final int id;
     private final String name;
-    private final League league; //FIXME is necessary?
+    private final LeagueSystem leagueSystem; //FIXME is necessary?
 
-    public League(int id, String name, League league) {
+    public League(int id, String name, LeagueSystem leagueSystem) {
         this.id = id;
         this.name = name;
-        this.league = league;
+        this.leagueSystem = leagueSystem;
     }
 
     public String getName() {
         return name;
     }
 
-    public League getLeague() {
-        return league;
+    public LeagueSystem getLeagueSystem() {
+        return leagueSystem;
     }
 
     @Override

@@ -74,7 +74,7 @@ DROP INDEX league_system_uix;
 DROP TABLE league_system;
 
 DROP INDEX league_uix;
-DROP TABLE league;
+DROP TABLE leagueSystem;
 
 DROP INDEX person_uix;
 DROP TABLE person;
@@ -137,7 +137,7 @@ ALTER TABLE person_nationality ADD FOREIGN KEY (nation_id) REFERENCES nation(nat
 
 
 -- ***************************************** LEAGUE SYSTEM **********************************************************************************
--- Defines nation league system like english league, german league...
+-- Defines nation leagueSystem system like english leagueSystem, german leagueSystem...
 CREATE TABLE league_system(
 	league_system_id INTEGER NOT NULL,
 	levels TINYINT,
@@ -148,7 +148,7 @@ CREATE UNIQUE INDEX league_system_uix on league_system(league_system_id);
 ALTER TABLE league_system ADD CONSTRAINT league_system_pk PRIMARY KEY (league_system_id);
 ALTER TABLE league_system ADD FOREIGN KEY (nation_id) REFERENCES nation(nation_id);
 
--- Defines one league level in league system like Premier League, Conference, Premier division etc.
+-- Defines one leagueSystem level in leagueSystem system like Premier League, Conference, Premier division etc.
 CREATE TABLE league_level(
 	league_level_id INTEGER NOT NULL,
 	clubs_per_league TINYINT,
@@ -159,18 +159,18 @@ CREATE UNIQUE INDEX league_level_uix on league_level(league_level_id);
 ALTER TABLE league_level ADD CONSTRAINT league_level_pk PRIMARY KEY (league_level_id);
 ALTER TABLE league_level ADD FOREIGN KEY (league_system_id) REFERENCES league_system(league_system_id);
 
--- Defines one league in league level like Premier league, Conference North, Northern Premier League Premier Division etc.
-CREATE TABLE league(
+-- Defines one leagueSystem in leagueSystem level like Premier leagueSystem, Conference North, Northern Premier League Premier Division etc.
+CREATE TABLE leagueSystem(
 	league_id INTEGER NOT NULL,
 	name VARCHAR(40),
 	league_level_id INTEGER NOT NULL,
 	league_system_id INTEGER NOT NULL
 );
-CREATE UNIQUE INDEX league_uix on league(league_id);
-ALTER TABLE league ADD CONSTRAINT league_pk PRIMARY KEY (league_id);
-ALTER TABLE league ADD FOREIGN KEY (league_system_id) REFERENCES league_system(league_system_id);
-ALTER TABLE league ADD FOREIGN KEY (league_level_id) REFERENCES league_level(league_level_id);
---ALTER TABLE league_system ADD FOREIGN KEY (top_league_id) REFERENCES league(league_id);
+CREATE UNIQUE INDEX league_uix on leagueSystem(league_id);
+ALTER TABLE leagueSystem ADD CONSTRAINT league_pk PRIMARY KEY (league_id);
+ALTER TABLE leagueSystem ADD FOREIGN KEY (league_system_id) REFERENCES league_system(league_system_id);
+ALTER TABLE leagueSystem ADD FOREIGN KEY (league_level_id) REFERENCES league_level(league_level_id);
+--ALTER TABLE league_system ADD FOREIGN KEY (top_league_id) REFERENCES leagueSystem(league_id);
 
 CREATE TABLE match(
 	match_id INTEGER NOT NULL,
@@ -183,7 +183,7 @@ CREATE TABLE match(
 );
 CREATE UNIQUE INDEX match_uix on match(match_id);
 ALTER TABLE match ADD CONSTRAINT match_pk PRIMARY KEY (match_id);
-ALTER TABLE match ADD FOREIGN KEY (league_id) REFERENCES league(league_id);
+ALTER TABLE match ADD FOREIGN KEY (league_id) REFERENCES leagueSystem(league_id);
 ALTER TABLE match ADD FOREIGN KEY (home_team_id) REFERENCES team(team_id);
 ALTER TABLE match ADD FOREIGN KEY (away_team_id) REFERENCES team(team_id);
 ALTER TABLE match ADD FOREIGN KEY (stadium_id) REFERENCES stadium(facil_info_id);
@@ -202,7 +202,7 @@ CREATE TABLE club(
 CREATE UNIQUE INDEX club_uix ON club(club_id);
 ALTER TABLE club ADD CONSTRAINT club_pk PRIMARY KEY (club_id);
 -- redundant? ALTER TABLE club ADD FOREIGN KEY (nation_id) REFERENCES nation(nation_id);
-ALTER TABLE club ADD FOREIGN KEY (league_id) REFERENCES league(league_id);
+ALTER TABLE club ADD FOREIGN KEY (league_id) REFERENCES leagueSystem(league_id);
 
 CREATE TABLE team(
 	team_id INTEGER NOT NULL,
@@ -424,7 +424,7 @@ CREATE TABLE season(
 );
 CREATE UNIQUE INDEX season_uix on season(season_id, club_id);
 ALTER TABLE season ADD CONSTRAINT season_pk PRIMARY KEY (season_id, club_id);
-ALTER TABLE season ADD FOREIGN KEY (league_id) REFERENCES league(league_id);
+ALTER TABLE season ADD FOREIGN KEY (league_id) REFERENCES leagueSystem(league_id);
 
 CREATE TABLE match_stats(
 	match_id INTEGER NOT NULL,
