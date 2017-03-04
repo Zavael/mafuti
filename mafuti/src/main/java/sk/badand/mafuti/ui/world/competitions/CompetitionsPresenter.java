@@ -8,11 +8,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import sk.badand.mafuti.model.Club;
 import sk.badand.mafuti.model.common.Nation;
 import sk.badand.mafuti.model.league.Cup;
 import sk.badand.mafuti.model.league.League;
 import sk.badand.mafuti.services.LeagueService;
 import sk.badand.mafuti.ui.factories.ComboBoxNationFactory;
+import sk.badand.mafuti.ui.factories.ListViewClubFactory;
 import sk.badand.mafuti.ui.factories.ListViewLeagueFactory;
 
 import javax.inject.Inject;
@@ -31,6 +33,7 @@ public class CompetitionsPresenter implements Initializable {
     public ListView<League> leaguesListView;
     public ListView<Cup> cupsListView;
     public Label leagueNameLbl;
+    public ListView<Club> clubsListView;
 
     @Inject
     private LeagueService leagueService;
@@ -51,9 +54,12 @@ public class CompetitionsPresenter implements Initializable {
         });
 
         leaguesListView.setCellFactory(new ListViewLeagueFactory());
+        clubsListView.setCellFactory(new ListViewClubFactory());
         leaguesListView.getSelectionModel().selectedItemProperty().addListener((observableValue, oldLeague, newLeague) -> {
             if (newLeague != null) {
                 leagueNameLbl.setText(newLeague.getName());
+                clubsListView.getItems().clear();
+                clubsListView.getItems().addAll(newLeague.getClubs());
             }
         });
 

@@ -12,9 +12,11 @@ public class Club{
     private final MockManager mockManager;
     private final List<Team> teams;
     private Budget budget;
+    private final String name;
 
-    public Club(Object key, MockManager mockManager, List<Team> teams, Budget budget) {
+    public Club(Object key, String name, MockManager mockManager, List<Team> teams, Budget budget) {
         this.key = key;
+        this.name = name;
         this.mockManager = mockManager;
         this.teams = teams;
         this.budget = budget;
@@ -45,5 +47,9 @@ public class Club{
     @Override
     public int hashCode() {
         return key.hashCode();
+    }
+
+    public String getName() {
+        return name;
     }
 }

@@ -28,14 +28,42 @@ public class MockDataProvider implements DataProvider {
 
     private static final Logger LOG = Logger.getLogger(MockDataProvider.class.getName());
 
-    private static List<Club> clubs = new ArrayList<>();
-
     private static final List<Nation> nations = new ArrayList<>();
 
     private static final List<LeagueSystem> leagueSystems = new ArrayList<>();
 
+    private static final List<Club> clubs = new ArrayList<>();
+
     static {
-        for (int i = 0; i < 10; i++) {
+        LOG.fine("Generating countries...");
+        for (String country : Locale.getISOCountries()) {
+            Locale locale = new Locale("", country);
+            nations.add(new Nation(locale.getISO3Country(), locale.getDisplayCountry()));
+        }
+        LOG.log(Level.FINE, "Done. Created {0} nations", nations.size());
+
+        LOG.fine("Generating league systems...");
+        int i = 1;
+        for (Nation nation : nations) {
+            List<Club> clubs1 = generateClubs(18);
+            List<Club> clubs2 = generateClubs(18);
+            leagueSystems.add(new LeagueSystem(i++, nation, Stream.of(
+                    new LeagueLevel(1000 + i, (byte) 2, Stream.of(
+                            new League(10000 + i, nation.country + " league " + 1, null, clubs1)
+                    ).collect(toList())),
+                    new LeagueLevel(1100 + i, (byte) 2, Stream.of(
+                            new League(11000 + i, nation.country + " league " + 2, null, clubs2)
+                    ).collect(toList()))
+            ).collect(toList())));
+            clubs.addAll(clubs1);
+            clubs.addAll(clubs2);
+        }
+        LOG.log(Level.FINE, "Done. Created {0} league systems", leagueSystems.size());
+    }
+
+    private static List<Club> generateClubs(int clubsCount) {
+        List<Club> clubList = new ArrayList<>(clubsCount);
+        for (int i = 0; i < clubsCount; i++) {
             List<Team> teams = new ArrayList<>(3);
             for (short j = 0; j < 3; j++) {
 
@@ -65,30 +93,14 @@ public class MockDataProvider implements DataProvider {
             }
 
             MockClub mockClub = new MockClub(teams);
-            clubs.add(mockClub);
+            clubList.add(mockClub);
         }
+        return clubList;
+    }
 
-        LOG.fine("Generating countries...");
-        for (String country : Locale.getISOCountries()) {
-            Locale locale = new Locale("", country);
-            nations.add(new Nation(locale.getISO3Country(), locale.getDisplayCountry()));
-        }
-        LOG.log(Level.FINE, "Done. Created {0} nations", nations.size());
-
-        LOG.fine("Generating league systems...");
-        int i = 1;
-        for (Nation nation : nations) {
-
-            leagueSystems.add(new LeagueSystem(i++, nation, Stream.of(
-                    new LeagueLevel(1000 + i, (byte) 2, Stream.of(
-                            new League(10000 + i, nation.country + " league " + 1, null)
-                    ).collect(toList())),
-                    new LeagueLevel(1100 + i, (byte) 2, Stream.of(
-                            new League(11000 + i, nation.country + " league " + 2, null)
-                    ).collect(toList()))
-            ).collect(toList())));
-        }
-        LOG.log(Level.FINE, "Done. Created {0} league systems", leagueSystems.size());
+    @Override
+    public List<Club> getClubs(League league) {
+        return league.getClubs(); //FIXME ?? wtf
     }
 
     @Override

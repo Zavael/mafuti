@@ -26,7 +26,9 @@ public class CalendarService {
     public Optional<PlayableMatch> matchToday(Team team) {
         return Optional.of(new MockMatch(
                 team,
-                Data.getClubs().get(1).getTeams().get(0)
+                Data.getClubs(Data.getLeagueSystems().get(0).getLeagueLevels().get(0).getLeagues().get(0))
+                        .get(1).getTeams()
+                        .get(0)
         ));
     }
 

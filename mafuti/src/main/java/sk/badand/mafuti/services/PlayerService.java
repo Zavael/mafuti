@@ -18,13 +18,12 @@ import static java.util.stream.Collectors.toList;
 public class PlayerService {
 
     private HashMap<Club, List<Player>> playersByClub = new HashMap<>();
-    private HashMap<Team, List<Player>> playersByTeam = new HashMap<>();
+    //private HashMap<Team, List<Player>> playersByTeam = new HashMap<>();
 
     public PlayerService() {
         for(Club club: Data.getClubs()) {
             List<Player> players = new ArrayList<>();
             for(Team team : club.getTeams()) {
-                playersByTeam.put(team, team.getPlayers());
                 players.addAll(team.getPlayers());
             }
             playersByClub.put(club, players);

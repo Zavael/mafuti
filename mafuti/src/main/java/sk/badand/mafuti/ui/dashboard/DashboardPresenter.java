@@ -12,6 +12,7 @@ import sk.badand.mafuti.model.Club;
 import sk.badand.mafuti.model.match.PlayableMatch;
 import sk.badand.mafuti.services.CalendarService;
 import sk.badand.mafuti.services.ClubService;
+import sk.badand.mafuti.services.UserService;
 import sk.badand.mafuti.services.inject.UsersClubHolder;
 import sk.badand.mafuti.ui.club.ClubView;
 import sk.badand.mafuti.ui.facilities.FacilitiesView;
@@ -45,6 +46,8 @@ public class DashboardPresenter extends AbstractNavigator {
     CalendarService calendarService;
     @Inject
     ClubService clubService;
+    @Inject
+    UserService userService;
     Club club;
 
     /**
@@ -52,7 +55,7 @@ public class DashboardPresenter extends AbstractNavigator {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        club = clubService.getClubs().stream().findAny().get();
+        club = userService.getClub();
         chart.getData().addAll(
                 FXCollections.observableArrayList(
                         new PieChart.Data("Wins", 25),
