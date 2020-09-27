@@ -8,9 +8,6 @@
 <?import javafx.scene.layout.*?>
 
 <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.badand.mafuti.ui.facilities.academy.AcademyPresenter">
-    <stylesheets>
-        <URL value="@/styles/academy.css"/>
-    </stylesheets>
     <children>
         <Label styleClass="header1" text="%lbl.heading" />
     </children>

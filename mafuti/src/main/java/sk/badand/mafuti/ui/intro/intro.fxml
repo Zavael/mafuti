@@ -16,9 +16,6 @@
         <RowConstraints valignment="CENTER" vgrow="ALWAYS" /> 
         <RowConstraints /> 
     </rowConstraints>
-    <stylesheets>
-        <URL value="@/styles/intro.css"/>
-    </stylesheets>
     <children>          
         <VBox maxHeight="100" maxWidth="100" spacing="1" GridPane.columnIndex="0" GridPane.rowIndex="0">
             <alignment>CENTER</alignment>

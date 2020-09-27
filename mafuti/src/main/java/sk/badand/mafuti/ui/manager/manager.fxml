@@ -9,9 +9,6 @@
 <?import javafx.scene.layout.*?>
 
 <HBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="sk.badand.mafuti.ui.manager.ManagerPresenter">
-    <stylesheets>
-        <URL value="@/styles/personal.css" />
-    </stylesheets>
     <children>
         <AnchorPane fx:id="menu">
             <children>
@@ -24,9 +21,6 @@
             </padding>
             <children>
                 <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                    <stylesheets>
-                        <URL value="@/styles/personal.css" />
-                    </stylesheets>
                     <children>
                         <Label styleClass="header1" text="%lbl.manager" />
                         <BorderPane VBox.vgrow="ALWAYS"  />
