@@ -6,7 +6,11 @@ package sk.badand.mafuti.ui;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
+
 import javafx.fxml.FXML;
+import javafx.scene.image.Image;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.Pane;
 import sk.badand.mafuti.ui.intro.IntroView;
 import sk.badand.mafuti.ui.navigation.AbstractNavigator;
@@ -30,6 +34,5 @@ public class UiPresenter extends AbstractNavigator {
     public void initialize(URL url, ResourceBundle rb) {
         navigator.init(content);
         navigator.load(new IntroView());
-//        navigator.load(new DashboardMenuView(), new DashboardView());
     }
 }

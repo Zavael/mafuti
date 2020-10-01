@@ -1,39 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.badand.mafuti.ui.intro.IntroPresenter">
-    <columnConstraints>
-        <ColumnConstraints fillWidth="true" halignment="CENTER" hgrow="ALWAYS" maxWidth="5000" /> 
-    </columnConstraints>
-    <rowConstraints>
-        <RowConstraints maxHeight="5000.0" valignment="CENTER" vgrow="ALWAYS" />
-        <RowConstraints valignment="CENTER" vgrow="ALWAYS" /> 
-        <RowConstraints /> 
-    </rowConstraints>
-    <children>          
-        <VBox maxHeight="100" maxWidth="100" spacing="1" GridPane.columnIndex="0" GridPane.rowIndex="0">
-            <alignment>CENTER</alignment>
-            <children>
-                <Button mnemonicParsing="false"  onAction="#continueGame" text="%btn.continue" />
-                <Button mnemonicParsing="false"  onAction="#newGame" text="%btn.newGame" />
-                <Button mnemonicParsing="false"  onAction="#loadGame" text="%btn.loadGame" />
-                <Button mnemonicParsing="false"  onAction="#exitGame" text="%btn.exit" />                
-            </children>
-        </VBox>          
-        <VBox maxHeight="100" maxWidth="100" spacing="1" GridPane.columnIndex="0" GridPane.rowIndex="1">
-            <alignment>CENTER</alignment>
-            <children>
-                <TextField />
-                <TextField />
-                <Button mnemonicParsing="false"  onAction="#verifyAccount" text="%btn.verify" />
-            </children>
-        </VBox>
-        <Label text="(C)2014 by Andrej Badinka" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-    </children>
+<GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+          AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="sk.badand.mafuti.ui.intro.IntroPresenter">
+	<columnConstraints>
+		<ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="5000"/>
+	</columnConstraints>
+	<rowConstraints>
+		<RowConstraints maxHeight="5000.0" valignment="CENTER" vgrow="ALWAYS"/>
+		<RowConstraints valignment="CENTER" vgrow="ALWAYS"/>
+		<RowConstraints/>
+	</rowConstraints>
+	<VBox maxHeight="100" maxWidth="100" spacing="1" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="intro, menu">
+		<alignment>CENTER</alignment>
+		<Button styleClass="biggerFont" mnemonicParsing="false" onAction="#continueGame" text="%btn.continue"/>
+		<Button styleClass="biggerFont" mnemonicParsing="false" onAction="#newGame" text="%btn.newGame"/>
+		<Button styleClass="biggerFont" mnemonicParsing="false" onAction="#loadGame" text="%btn.loadGame"/>
+		<Button styleClass="biggerFont" mnemonicParsing="false" onAction="#exitGame" text="%btn.exit"/>
+	</VBox>
+	<VBox maxHeight="100" maxWidth="100" spacing="3" GridPane.columnIndex="0" GridPane.rowIndex="1">
+		<alignment>CENTER</alignment>
+		<Label text="Sign in"/>
+		<TextField/>
+		<TextField/>
+		<Button mnemonicParsing="false" onAction="#verifyAccount" text="%btn.verify"/>
+	</VBox>
+	<Label text="(C)2014 by Andrej Badinka" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
 </GridPane>

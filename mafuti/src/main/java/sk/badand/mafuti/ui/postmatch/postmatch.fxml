@@ -37,17 +37,17 @@
                     <children>
                         <VBox alignment="BOTTOM_CENTER"> 
                             <children>
-                                <Label fx:id="homeGoals" styleClass="big" /> 
+                                <Label fx:id="homeGoals" styleClass="bigFont" />
                             </children> 
                         </VBox>
                         <VBox alignment="BOTTOM_CENTER"> 
                             <children>
-                                <Label styleClass="big" text="-" />  
+                                <Label styleClass="bigFont" text="-" />
                             </children> 
                         </VBox>
                         <VBox alignment="BOTTOM_CENTER"> 
                             <children>
-                                <Label fx:id="awayGoals" styleClass="big" />  
+                                <Label fx:id="awayGoals" styleClass="bigFont" />
                             </children> 
                         </VBox>
                     </children>

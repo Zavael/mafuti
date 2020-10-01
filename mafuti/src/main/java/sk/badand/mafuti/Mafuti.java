@@ -34,13 +34,13 @@ public class Mafuti extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) {
 
         mainStage = primaryStage;
         UiView uiView = new UiView();
 
         Scene scene = new Scene(uiView.getView(), 1024, 768);
-        mainStage.initStyle(StageStyle.UNIFIED);
+        mainStage.initStyle(StageStyle.UTILITY);
         mainStage.setTitle("mafuti");
         scene.getStylesheets().add("/styles/mafuti-light-blue.css");
 //        scene.getStylesheets().add("/styles/mafuti-dark-blue.css");
@@ -63,10 +63,10 @@ public class Mafuti extends Application {
 //            stageRef.setX(me.getScreenX() - dragAnchorX);
 //            stageRef.setY(me.getScreenY() - dragAnchorY);
 //        });
-        stageRef.setOnCloseRequest((WindowEvent ev) -> new QuestionDialog("Close?")
-                .showAndWait()
-                .filter(result -> result != ButtonType.OK)
-                .ifPresent(result -> ev.consume()));
+//        stageRef.setOnCloseRequest((WindowEvent ev) -> new QuestionDialog("Close?")
+//                .showAndWait()
+//                .filter(result -> result != ButtonType.OK)
+//                .ifPresent(result -> ev.consume()));
 
     }
 

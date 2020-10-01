@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class Data {
 
-    private static final DataProvider dataProvider = new MockDataProvider();
+    private static final DataProvider dataProvider = new EmptyDataProvider();
 
     public Data() {
 
