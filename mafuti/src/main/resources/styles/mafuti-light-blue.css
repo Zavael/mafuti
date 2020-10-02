@@ -4,13 +4,16 @@
         /** for layout testing, uncomment following lines
         -fx-border-style: dashed;
         -fx-border-color: red; **/
-    /** colors definition **/
-    colorFocus: derive(colorBase,-60%);
-    colorControl: derive(colorBase,50%);
-    colorBase: #0a8;
-    colorFocusInvert: derive(colorBase,80%);
-    colorControlInvert: derive(colorBase,-70%);
     colorText: #333333;
+
+    /** theme definition **/
+    colorBase: #0a8;
+    controlText: derive(colorBase,80%);
+    controlTextInvert: derive(colorBase,-80%);
+    controlBg: derive(colorBase,-20%);
+
+    /** ui colors **/
+    appBgColor: linear-gradient(to top right, azure, silver);
 }
 
 .text{
@@ -22,12 +25,9 @@
     -fx-border-width: 2;
 }
 
-.bordered > .button {
-    -fx-text-alignment: left;
-}
-
 .background {
-    -fx-background-image: url("/images/interface/background.jpg");
+    /*-fx-background-image: url("/images/interface/background.jpg");*/
+    -fx-background-color: appBgColor;
 }
 
 .right {
@@ -53,13 +53,13 @@
     -fx-padding: 5 10 5 10;
     -fx-min-width: 150;
     -fx-focus-color: transparent;
-    -fx-background-color: transparent;
-    -fx-text-fill: colorFocus;
+    -fx-background-color: controlBg;
+    -fx-text-fill: ladder(controlBg, controlText 49%, controlTextInvert 50%);
 }
 
 .button:hover {
-    -fx-text-fill: colorFocusInvert;
-    -fx-effect: dropshadow(gaussian, white, 10, 0.0, 0, 0);
+    controlBg: white;
+    /*-fx-effect: dropshadow(gaussian, white, 10, 0.0, 0, 0);*/
 }
 
 /* Button with SVGPath icon */
@@ -70,7 +70,6 @@
 .button:pressed, .button:hover:pressed
 {
     -fx-effect: none;
-    -fx-text-fill: colorFocus;
 }
 
 .button:disabled
@@ -81,13 +80,13 @@
 }
 
 .main-button {
-    -fx-background-color: colorControl;
-    -fx-text-fill: colorFocus;
+    -fx-background-color: controlBg;
+    -fx-text-fill: controlText;
     -fx-min-height: 50;
 }
 
 .button.filled {
-    -fx-background-color: colorControl;
+    -fx-background-color: controlBg;
 }
 
 /*******************************************************************************
@@ -95,10 +94,10 @@
  * TextField                                                                       *
  *                                                                             *
  ******************************************************************************/
-.text-field {
+/**.text-field {
     -fx-border-style: none;
     -fx-background-radius: 3;
-}
+}**/
 
 /*******************************************************************************
  *                                                                             *
@@ -112,7 +111,7 @@
 
 .header1 {
     -fx-font-size: 35pt;
-    -fx-text-fill: colorFocus;
+    -fx-text-fill: colorText;
     -fx-max-width: Infinity;
     -fx-alignment: center-right;
     -fx-label-padding: 0 50 0 0;
@@ -120,12 +119,12 @@
 
 .header2 {
     -fx-font-size: 25pt;
-    -fx-text-fill: colorFocus;
+    -fx-text-fill: colorText;
 }
 
 .header3 {
     -fx-font-size: 14pt;
-    -fx-text-fill: colorFocus;
+    -fx-text-fill: colorText;
 }
 
 /*******************************************************************************
@@ -149,7 +148,7 @@
 
 /*.table-view .column-header .label {
     -fx-background-color: colorBase;
-    -fx-text-fill: colorControl;
+    -fx-text-fill: controlBg;
 }
 
 
@@ -215,7 +214,7 @@
 }
 
 .tab-pane .tab .tab-label {
-    -fx-text-fill: colorBase;
+    -fx-text-fill: colorText;
 }
 
 .tab-pane .tab:selected {
@@ -239,7 +238,7 @@
 }
 
 .tab-pane:top *.tab-header-area {
-    -fx-text-fill: #828282;
+    -fx-text-fill: colorText;
     -fx-background-insets: 0, 0 0 1 0;
     /* -fx-padding: 0.416667em 0.166667em 0.0em 0.833em; /* 5 2 0 10 */
     -fx-padding: 0.416667em 0.166667em 0.0em 0.0em; /* overriden as 5 2 0 0 */
@@ -253,7 +252,6 @@
  ******************************************************************************/
 
 .intro.menu {
-    -fx-background-color: white;
 }
 
 
@@ -264,27 +262,27 @@
  ******************************************************************************/
 
 .combo-box-base  {
-    -fx-background-color: colorControl;
+    -fx-background-color: controlBg;
     -fx-background-radius: 0;
     -fx-border-style: none;
     -fx-focus-color: transparent;
 }
 
 .combo-box-base:hover {
-    -fx-background-color: colorControlInvert;
+    -fx-background-color: controlBg;
 }
 
 .combo-box-base  .list-cell{
-    -fx-text-fill: colorFocus;
+    -fx-text-fill: controlText;
     -fx-font-size: 12pt;
 }
 
 .combo-box-popup .list-view .list-cell:hover{
-    -fx-background-color: colorControl;
-    -fx-text-fill: colorFocus;
+    -fx-background-color: controlBg;
+    -fx-text-fill: controlText;
 }
 .combo-box-popup .list-view .list-cell:filled:selected{
-    -fx-background-color: colorFocus;
+    -fx-background-color: controlText;
     -fx-text-fill: colorBase;
 }
 
@@ -327,7 +325,7 @@
 
 .text-flow {
     -fx-focus-color: transparent;
-    -fx-fill: colorControl;
+    -fx-fill: controlBg;
 }
 
 
@@ -338,17 +336,17 @@
  ******************************************************************************/
 
 .list-view .sheet .cell.indexed-cell.list-cell {
-    -fx-background-color: colorControl;
+    -fx-background-color: controlBg;
     -fx-background-radius: 0;
     -fx-border-style: none;
     -fx-border-width: 0;
     -fx-focus-color: transparent;
-    -fx-text-fill: colorFocus;
+    -fx-text-fill: controlText;
 }
 
 .list-view .sheet .cell.indexed-cell.list-cell:focused {
-    -fx-background-color: colorControlInvert;
-    -fx-text-fill: colorFocusInvert;
+    -fx-background-color: controlBg;
+    -fx-text-fill: controlText;
 }
 
 
@@ -361,10 +359,10 @@
  ******************************************************************************/
 
 .scroll-bar {
-    -fx-background-color: colorControl;
+    -fx-background-color: controlBg;
 }
 
 .scroll-bar .thumb {
-    -fx-background-color: colorControl;
+    -fx-background-color: controlBg;
     -fx-background-radius: 0;
 }
