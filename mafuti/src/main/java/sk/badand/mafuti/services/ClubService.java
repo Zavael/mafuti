@@ -10,8 +10,9 @@ import java.util.List;
  * Created by abadinka.
  */
 public class ClubService {
+    private final Data data = Data.getInstance();
 
     public List<Club> getClubs(League league) {
-        return Data.getClubs(league);
+        return data.getClubs(league);
     }
 }

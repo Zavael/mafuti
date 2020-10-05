@@ -20,13 +20,14 @@ import java.util.Optional;
  * @author abadinka
  */
 public class CalendarService {
+    private final Data data = Data.getInstance();
 
     private Calendar calendar;
 
     public Optional<PlayableMatch> matchToday(Team team) {
         return Optional.of(new MockMatch(
                 team,
-                Data.getClubs(Data.getLeagueSystems().get(0).getLeagueLevels().get(0).getLeagues().get(0))
+                data.getClubs(data.getLeagueSystems().get(0).getLeagueLevels().get(0).getLeagues().get(0))
                         .get(1).getTeams()
                         .get(0)
         ));

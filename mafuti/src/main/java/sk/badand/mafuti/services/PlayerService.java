@@ -16,12 +16,13 @@ import static java.util.stream.Collectors.toList;
  * Created by abadinka.
  */
 public class PlayerService {
+    private final Data data = Data.getInstance();
 
     private HashMap<Club, List<Player>> playersByClub = new HashMap<>();
     //private HashMap<Team, List<Player>> playersByTeam = new HashMap<>();
 
     public PlayerService() {
-        for(Club club: Data.getClubs()) {
+        for(Club club: data.getClubs()) {
             List<Player> players = new ArrayList<>();
             for(Team team : club.getTeams()) {
                 players.addAll(team.getPlayers());

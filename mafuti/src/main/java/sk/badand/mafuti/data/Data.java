@@ -11,21 +11,26 @@ import java.util.List;
  */
 public class Data {
 
+    private static final Data instance = new Data();
     private static final DataProvider dataProvider = new EmptyDataProvider();
 
-    public Data() {
+    private Data() {
 
     }
 
-    public static List<Club> getClubs(League league) {
+    public static Data getInstance() {
+        return instance;
+    }
+
+    public List<Club> getClubs(League league) {
         return dataProvider.getClubs(league);
     }
 
-    public static List<Club> getClubs() {
+    public List<Club> getClubs() {
         return dataProvider.getClubs();
     }
 
-    public static List<LeagueSystem> getLeagueSystems() {
+    public List<LeagueSystem> getLeagueSystems() {
         return dataProvider.getLeagueSystems();
     }
 }

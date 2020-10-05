@@ -109,6 +109,11 @@ public class MockDataProvider implements DataProvider {
     }
 
     @Override
+    public List<Player> getPlayers() {
+        return new ArrayList<>();
+    }
+
+    @Override
     public List<Nation> getNations() {
         return nations;
     }

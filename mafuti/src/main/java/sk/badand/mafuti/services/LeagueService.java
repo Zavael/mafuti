@@ -13,10 +13,11 @@ import java.util.stream.Collectors;
  * Created by abadinka.
  */
 public class LeagueService {
+    private final Data data = Data.getInstance();
     private final HashMap<Nation, List<League>> leagues = new HashMap<>();
 
     public LeagueService() {
-        Data.getLeagueSystems().stream()
+        data.getLeagueSystems().stream()
                 .forEach(leagueSystem -> {
                     leagues.put(
                             leagueSystem.getNation(),
@@ -28,11 +29,11 @@ public class LeagueService {
     }
 
     public List<LeagueSystem> getLeagueSystems() {
-        return Data.getLeagueSystems();
+        return data.getLeagueSystems();
     }
 
     public LeagueSystem getLeagueSystem(Nation nation) {
-        return Data.getLeagueSystems().parallelStream()
+        return data.getLeagueSystems().parallelStream()
                 .filter(leagueSystem -> leagueSystem.getNation().equals(nation))
                 .findFirst()
                 .get();
