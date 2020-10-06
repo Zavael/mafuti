@@ -263,29 +263,21 @@
  ******************************************************************************/
 
 .combo-box-base  {
-    -fx-background-color: controlBg;
+    -fx-background-color: white;
+    -fx-min-width: 150;
     -fx-background-radius: 0;
     -fx-border-style: none;
     -fx-focus-color: transparent;
 }
 
-.combo-box-base:hover {
-    -fx-background-color: controlBg;
+.combo-box-base:hover .arrow-button {
+    -fx-background-color: colorAccent;
 }
 
-.combo-box-base  .list-cell{
-    -fx-text-fill: controlText;
-    -fx-font-size: 12pt;
+/**
+.combo-box .combo-box-popup .list-view .list-cell{
 }
-
-.combo-box-popup .list-view .list-cell:hover{
-    -fx-background-color: controlBg;
-    -fx-text-fill: controlText;
-}
-.combo-box-popup .list-view .list-cell:filled:selected{
-    -fx-background-color: controlText;
-    -fx-text-fill: colorAccent;
-}
+**/
 
 .combo-box-base:disabled {
     -fx-opacity: .4;
@@ -300,8 +292,9 @@
 
 .separator .line{
     -fx-padding: 0.0em 0.333333em 0.0em 0.333333em;  /*0 4 0 4 */
+    -fx-margin: 5px;
     -fx-border-style: solid;
-    -fx-background-color: colorAccent;
+    -fx-background-color: controlBgInvert;
     -fx-border-width: 0.5px;
 }
 
@@ -326,7 +319,7 @@
 
 .text-flow {
     -fx-focus-color: transparent;
-    -fx-fill: controlBg;
+    -fx-fill: red;
 }
 
 
