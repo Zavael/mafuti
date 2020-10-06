@@ -17,10 +17,12 @@
         </VBox>
         <VBox>
             <children>
-                <Button mnemonicParsing="false" text="Button"/>
-                <Button mnemonicParsing="false" text="Button"/>
-                <Button mnemonicParsing="false" text="Button"/>
-                <Button mnemonicParsing="false" text="Button"/>
+                <Button mnemonicParsing="false" text="Substitute"/>
+                <Button mnemonicParsing="false" text="Promote"/>
+                <Button mnemonicParsing="false" text="Relegate"/>
+                <Button mnemonicParsing="false" text="Sell"/>
+                <Button mnemonicParsing="false" text="Release"/>
+                <Button mnemonicParsing="false" text="Renew contract"/>
             </children>
         </VBox>
     </children>
