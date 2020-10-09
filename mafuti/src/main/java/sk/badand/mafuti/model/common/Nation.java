@@ -12,11 +12,13 @@ import java.util.Locale;
 public class Nation {
 
     public final String key;
+    public final String bundleKey;
     public final String country; //TODO: move to bundle?
 
     public Nation(String key, String country) {
-        this.key = "nation." + key;
+        this.bundleKey = "nation." + key;
         this.country = country;
+        this.key = key;
     }
 
 

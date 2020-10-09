@@ -13,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import sk.badand.mafuti.ui.club.team.formation.FormationView;
+import sk.badand.mafuti.ui.club.team.players.PlayersView;
 import sk.badand.mafuti.ui.club.team.tactics.TacticsView;
 
 /**
@@ -25,6 +26,7 @@ public class TeamPresenter implements Initializable {
     public static final Logger LOG = Logger.getLogger(TeamPresenter.class.getName());
     public Pane tabTactics;
     public Pane tabFormation;
+    public Pane tabPlayers;
 
     @FXML
     Label title;
@@ -36,6 +38,7 @@ public class TeamPresenter implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         tabTactics.getChildren().add(new TacticsView().getView());
         tabFormation.getChildren().add(new FormationView().getView());
+        tabPlayers.getChildren().add(new PlayersView().getView());
     }    
     
     public void setTitle(String titleToSet) {

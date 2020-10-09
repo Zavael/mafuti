@@ -17,9 +17,7 @@ public interface Player extends Person, Injurable {
 
     boolean isPlaying();
 
-    Fitness getFitness();
-
-    String getPositionAbbr(); //TODO localize
+    String getPositionAbbr();
 
     boolean isPlayingOnPosition(PlayerPosition position);
 

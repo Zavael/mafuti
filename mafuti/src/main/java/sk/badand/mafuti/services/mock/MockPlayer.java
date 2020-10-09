@@ -46,7 +46,7 @@ public final class MockPlayer implements Player {
 
     @Override
     public boolean isPlaying() {
-        return true;
+        return rand.nextRandomInt(10) > 8; //TODO rethink this, it should mark players selected for next match
     }
 
     @Override
@@ -177,11 +177,6 @@ public final class MockPlayer implements Player {
     @Override
     public boolean equals(Object obj) {
         return obj instanceof Player && this.key().equals(((Player)obj).key());
-    }
-
-    @Override
-    public boolean isInjured() {
-        return getFitness().getStatus() == FitnessStatus.INJURED;
     }
 
     @Override

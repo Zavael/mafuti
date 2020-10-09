@@ -12,7 +12,7 @@ import java.util.List;
 public class Data {
 
     private static final Data instance = new Data();
-    private static final DataProvider dataProvider = new EmptyDataProvider();
+    private static final DataProvider dataProvider = new MockDataProvider();
 
     private Data() {
 

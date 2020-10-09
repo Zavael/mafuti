@@ -45,8 +45,8 @@ public class MockDataProvider implements DataProvider {
         LOG.fine("Generating league systems...");
         int i = 1;
         for (Nation nation : nations) {
-            List<Club> clubs1 = generateClubs(18);
-            List<Club> clubs2 = generateClubs(18);
+            List<Club> clubs1 = generateClubs(6);
+            List<Club> clubs2 = generateClubs(6);
             leagueSystems.add(new LeagueSystem(i++, nation, Stream.of(
                     new LeagueLevel(1000 + i, (byte) 2, Stream.of(
                             new League(10000 + i, nation.country + " league " + 1, null, clubs1)

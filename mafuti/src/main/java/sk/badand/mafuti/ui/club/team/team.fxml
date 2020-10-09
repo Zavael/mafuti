@@ -13,11 +13,7 @@
             <tabs>
                 <Tab closable="false" text="%tab.players">
                     <content>
-                        <AnchorPane>
-                            <children>
-                                <fx:include source="players/players.fxml" />
-                            </children>
-                        </AnchorPane>
+                        <AnchorPane fx:id="tabPlayers" />
                     </content>
                 </Tab>
                 <Tab closable="false" text="%tab.formation">

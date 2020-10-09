@@ -7,9 +7,14 @@ public class Fitness {
     public static final double INJURY_LEVEL = 60.0;
     public static final double TIREDNESS_LEVEL = 80.0;
     public static final int HEALING_RATE_PER_WEEK = 5; //TODO modify by player strength or other perks?
+    private static final double MAX_CONDITION = 100.0;
     private double condition; // in percent
     private FitnessStatus status;
 
+    /**
+     *
+     * @param condition in percent, i.e. 85.0, has to be 100.0 at most
+     */
     public Fitness(double condition) {
         this.condition = condition;
         updateStatus();
@@ -37,6 +42,9 @@ public class Fitness {
      */
     public void heal(double energy) {
         this.condition += energy;
+        if (condition > MAX_CONDITION) {
+            condition = MAX_CONDITION;
+        }
         updateStatus();
     }
 
@@ -48,6 +56,7 @@ public class Fitness {
 
     public void addInjury() {
         //TODO add injury and update status
+        updateStatus();
     }
 
     private void updateStatus() {

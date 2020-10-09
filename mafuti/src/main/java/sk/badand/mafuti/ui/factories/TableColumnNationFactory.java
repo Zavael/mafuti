@@ -20,7 +20,7 @@ public class TableColumnNationFactory implements Callback<TableColumn<TableView,
 
     @Override
     public TableCell<TableView, Nation> call(TableColumn<TableView, Nation> tableViewNationTableColumn) {
-        return new TableCell<TableView, Nation>() {
+        return new TableCell<>() {
             @Override
             protected void updateItem(Nation item, boolean empty) {
                 super.updateItem(item, empty);
@@ -29,7 +29,11 @@ public class TableColumnNationFactory implements Callback<TableColumn<TableView,
                     setText(null);
                     setGraphic(null);
                 } else {
-                    setText(bundle.getString(item.key));
+                    if (bundle.containsKey(item.bundleKey)) {
+                        setText(bundle.getString(item.bundleKey));
+                    } else {
+                        setText(item.key);
+                    }
                 }
             }
         };

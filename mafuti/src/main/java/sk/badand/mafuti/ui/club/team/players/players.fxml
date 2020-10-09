@@ -3,6 +3,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import sk.badand.mafuti.ui.factories.*?>
+<?import javafx.scene.control.skin.TableHeaderRow?>
 <HBox xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="sk.badand.mafuti.ui.club.team.players.PlayersPresenter"
       AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -10,9 +13,67 @@
         <VBox HBox.hgrow="ALWAYS">
             <children>
                 <Label text="%lbl.team.squad"/>
-                <ListView/>
+                <TableView fx:id="squadList">
+                    <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/></columnResizePolicy>
+                    <columns>
+                        <TableColumn text="%table.column.name">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="fullName"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn text="%tbl.column.nationality" fx:id="squadNationalityColumn">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="mainNationality" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn text="%table.column.position">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="positionAbbr"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn text="%tbl.column.wage">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="wage" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn text="%tbl.column.contract.expires">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="expiration" />
+                            </cellValueFactory>
+                        </TableColumn>
+                    </columns>
+                </TableView>
                 <Label text="%lbl.team.reserves"/>
-                <ListView VBox.vgrow="ALWAYS"/>
+                <TableView fx:id="reservesList" VBox.vgrow="ALWAYS">
+                    <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/></columnResizePolicy>
+                    <columns>
+                        <TableColumn text="%table.column.name">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="fullName"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn text="%tbl.column.nationality" fx:id="reservesNationalityColumn">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="mainNationality" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn text="%table.column.position">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="positionAbbr"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn text="%tbl.column.wage">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="wage" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn text="%tbl.column.contract.expires">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="expiration" />
+                            </cellValueFactory>
+                        </TableColumn>
+                    </columns>
+                </TableView>
             </children>
         </VBox>
         <VBox>
