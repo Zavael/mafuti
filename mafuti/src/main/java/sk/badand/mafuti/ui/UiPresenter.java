@@ -3,17 +3,16 @@
  */
 package sk.badand.mafuti.ui;
 
+import javafx.fxml.FXML;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import sk.badand.mafuti.ui.intro.IntroView;
+import sk.badand.mafuti.ui.menu.MenuView;
+import sk.badand.mafuti.ui.navigation.AbstractNavigator;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
-
-import javafx.fxml.FXML;
-import javafx.scene.image.Image;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundImage;
-import javafx.scene.layout.Pane;
-import sk.badand.mafuti.ui.intro.IntroView;
-import sk.badand.mafuti.ui.navigation.AbstractNavigator;
 
 /**
  * FXML Controller class
@@ -23,6 +22,8 @@ import sk.badand.mafuti.ui.navigation.AbstractNavigator;
 public class UiPresenter extends AbstractNavigator {
 
     private static final Logger LOG = Logger.getLogger(UiPresenter.class.getName());
+    @FXML
+    public AnchorPane menu;
 
     @FXML
     Pane content;
@@ -32,6 +33,7 @@ public class UiPresenter extends AbstractNavigator {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        menu.getChildren().add(new MenuView().getView());
         navigator.init(content);
         navigator.load(new IntroView());
     }

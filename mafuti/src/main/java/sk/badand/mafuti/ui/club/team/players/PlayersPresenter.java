@@ -2,14 +2,10 @@ package sk.badand.mafuti.ui.club.team.players;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
-import sk.badand.mafuti.data.Data;
-import sk.badand.mafuti.match.engine.MatchEngineProvider;
 import sk.badand.mafuti.model.match.Player;
-import sk.badand.mafuti.services.UserService;
+import sk.badand.mafuti.services.inject.UsersClubHolder;
 import sk.badand.mafuti.ui.factories.TableColumnNationFactory;
 
 import javax.inject.Inject;
@@ -27,16 +23,16 @@ public class PlayersPresenter implements Initializable {
     @FXML
     public TableColumn squadNationalityColumn;
 
-    @Inject
-    UserService userService;
     public TableView<Player> squadList;
     public TableView<Player> reservesList;
+    @Inject
+    UsersClubHolder usersClubHolder;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         reservesNationalityColumn.setCellFactory(new TableColumnNationFactory(resourceBundle));
         squadNationalityColumn.setCellFactory(new TableColumnNationFactory(resourceBundle));
-        userService.getClub().getTeams().stream().findFirst().get()
+        usersClubHolder.getClub().getTeams().stream().findFirst().get()
                 .getPlayers().stream()
                 .forEach(player -> {
                     LOG.fine("player " + player);
@@ -46,8 +42,5 @@ public class PlayersPresenter implements Initializable {
                         this.reservesList.getItems().add(player);
                     }
                 });
-        this.squadList.getItems().addAll(
-
-        );
     }
 }

@@ -8,25 +8,10 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<HBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="sk.badand.mafuti.ui.manager.ManagerPresenter">
-    <children>
-        <AnchorPane fx:id="menu">
-            <children>
-                <fx:include source="managerMenu.fxml"/>
-            </children>
-        </AnchorPane>
-        <AnchorPane fx:id="content" HBox.hgrow="ALWAYS" >
-            <padding>
-                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-            </padding>
-            <children>
-                <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                    <children>
-                        <Label styleClass="header1" text="%lbl.manager" />
-                        <BorderPane VBox.vgrow="ALWAYS"  />
-                    </children>
-                </VBox>
-            </children>
-        </AnchorPane>
-    </children>
-</HBox>
+<VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+      AnchorPane.topAnchor="0.0"
+      xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8"
+      fx:controller="sk.badand.mafuti.ui.manager.ManagerPresenter">
+	<Label styleClass="header1" text="%lbl.manager"/>
+	<BorderPane VBox.vgrow="ALWAYS"/>
+</VBox>

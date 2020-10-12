@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<?import javafx.scene.layout.Region?>
+<HBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"
+      xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="sk.badand.mafuti.ui.menu.MenuPresenter" styleClass="topmenu">
+
+	<Button text="%btn.dashboard" onAction="#showDashboard"/>
+	<MenuButton text="%btn.team">
+		<items>
+			<MenuItem onAction="#showATeam" text="%btn.a-team"/>
+			<MenuItem onAction="#showBTeam" text="%btn.b-team"/>
+			<MenuItem onAction="#showYouthTeam" text="%btn.youth-team"/>
+			<MenuItem onAction="#showStaff" text="%btn.staff"/>
+		</items>
+	</MenuButton>
+	<MenuButton text="%btn.training">
+		<items>
+			<MenuItem onAction="#showPlayers" text="%btn.players" />
+			<MenuItem onAction="#showOnRehab" text="%btn.on-rehab" />
+			<MenuItem onAction="#showPrograms" text="%btn.programs" />
+		</items>
+	</MenuButton>
+	<MenuButton text="%btn.facilities">
+		<items>
+			<MenuItem onAction="#showOffice" text="%btn.office" />
+			<MenuItem onAction="#showYouthAcademy" text="%btn.youth-academy" />
+			<MenuItem onAction="#showStadium" text="%btn.stadium" />
+			<MenuItem onAction="#showFitnessMedic" text="%btn.fitness-medic" />
+		</items>
+	</MenuButton>
+	<MenuButton text="%btn.finances">
+		<items>
+			<MenuItem onAction="#showSummary" text="%btn.summary" />
+			<MenuItem onAction="#showExpenses" text="%btn.expenses" />
+			<MenuItem onAction="#showIncomes" text="%btn.incomes" />
+			<MenuItem onAction="#showSalaries" text="%btn.salaries" />
+			<MenuItem onAction="#showLoans" text="%btn.loans" />
+		</items>
+	</MenuButton>
+	<MenuButton text="%btn.world">
+		<items>
+			<MenuItem onAction="#showCompetitions" text="%btn.competitions" />
+			<MenuItem onAction="#showStatistics" text="%btn.statistics" />
+			<MenuItem onAction="#showJobs" text="%btn.jobs" />
+			<MenuItem onAction="#showSearch" text="%btn.search" />
+		</items>
+	</MenuButton>
+	<Button onAction="#showPersonal" text="%btn.personal" />
+	<Region HBox.hgrow="ALWAYS" />
+	<Button defaultButton="true" onAction="#processTime" text="%btn.continue" />
+</HBox>
