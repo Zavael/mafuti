@@ -7,7 +7,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import sk.badand.mafuti.model.Staff;
-import sk.badand.mafuti.services.StaffService;
 import sk.badand.mafuti.services.inject.UsersClubHolder;
 import sk.badand.mafuti.ui.factories.TableColumnNationFactory;
 import sk.badand.mafuti.ui.factories.TableColumnReputationFactory;
@@ -34,9 +33,6 @@ public class StaffPresenter implements Initializable {
     public TableColumn scoutReputationColumn;
 
     @Inject
-    StaffService service;
-
-    @Inject
     UsersClubHolder usersClubHolder;
 
     /**
@@ -44,9 +40,9 @@ public class StaffPresenter implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        service.getClubStaff(usersClubHolder.getClub())
+        usersClubHolder.getClub().getStaff()
                 .forEach(staff -> {
-                    switch (staff.personType()) {
+                    switch (staff.getPersonType()) {
                         case COACH: coachesTable.getItems().add(staff); break;
                         case PHYSIO: physiosTable.getItems().add(staff); break;
                         case SCOUT: scoutsTable.getItems().add(staff); break;

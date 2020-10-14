@@ -39,5 +39,5 @@ public interface Person extends Nameable {
 
     LocalDate getExpiration();
 
-    PersonType personType();
+    PersonType getPersonType();
 }

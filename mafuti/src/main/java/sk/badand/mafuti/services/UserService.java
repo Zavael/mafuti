@@ -1,11 +1,9 @@
 package sk.badand.mafuti.services;
 
 import sk.badand.mafuti.data.Data;
-import sk.badand.mafuti.match.engine.MatchEngineProvider;
 import sk.badand.mafuti.model.Club;
 import sk.badand.mafuti.services.mock.MockClub;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.logging.Logger;
 
@@ -24,6 +22,6 @@ public class UserService {
                                 .flatMap(league -> league.getClubs().stream().findFirst())
                         )
                 )
-                .orElse(new MockClub(null));
+                .orElse(new MockClub(Collections.EMPTY_LIST, Collections.EMPTY_LIST));
     }
 }

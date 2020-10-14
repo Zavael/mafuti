@@ -115,7 +115,7 @@ public class MockStaff implements Staff {
     }
 
     @Override
-    public PersonType personType() {
+    public PersonType getPersonType() {
         return personType;
     }
 }

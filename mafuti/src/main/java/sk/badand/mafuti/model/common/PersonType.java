@@ -15,8 +15,10 @@ public enum PersonType {
     PHYSIO("person.type.physio");
     
     public final String key;
+    public final String bundleKey;
 
     PersonType(String key) {
         this.key = key;
+        this.bundleKey = key;
     }
 }

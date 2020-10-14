@@ -2,6 +2,7 @@ package sk.badand.mafuti.services.mock;
 
 import sk.badand.mafuti.model.Budget;
 import sk.badand.mafuti.model.Club;
+import sk.badand.mafuti.model.Staff;
 import sk.badand.mafuti.model.Team;
 import sk.badand.math.Randomizer;
 import sk.badand.text.StrGenerator;
@@ -13,11 +14,12 @@ import java.util.List;
  */
 public class MockClub extends Club {
 
-    public MockClub(List<Team> teams) {
+    public MockClub(List<Team> teams, List<Staff> staff) {
         super(new String("club_" + new Randomizer().nextRandomInt(10000)),
                 new StrGenerator().generateDesignation(10) + " FC",
                 new MockManager(),
                 teams,
+                staff,
                 new Budget() {
                     @Override
                     public int getMoneyAmount() {

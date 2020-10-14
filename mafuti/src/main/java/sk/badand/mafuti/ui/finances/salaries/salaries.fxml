@@ -1,14 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.badand.mafuti.ui.finances.salaries.SalariesPresenter">
-    <children>
-        <Label styleClass="header1" text="%lbl.heading" />
-    </children>
+<VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"
+      xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="sk.badand.mafuti.ui.finances.salaries.SalariesPresenter">
+	<Label styleClass="header1" text="%lbl.heading"/>
+	<HBox VBox.vgrow="ALWAYS">
+		<VBox HBox.hgrow="ALWAYS">
+			<Label text="%lbl.players" styleClass="header2"/>
+			<TableView fx:id="playersTable" minHeight="200">
+				<columnResizePolicy>
+					<TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+				</columnResizePolicy>
+				<columns>
+					<TableColumn text="%tbl.column.name">
+						<cellValueFactory>
+							<PropertyValueFactory property="fullName"/>
+						</cellValueFactory>
+					</TableColumn>
+					<TableColumn fx:id="playerNationColumn" text="%tbl.column.nationality">
+						<cellValueFactory>
+							<PropertyValueFactory property="mainNationality"/>
+						</cellValueFactory>
+					</TableColumn>
+					<TableColumn text="%tbl.column.wage">
+						<cellValueFactory>
+							<PropertyValueFactory property="wage"/>
+						</cellValueFactory>
+					</TableColumn>
+					<TableColumn text="%tbl.column.contract.expires">
+						<cellValueFactory>
+							<PropertyValueFactory property="expiration"/>
+						</cellValueFactory>
+					</TableColumn>
+					<TableColumn fx:id="playerReputationColumn" text="%tbl.column.reputation">
+						<cellValueFactory>
+							<PropertyValueFactory property="reputation"/>
+						</cellValueFactory>
+					</TableColumn>
+				</columns>
+			</TableView>
+			<Label text="%lbl.staff" styleClass="header2"/>
+			<TableView fx:id="staffTable" minHeight="200">
+				<columnResizePolicy>
+					<TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+				</columnResizePolicy>
+				<columns>
+					<TableColumn text="%tbl.column.name">
+						<cellValueFactory>
+							<PropertyValueFactory property="fullName"/>
+						</cellValueFactory>
+					</TableColumn>
+					<TableColumn fx:id="staffTypeColumn" text="%tbl.column.staffType">
+						<cellValueFactory>
+							<PropertyValueFactory property="personType"/>
+						</cellValueFactory>
+					</TableColumn>
+					<TableColumn fx:id="staffNationColumn" text="%tbl.column.nationality">
+						<cellValueFactory>
+							<PropertyValueFactory property="mainNationality"/>
+						</cellValueFactory>
+					</TableColumn>
+					<TableColumn text="%tbl.column.wage">
+						<cellValueFactory>
+							<PropertyValueFactory property="wage"/>
+						</cellValueFactory>
+					</TableColumn>
+					<TableColumn text="%tbl.column.contract.expires">
+						<cellValueFactory>
+							<PropertyValueFactory property="expiration"/>
+						</cellValueFactory>
+					</TableColumn>
+					<TableColumn fx:id="staffReputationColumn" text="%tbl.column.reputation">
+						<cellValueFactory>
+							<PropertyValueFactory property="reputation"/>
+						</cellValueFactory>
+					</TableColumn>
+				</columns>
+			</TableView>
+		</VBox>
+		<VBox minWidth="100">
+			<Button mnemonicParsing="false" text="Renew contract"/>
+			<Button mnemonicParsing="false" text="Release contract"/>
+			<Button mnemonicParsing="false" text="Talk to"/>
+		</VBox>
+	</HBox>
 </VBox>

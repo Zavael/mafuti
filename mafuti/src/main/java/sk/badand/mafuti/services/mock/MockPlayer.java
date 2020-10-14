@@ -146,7 +146,7 @@ public final class MockPlayer implements Player {
     }
 
     @Override
-    public PersonType personType() {
+    public PersonType getPersonType() {
         return PersonType.PLAYER;
     }
 

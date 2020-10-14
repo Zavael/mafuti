@@ -8,7 +8,7 @@ import sk.badand.mafuti.model.common.PersonType;
 public interface Manager extends Staff {
 
     @Override
-    default PersonType personType() {
+    default PersonType getPersonType() {
         return PersonType.MANAGER;
     }
 }

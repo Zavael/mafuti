@@ -11,14 +11,16 @@ public class Club{
     private final Object key;
     private final MockManager mockManager;
     private final List<Team> teams;
+    private final List<Staff> staff;
     private Budget budget;
     private final String name;
 
-    public Club(Object key, String name, MockManager mockManager, List<Team> teams, Budget budget) {
+    public Club(Object key, String name, MockManager mockManager, List<Team> teams, List<Staff> staff, Budget budget) {
         this.key = key;
         this.name = name;
         this.mockManager = mockManager;
         this.teams = teams;
+        this.staff = staff;
         this.budget = budget;
     }
 
@@ -51,5 +53,9 @@ public class Club{
 
     public String getName() {
         return name;
+    }
+
+    public List<Staff> getStaff() {
+        return staff;
     }
 }

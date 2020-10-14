@@ -1,6 +1,7 @@
 package sk.badand.mafuti.data;
 
 import sk.badand.mafuti.model.Club;
+import sk.badand.mafuti.model.Staff;
 import sk.badand.mafuti.model.Team;
 import sk.badand.mafuti.model.common.Nation;
 import sk.badand.mafuti.model.league.League;
@@ -10,6 +11,7 @@ import sk.badand.mafuti.model.match.Player;
 import sk.badand.mafuti.model.match.PlayerPosition;
 import sk.badand.mafuti.services.mock.MockClub;
 import sk.badand.mafuti.services.mock.MockPlayer;
+import sk.badand.mafuti.services.mock.MockStaff;
 import sk.badand.mafuti.services.mock.MockTeam;
 
 import java.util.ArrayList;
@@ -17,6 +19,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
@@ -92,7 +95,10 @@ public class MockDataProvider implements DataProvider {
                 teams.add(mockTeam);
             }
 
-            MockClub mockClub = new MockClub(teams);
+            List<Staff> staff = Stream.of(new MockStaff(), new MockStaff(), new MockStaff(), new MockStaff()).collect(Collectors.toList());
+            MockClub mockClub = new MockClub(
+                    teams,
+                    staff);
             clubList.add(mockClub);
         }
         return clubList;
