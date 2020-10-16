@@ -1,10 +1,7 @@
 package sk.badand.mafuti.services.mock;
 
 import sk.badand.mafuti.model.Staff;
-import sk.badand.mafuti.model.common.Contract;
-import sk.badand.mafuti.model.common.Nation;
-import sk.badand.mafuti.model.common.PersonType;
-import sk.badand.mafuti.model.common.Reputation;
+import sk.badand.mafuti.model.common.*;
 import sk.badand.math.Randomizer;
 import sk.badand.text.StrGenerator;
 
@@ -40,7 +37,7 @@ public class MockStaff implements Staff {
     }
 
     @Override
-    public LocalDate birthDate() {
+    public LocalDate getBirthDate() {
         return LocalDate.now().minusYears(rand.nextRandomInt(17, 35));
     }
 
@@ -77,6 +74,11 @@ public class MockStaff implements Staff {
     @Override
     public Short morale() {
         return 5;
+    }
+
+    @Override
+    public Morale getMorale() {
+        return Morale.UNHAPPY;
     }
 
     @Override

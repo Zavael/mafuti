@@ -3,14 +3,10 @@
  */
 package sk.badand.mafuti.services.mock;
 
-import sk.badand.mafuti.model.common.Contract;
-import sk.badand.mafuti.model.common.Nation;
-import sk.badand.mafuti.model.common.PersonType;
-import sk.badand.mafuti.model.common.Reputation;
+import sk.badand.mafuti.model.common.*;
 import sk.badand.mafuti.model.match.Player;
 import sk.badand.mafuti.model.match.PlayerPosition;
 import sk.badand.mafuti.model.player.Fitness;
-import sk.badand.mafuti.model.player.FitnessStatus;
 import sk.badand.mafuti.model.player.PlayerSkill;
 import sk.badand.math.Randomizer;
 import sk.badand.text.StrGenerator;
@@ -55,15 +51,20 @@ public final class MockPlayer implements Player {
     }
 
     @Override
-    public int overallRating() {
+    public int getOverallRating() {
         return rating;
+    }
+
+    @Override
+    public int getPositionalRating(PlayerPosition position) {
+        return rating; //TODO calculate
     }
 
     @Override
     public String toString() {
         return shortName()
                 + ", skill:"
-                + overallRating()
+                + getOverallRating()
                 + ", position:"
                 + currentPosition
                 + ", fitness:"
@@ -71,7 +72,7 @@ public final class MockPlayer implements Player {
     }
 
     @Override
-    public LocalDate birthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
@@ -108,6 +109,11 @@ public final class MockPlayer implements Player {
     @Override
     public Short morale() {
         return morale;
+    }
+
+    @Override
+    public Morale getMorale() {
+        return Morale.HAPPY;
     }
 
     @Override

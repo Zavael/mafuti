@@ -4,7 +4,6 @@
 package sk.badand.mafuti.model.match;
 
 import sk.badand.mafuti.model.common.Person;
-import sk.badand.mafuti.model.player.Fitness;
 import sk.badand.mafuti.model.player.Injurable;
 
 /**
@@ -13,7 +12,13 @@ import sk.badand.mafuti.model.player.Injurable;
  */
 public interface Player extends Person, Injurable {
 
-    int overallRating();
+    /**
+     * Overall rating calculated from skills (for best position?)
+     * @return
+     */
+    int getOverallRating();
+
+    int getPositionalRating(PlayerPosition position);
 
     boolean isPlaying();
 

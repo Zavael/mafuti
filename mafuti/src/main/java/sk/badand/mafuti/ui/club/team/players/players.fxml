@@ -9,82 +9,103 @@
 <HBox xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="sk.badand.mafuti.ui.club.team.players.PlayersPresenter"
       AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-    <children>
-        <VBox HBox.hgrow="ALWAYS">
-            <children>
-                <Label text="%lbl.team.squad"/>
-                <TableView fx:id="squadList">
-                    <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/></columnResizePolicy>
-                    <columns>
-                        <TableColumn text="%table.column.name">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="fullName"/>
-                            </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn text="%tbl.column.nationality" fx:id="squadNationalityColumn">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="mainNationality" />
-                            </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn text="%table.column.position">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="positionAbbr"/>
-                            </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn text="%tbl.column.wage">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="wage" />
-                            </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn text="%tbl.column.contract.expires">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="expiration" />
-                            </cellValueFactory>
-                        </TableColumn>
-                    </columns>
-                </TableView>
-                <Label text="%lbl.team.reserves"/>
-                <TableView fx:id="reservesList" VBox.vgrow="ALWAYS">
-                    <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/></columnResizePolicy>
-                    <columns>
-                        <TableColumn text="%table.column.name">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="fullName"/>
-                            </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn text="%tbl.column.nationality" fx:id="reservesNationalityColumn">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="mainNationality" />
-                            </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn text="%table.column.position">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="positionAbbr"/>
-                            </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn text="%tbl.column.wage">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="wage" />
-                            </cellValueFactory>
-                        </TableColumn>
-                        <TableColumn text="%tbl.column.contract.expires">
-                            <cellValueFactory>
-                                <PropertyValueFactory property="expiration" />
-                            </cellValueFactory>
-                        </TableColumn>
-                    </columns>
-                </TableView>
-            </children>
-        </VBox>
-        <VBox>
-            <children>
-                <Button mnemonicParsing="false" text="Substitute"/>
-                <Button mnemonicParsing="false" text="Promote"/>
-                <Button mnemonicParsing="false" text="Relegate"/>
-                <Button mnemonicParsing="false" text="Sell"/>
-                <Button mnemonicParsing="false" text="Release"/>
-                <Button mnemonicParsing="false" text="Renew contract"/>
-            </children>
-        </VBox>
-    </children>
+	<children>
+		<VBox HBox.hgrow="ALWAYS">
+			<children>
+				<Label text="%lbl.team.squad"/>
+				<TableView fx:id="squadList">
+					<columnResizePolicy>
+						<TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+					</columnResizePolicy>
+					<columns>
+						<TableColumn text="%table.column.name">
+							<cellValueFactory>
+								<PropertyValueFactory property="fullName"/>
+							</cellValueFactory>
+						</TableColumn>
+						<TableColumn fx:id="ageColumn" text="%table.column.age">
+							<cellValueFactory>
+								<PropertyValueFactory property="birthDate"/>
+							</cellValueFactory>
+						</TableColumn>
+						<TableColumn text="%tbl.column.nationality" fx:id="squadNationalityColumn" prefWidth="20">
+							<cellValueFactory>
+								<PropertyValueFactory property="mainNationality"/>
+							</cellValueFactory>
+						</TableColumn>
+						<TableColumn text="%table.column.position">
+							<cellValueFactory>
+								<PropertyValueFactory property="positionAbbr"/>
+							</cellValueFactory>
+						</TableColumn>
+						<TableColumn text="%tbl.column.rating">
+							<cellValueFactory>
+								<PropertyValueFactory property="overallRating"/>
+							</cellValueFactory>
+						</TableColumn>
+						<TableColumn fx:id="fitnessColumn" text="%tbl.column.fitness">
+							<cellValueFactory>
+								<PropertyValueFactory property="fitness"/>
+							</cellValueFactory>
+						</TableColumn>
+						<TableColumn fx:id="moraleColumn" text="%tbl.column.morale">
+							<cellValueFactory>
+								<PropertyValueFactory property="morale"/>
+							</cellValueFactory>
+						</TableColumn>
+					</columns>
+				</TableView>
+				<Label text="%lbl.team.reserves"/>
+				<TableView fx:id="reservesList" VBox.vgrow="ALWAYS">
+					<columnResizePolicy>
+						<TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+					</columnResizePolicy>
+					<columns>
+						<TableColumn text="%table.column.name">
+							<cellValueFactory>
+								<PropertyValueFactory property="fullName"/>
+							</cellValueFactory>
+						</TableColumn>
+						<TableColumn fx:id="reservesAgeColumn" text="%table.column.age">
+							<cellValueFactory>
+								<PropertyValueFactory property="birthDate"/>
+							</cellValueFactory>
+						</TableColumn>
+						<TableColumn text="%tbl.column.nationality" fx:id="reservesNationalityColumn" prefWidth="20">
+							<cellValueFactory>
+								<PropertyValueFactory property="mainNationality"/>
+							</cellValueFactory>
+						</TableColumn>
+						<TableColumn text="%table.column.position">
+							<cellValueFactory>
+								<PropertyValueFactory property="positionAbbr"/>
+							</cellValueFactory>
+						</TableColumn>
+						<TableColumn text="%tbl.column.rating">
+							<cellValueFactory>
+								<PropertyValueFactory property="overallRating"/>
+							</cellValueFactory>
+						</TableColumn>
+						<TableColumn fx:id="reservesFitnessColumn" text="%tbl.column.fitness">
+							<cellValueFactory>
+								<PropertyValueFactory property="fitness"/>
+							</cellValueFactory>
+						</TableColumn>
+						<TableColumn fx:id="reservesMoraleColumn" text="%tbl.column.morale">
+							<cellValueFactory>
+								<PropertyValueFactory property="morale"/>
+							</cellValueFactory>
+						</TableColumn>
+					</columns>
+				</TableView>
+			</children>
+		</VBox>
+		<VBox>
+			<children>
+				<Button text="Substitute"/>
+				<Button text="Promote"/>
+				<Button text="Relegate"/>
+			</children>
+		</VBox>
+	</children>
 </HBox>

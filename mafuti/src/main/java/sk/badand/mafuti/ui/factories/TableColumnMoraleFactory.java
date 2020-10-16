@@ -4,25 +4,25 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.util.Callback;
-import sk.badand.mafuti.model.common.Nation;
+import sk.badand.mafuti.model.common.Morale;
 
 import java.util.ResourceBundle;
 
 /**
  * Created by abadinka.
  */
-public class TableColumnNationFactory implements Callback<TableColumn<TableView, Nation>, TableCell<TableView, Nation>> {
+public class TableColumnMoraleFactory implements Callback<TableColumn<TableView, Morale>, TableCell<TableView, Morale>> {
     private final ResourceBundle bundle;
 
-    public TableColumnNationFactory(ResourceBundle bundle) {
+    public TableColumnMoraleFactory(ResourceBundle bundle) {
         this.bundle = bundle;
     }
 
     @Override
-    public TableCell<TableView, Nation> call(TableColumn<TableView, Nation> tableViewNationTableColumn) {
+    public TableCell<TableView, Morale> call(TableColumn<TableView, Morale> tableViewMoraleTableColumn) {
         return new TableCell<>() {
             @Override
-            protected void updateItem(Nation item, boolean empty) {
+            protected void updateItem(Morale item, boolean empty) {
                 super.updateItem(item, empty);
 
                 if (empty || item == null) {

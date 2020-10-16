@@ -1,6 +1,7 @@
 package sk.badand.mafuti.services.mock;
 
 import sk.badand.mafuti.model.Manager;
+import sk.badand.mafuti.model.common.Morale;
 import sk.badand.mafuti.model.common.Nation;
 import sk.badand.mafuti.model.common.Reputation;
 
@@ -17,7 +18,7 @@ public class MockManager implements Manager {
     }
 
     @Override
-    public LocalDate birthDate() {
+    public LocalDate getBirthDate() {
         return null;
     }
 
@@ -54,6 +55,11 @@ public class MockManager implements Manager {
     @Override
     public Short morale() {
         return null;
+    }
+
+    @Override
+    public Morale getMorale() {
+        return Morale.EXCITED;
     }
 
     @Override

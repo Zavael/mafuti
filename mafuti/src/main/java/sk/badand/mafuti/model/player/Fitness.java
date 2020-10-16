@@ -42,9 +42,6 @@ public class Fitness {
      */
     public void heal(double energy) {
         this.condition += energy;
-        if (condition > MAX_CONDITION) {
-            condition = MAX_CONDITION;
-        }
         updateStatus();
     }
 
@@ -60,6 +57,9 @@ public class Fitness {
     }
 
     private void updateStatus() {
+        if (condition > MAX_CONDITION) {
+            condition = MAX_CONDITION;
+        }
         if (condition <= INJURY_LEVEL) {
             status = FitnessStatus.INJURED;
         } else if (condition <= TIREDNESS_LEVEL) {

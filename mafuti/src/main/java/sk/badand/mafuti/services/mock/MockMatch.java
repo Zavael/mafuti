@@ -59,7 +59,7 @@ public class MockMatch implements PlayableMatch {
     public List<Player> getHomeTop5Players() {
         return homeTeam.getPlayers().stream()
                 .filter(Player::isPlaying)
-                .sorted(Comparator.comparing(Player::overallRating).reversed())
+                .sorted(Comparator.comparing(Player::getOverallRating).reversed())
                 .limit(TOP_PLAYERS_COUNT)
                 .collect(Collectors.toList());
     }
@@ -68,7 +68,7 @@ public class MockMatch implements PlayableMatch {
     public List<Player> getAwayTop5Players() {
         return awayTeam.getPlayers().stream()
                 .filter(Player::isPlaying)
-                .sorted(Comparator.comparing(Player::overallRating).reversed())
+                .sorted(Comparator.comparing(Player::getOverallRating).reversed())
                 .limit(TOP_PLAYERS_COUNT)
                 .collect(Collectors.toList());
     }

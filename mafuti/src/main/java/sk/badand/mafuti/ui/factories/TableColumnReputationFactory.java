@@ -29,7 +29,11 @@ public class TableColumnReputationFactory implements Callback<TableColumn<TableV
                     setText(null);
                     setGraphic(null);
                 } else {
-                    setText(bundle.getString(item.key));
+                    if (bundle.containsKey(item.key)) {
+                        setText(bundle.getString(item.key));
+                    } else {
+                        setText(item.key);
+                    }
                 }
             }
         };

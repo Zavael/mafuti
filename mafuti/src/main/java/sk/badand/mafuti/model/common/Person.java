@@ -14,7 +14,7 @@ public interface Person extends Nameable {
     
     Object key();
     
-    LocalDate birthDate();
+    LocalDate getBirthDate();
 
     @Override
     default String getFullName() {
@@ -22,9 +22,14 @@ public interface Person extends Nameable {
     }
 
     Short morale();
+    Morale getMorale();
 
     Integer reputation();
 
+    /**
+     * Reputation int value mapped to enum
+     * @return
+     */
     Reputation getReputation();
 
     Collection<Nation> nationalities();

@@ -84,7 +84,8 @@
 		</VBox>
 		<VBox minWidth="100">
 			<Button mnemonicParsing="false" text="Renew contract"/>
-			<Button mnemonicParsing="false" text="Release contract"/>
+			<Button mnemonicParsing="false" text="Sell"/>
+			<Button mnemonicParsing="false" text="Release"/>
 			<Button mnemonicParsing="false" text="Talk to"/>
 		</VBox>
 	</HBox>

@@ -30,7 +30,7 @@ public class Team implements PlayingTeam {
         this.players = players;
         this.priority = priority;
         overalStrength = players.stream()
-                .mapToInt(Player::overallRating)
+                .mapToInt(Player::getOverallRating)
                 .sum();
     }
 

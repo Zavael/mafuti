@@ -3,8 +3,6 @@
  */
 package sk.badand.mafuti.model.common;
 
-import java.util.Locale;
-
 /**
  *
  * @author abadinka
@@ -12,11 +10,9 @@ import java.util.Locale;
 public class Nation {
 
     public final String key;
-    public final String bundleKey;
     public final String country; //TODO: move to bundle?
 
     public Nation(String key, String country) {
-        this.bundleKey = "nation." + key;
         this.country = country;
         this.key = key;
     }

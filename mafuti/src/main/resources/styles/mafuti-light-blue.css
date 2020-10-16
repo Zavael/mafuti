@@ -133,6 +133,10 @@
     -fx-border-style: solid;
 }
 
+.table-column {
+    -fx-alignment: CENTER;
+}
+
 .table-view,
 .filler,
 .corner,

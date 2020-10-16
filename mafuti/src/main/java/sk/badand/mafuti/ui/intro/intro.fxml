@@ -14,7 +14,7 @@
 		<RowConstraints valignment="CENTER" vgrow="ALWAYS"/>
 		<RowConstraints/>
 	</rowConstraints>
-	<VBox maxHeight="100" maxWidth="100" spacing="1" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="intro, menu">
+	<VBox maxHeight="100" maxWidth="200" spacing="1" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="intro, menu">
 		<alignment>CENTER</alignment>
 		<Button styleClass="biggerFont" mnemonicParsing="false" onAction="#continueGame" text="%btn.continue"/>
 		<Button styleClass="biggerFont" mnemonicParsing="false" onAction="#newGame" text="%btn.newGame"/>
