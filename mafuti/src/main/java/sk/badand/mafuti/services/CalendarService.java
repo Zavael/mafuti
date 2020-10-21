@@ -7,7 +7,7 @@ import sk.badand.mafuti.data.Data;
 import sk.badand.mafuti.model.Team;
 import sk.badand.mafuti.model.match.Match;
 import sk.badand.mafuti.model.match.PlayableMatch;
-import sk.badand.mafuti.services.mock.MockMatch;
+import sk.badand.mafuti.data.mock.MockMatch;
 import sk.badand.math.OddsDecider;
 
 import java.time.LocalDate;

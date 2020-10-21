@@ -1,4 +1,4 @@
-package sk.badand.mafuti.services.mock;
+package sk.badand.mafuti.data.mock;
 
 import sk.badand.mafuti.model.common.Nation;
 

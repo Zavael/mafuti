@@ -43,7 +43,7 @@ public class DashboardPresenter extends AbstractNavigator {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        club = userService.getClub();
+        club = userService.getClub().get(); //FIXME either handle empty optional or do not use optional
         chart.getData().addAll(
                 FXCollections.observableArrayList(
                         new PieChart.Data("Wins", 25),

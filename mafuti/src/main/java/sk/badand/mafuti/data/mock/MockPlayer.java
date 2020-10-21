@@ -1,7 +1,7 @@
 /*
  * Copyright 2016 Andrej Badinka
  */
-package sk.badand.mafuti.services.mock;
+package sk.badand.mafuti.data.mock;
 
 import sk.badand.mafuti.model.common.*;
 import sk.badand.mafuti.model.match.Player;
@@ -28,8 +28,8 @@ public final class MockPlayer implements Player {
     private final LocalDate birthDate = LocalDate.now().minus(rand.nextRandomInt(17, 35), ChronoUnit.YEARS).minus(new Randomizer().nextRandomInt(0, 365), ChronoUnit.DAYS);
     private final String firstName = strgen.generateDesignation(10);
     private final String lastName = strgen.generateDesignation(10);
-    private final Short morale = 200; //TODO ??wtf
-    private final Integer reputation = 200; //TODO ??wtf;
+    private final Short morale = (short) rand.nextRandomInt(Morale.MAX); //TODO ??wtf
+    private final Integer reputation = rand.nextRandomInt(10000);
     private final Contract contract;
 
     public MockPlayer(PlayerPosition position) {
@@ -112,11 +112,6 @@ public final class MockPlayer implements Player {
     }
 
     @Override
-    public Morale getMorale() {
-        return Morale.HAPPY;
-    }
-
-    @Override
     public Integer reputation() {
         return reputation;
     }
@@ -182,7 +177,7 @@ public final class MockPlayer implements Player {
 
     @Override
     public boolean equals(Object obj) {
-        return obj instanceof Player && this.key().equals(((Player)obj).key());
+        return obj instanceof Player && this.key().equals(((Player) obj).key());
     }
 
     @Override

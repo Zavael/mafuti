@@ -1,7 +1,7 @@
 /*
  * Copyright 2016 Andrej Badinka
  */
-package sk.badand.mafuti.services.mock;
+package sk.badand.mafuti.data.mock;
 
 import sk.badand.mafuti.match.engine.SimpleMatchEngine;
 import sk.badand.mafuti.model.common.Weather;

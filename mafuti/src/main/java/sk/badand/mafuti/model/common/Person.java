@@ -22,7 +22,9 @@ public interface Person extends Nameable {
     }
 
     Short morale();
-    Morale getMorale();
+    default Morale getMorale() {
+        return Morale.mapFromInt(morale());
+    };
 
     Integer reputation();
 

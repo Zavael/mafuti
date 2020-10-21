@@ -1,4 +1,4 @@
-package sk.badand.mafuti.services.mock;
+package sk.badand.mafuti.data.mock;
 
 import sk.badand.mafuti.model.Staff;
 import sk.badand.mafuti.model.common.*;
@@ -24,9 +24,15 @@ public class MockStaff implements Staff {
     public MockStaff() {
         int type = rand.nextRandomInt(3);
         switch (type) {
-            case 0: personType = PersonType.COACH; break;
-            case 1: personType = PersonType.PHYSIO; break;
-            case 2: personType = PersonType.SCOUT; break;
+            case 0:
+                personType = PersonType.COACH;
+                break;
+            case 1:
+                personType = PersonType.PHYSIO;
+                break;
+            case 2:
+                personType = PersonType.SCOUT;
+                break;
         }
         contract = new MockContract();
     }
@@ -73,12 +79,7 @@ public class MockStaff implements Staff {
 
     @Override
     public Short morale() {
-        return 5;
-    }
-
-    @Override
-    public Morale getMorale() {
-        return Morale.UNHAPPY;
+        return (short) rand.nextRandomInt(Morale.MAX);
     }
 
     @Override
@@ -119,5 +120,15 @@ public class MockStaff implements Staff {
     @Override
     public PersonType getPersonType() {
         return personType;
+    }
+
+    @Override
+    public String toString() {
+        return "MockStaff{" +
+                "lastName='" + lastName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", contract=" + contract +
+                ", personType=" + personType +
+                '}';
     }
 }

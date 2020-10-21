@@ -1,8 +1,10 @@
 package sk.badand.mafuti.ui.menu;
 
 import com.airhacks.afterburner.injection.Injector;
+import com.airhacks.afterburner.views.FXMLView;
 import javafx.scene.control.ButtonType;
 import sk.badand.mafuti.model.Club;
+import sk.badand.mafuti.model.Team;
 import sk.badand.mafuti.model.match.PlayableMatch;
 import sk.badand.mafuti.services.CalendarService;
 import sk.badand.mafuti.services.UserService;
@@ -46,9 +48,10 @@ public class MenuPresenter extends AbstractNavigator {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        club = userService.getClub();
+        club = userService.getClub().get();
 
-        Injector.setModelOrService(UsersClubHolder.class, new UsersClubHolder(club));//FIXME temporary,
+        //FIXME temporary, users club has to be loaded on new game, load game, continue, not here
+        Injector.setModelOrService(UsersClubHolder.class, new UsersClubHolder(club));
     }
 
 
@@ -68,25 +71,33 @@ public class MenuPresenter extends AbstractNavigator {
         }
     }
 
+    private FXMLView initNewTeamView(String title, int teamPriority) {
+        Team team = club.getTeams().stream()
+                .filter(foundteam -> foundteam.getPriority() == teamPriority)
+                .findFirst()
+                .get();
+        final TeamView teamView = new TeamView();
+        teamView.getPresenter(presenter -> {
+            TeamPresenter teamPresenter = (TeamPresenter) presenter;
+            teamPresenter.setTitle(title);
+            teamPresenter.setTeam(team);
+        });
+        return teamView;
+    }
+
     public void showATeam() {
         LOG.log(Level.FINE, "showATeam");
-        final TeamView teamView = new TeamView();
-        ((TeamPresenter) teamView.getPresenter()).setTitle("a-team");
-        navigator.load(teamView);
+        navigator.load(initNewTeamView("a-team", 0));
     }
 
     public void showBTeam() {
         LOG.log(Level.FINE, "showBTeam");
-        final TeamView teamView = new TeamView();
-        ((TeamPresenter) teamView.getPresenter()).setTitle("b-team");
-        navigator.load(teamView);
+        navigator.load(initNewTeamView("b-team",1));
     }
 
     public void showYouthTeam() {
         LOG.log(Level.FINE, "showYouthTeam");
-        final TeamView teamView = new TeamView();
-        ((TeamPresenter) teamView.getPresenter()).setTitle("youth-team");
-        navigator.load(teamView);
+        navigator.load(initNewTeamView("youth-team", 2));
     }
 
     public void showStaff() {
@@ -128,7 +139,7 @@ public class MenuPresenter extends AbstractNavigator {
         LOG.log(Level.FINE, "showFitnessMedic");
         navigator.load(new FitnessView());
     }
-    
+
     public void showSummary() {
         LOG.log(Level.FINE, "showSummary");
         navigator.load(new SummaryView());

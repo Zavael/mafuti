@@ -1,9 +1,10 @@
-package sk.badand.mafuti.services.mock;
+package sk.badand.mafuti.data.mock;
 
 import sk.badand.mafuti.model.Manager;
 import sk.badand.mafuti.model.common.Morale;
 import sk.badand.mafuti.model.common.Nation;
 import sk.badand.mafuti.model.common.Reputation;
+import sk.badand.math.Randomizer;
 
 import java.time.LocalDate;
 import java.util.Collection;
@@ -12,6 +13,9 @@ import java.util.Collection;
  * Created by abadinka.
  */
 public class MockManager implements Manager {
+    private static final Randomizer rand = new Randomizer();
+    private short morale = (short) rand.nextRandomInt(Morale.MAX);
+
     @Override
     public Object key() {
         return null;
@@ -54,12 +58,7 @@ public class MockManager implements Manager {
 
     @Override
     public Short morale() {
-        return null;
-    }
-
-    @Override
-    public Morale getMorale() {
-        return Morale.EXCITED;
+        return morale;
     }
 
     @Override

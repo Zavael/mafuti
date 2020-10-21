@@ -134,4 +134,15 @@ public class Team implements PlayingTeam {
     public int hashCode() {
         return key.hashCode();
     }
+
+    @Override
+    public String toString() {
+        return "Team{" +
+                "key=" + key +
+                ", overalStrength=" + overalStrength +
+                ", players=" + players==null ? "null" : players.size() +
+                ", teamName='" + teamName + '\'' +
+                ", priority=" + priority +
+                '}';
+    }
 }

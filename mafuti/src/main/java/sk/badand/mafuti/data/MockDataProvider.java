@@ -9,10 +9,10 @@ import sk.badand.mafuti.model.league.LeagueLevel;
 import sk.badand.mafuti.model.league.LeagueSystem;
 import sk.badand.mafuti.model.match.Player;
 import sk.badand.mafuti.model.match.PlayerPosition;
-import sk.badand.mafuti.services.mock.MockClub;
-import sk.badand.mafuti.services.mock.MockPlayer;
-import sk.badand.mafuti.services.mock.MockStaff;
-import sk.badand.mafuti.services.mock.MockTeam;
+import sk.badand.mafuti.data.mock.MockClub;
+import sk.badand.mafuti.data.mock.MockPlayer;
+import sk.badand.mafuti.data.mock.MockStaff;
+import sk.badand.mafuti.data.mock.MockTeam;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,15 +39,11 @@ public class MockDataProvider implements DataProvider {
 
     static {
         LOG.fine("Generating countries...");
+        int i = 1;
         for (String country : Locale.getISOCountries()) {
             Locale locale = new Locale("", country);
-            nations.add(new Nation(locale.getISO3Country(), locale.getDisplayCountry()));
-        }
-        LOG.log(Level.FINE, "Done. Created {0} nations", nations.size());
-
-        LOG.fine("Generating league systems...");
-        int i = 1;
-        for (Nation nation : nations) {
+            Nation nation = new Nation(locale.getISO3Country(), locale.getDisplayCountry());
+            nations.add(nation);
             List<Club> clubs1 = generateClubs(6);
             List<Club> clubs2 = generateClubs(6);
             leagueSystems.add(new LeagueSystem(i++, nation, Stream.of(
@@ -61,6 +57,7 @@ public class MockDataProvider implements DataProvider {
             clubs.addAll(clubs1);
             clubs.addAll(clubs2);
         }
+        LOG.log(Level.FINE, "Done. Created {0} nations", nations.size());
         LOG.log(Level.FINE, "Done. Created {0} league systems", leagueSystems.size());
     }
 

@@ -1,7 +1,5 @@
 package sk.badand.mafuti.model;
 
-import sk.badand.mafuti.services.mock.MockManager;
-
 import java.util.List;
 
 /**
@@ -9,16 +7,16 @@ import java.util.List;
  */
 public class Club{
     private final Object key;
-    private final MockManager mockManager;
+    private final Manager manager;
     private final List<Team> teams;
     private final List<Staff> staff;
     private Budget budget;
     private final String name;
 
-    public Club(Object key, String name, MockManager mockManager, List<Team> teams, List<Staff> staff, Budget budget) {
+    public Club(Object key, String name, Manager manager, List<Team> teams, List<Staff> staff, Budget budget) {
         this.key = key;
         this.name = name;
-        this.mockManager = mockManager;
+        this.manager = manager;
         this.teams = teams;
         this.staff = staff;
         this.budget = budget;
@@ -33,7 +31,7 @@ public class Club{
     }
 
     public Manager getManager() {
-        return mockManager;
+        return manager;
     }
 
     @Override
@@ -57,5 +55,17 @@ public class Club{
 
     public List<Staff> getStaff() {
         return staff;
+    }
+
+    @Override
+    public String toString() {
+        return "Club{" +
+                "key=" + key +
+                ", manager=" + manager +
+                ", teams=" + teams +
+                ", staff=" + staff +
+                ", budget=" + budget +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

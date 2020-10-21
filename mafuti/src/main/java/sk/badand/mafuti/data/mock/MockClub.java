@@ -1,4 +1,4 @@
-package sk.badand.mafuti.services.mock;
+package sk.badand.mafuti.data.mock;
 
 import sk.badand.mafuti.model.Budget;
 import sk.badand.mafuti.model.Club;
@@ -15,7 +15,7 @@ import java.util.List;
 public class MockClub extends Club {
 
     public MockClub(List<Team> teams, List<Staff> staff) {
-        super(new String("club_" + new Randomizer().nextRandomInt(10000)),
+        super("club_" + new Randomizer().nextRandomInt(10000),
                 new StrGenerator().generateDesignation(10) + " FC",
                 new MockManager(),
                 teams,
