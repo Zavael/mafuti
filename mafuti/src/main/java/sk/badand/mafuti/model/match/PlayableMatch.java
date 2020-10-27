@@ -3,8 +3,10 @@
  */
 package sk.badand.mafuti.model.match;
 
-import java.util.List;
+import sk.badand.mafuti.model.club.Team;
 import sk.badand.mafuti.model.common.Weather;
+
+import java.util.List;
 
 /**
  *
@@ -20,5 +22,5 @@ public interface PlayableMatch extends Match {
 
     String getPlayTime();
 
-    PlayingTeam getManagerTeam();
+    Team getManagerTeam();
 }

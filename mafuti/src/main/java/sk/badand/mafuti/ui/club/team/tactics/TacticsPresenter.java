@@ -3,7 +3,7 @@ package sk.badand.mafuti.ui.club.team.tactics;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
-import sk.badand.mafuti.model.Team;
+import sk.badand.mafuti.model.club.Team;
 import sk.badand.mafuti.model.tactic.*;
 import sk.badand.mafuti.services.inject.UsersClubHolder;
 

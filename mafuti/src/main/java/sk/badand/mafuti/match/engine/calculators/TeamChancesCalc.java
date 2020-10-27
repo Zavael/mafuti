@@ -4,14 +4,15 @@
 
 package sk.badand.mafuti.match.engine.calculators;
 
-import java.util.HashMap;
-import sk.badand.mafuti.model.match.PlayingTeam;
-import sk.badand.math.EmpiricDecider;
-import sk.badand.math.OddsDecider;
 import sk.badand.mafuti.match.engine.actions.controller.TransitionTableController;
 import sk.badand.mafuti.match.engine.actions.enums.ActionType;
 import sk.badand.mafuti.match.engine.actions.enums.FieldPosition;
 import sk.badand.mafuti.match.engine.actions.enums.TeamSide;
+import sk.badand.mafuti.model.club.Team;
+import sk.badand.math.EmpiricDecider;
+import sk.badand.math.OddsDecider;
+
+import java.util.HashMap;
 
 /**
  *
@@ -30,11 +31,11 @@ public class TeamChancesCalc {
 //        this.team = team;
 //    }
     
-    public static TeamSide decideAttacker(PlayingTeam home, PlayingTeam away){
+    public static TeamSide decideAttacker(Team home, Team away){
         return oddsDecider.decideSuccess(0.6) ? TeamSide.HomeTeam : TeamSide.AwayTeam;
     }
 
-    public static boolean attackContinues(PlayingTeam attackingTeam, PlayingTeam defendingTeam, FieldPosition actionPosition) {
+    public static boolean attackContinues(Team attackingTeam, Team defendingTeam, FieldPosition actionPosition) {
         double chance;
         //TODO calculate according to strenghts and ball position
         chance = 0.6;

@@ -95,4 +95,9 @@ public class MockManager implements Manager {
     public LocalDate getExpiration() {
         return null;
     }
+
+    @Override
+    public int getEstimateValue() {
+        return (int) rand.nextDouble(1,200) * 10000;
+    }
 }

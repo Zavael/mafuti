@@ -5,24 +5,21 @@
  */
 package sk.badand.mafuti.match.engine;
 
-import sk.badand.mafuti.model.match.PlayingTeam;
-import sk.badand.mafuti.model.match.Player;
-import java.util.HashMap;
-import java.util.Observable;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.apache.commons.collections4.queue.CircularFifoQueue;
 import sk.badand.mafuti.builders.MatchCommentaryBuilder;
 import sk.badand.mafuti.builders.StatsBuilder;
 import sk.badand.mafuti.match.engine.actions.controller.ActionController;
-import sk.badand.mafuti.match.engine.actions.enums.ActionType;
-import sk.badand.mafuti.match.engine.actions.enums.FieldPosLong;
-import sk.badand.mafuti.match.engine.actions.enums.FieldPosWide;
-import sk.badand.mafuti.match.engine.actions.enums.FieldPosition;
-import sk.badand.mafuti.match.engine.actions.enums.TeamSide;
+import sk.badand.mafuti.match.engine.actions.enums.*;
 import sk.badand.mafuti.match.engine.calculators.MatchChancesCalc;
+import sk.badand.mafuti.model.club.Team;
+import sk.badand.mafuti.model.match.Player;
 import sk.badand.math.Randomizer;
 import sk.badand.statemachine.Machine;
+
+import java.util.HashMap;
+import java.util.Observable;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -31,14 +28,14 @@ import sk.badand.statemachine.Machine;
 public class MatchEngineProvider extends Observable{
     private static final Logger LOG = Logger.getLogger(MatchEngineProvider.class.getName());
 
-    private final HashMap<TeamSide, PlayingTeam> oponnents;
+    private final HashMap<TeamSide, Team> oponnents;
     private TeamSide attacker;
     private final int MATCH_DURATION = 90;
     private FieldPosition actionPosition;
     private CircularFifoQueue<ActionType> lastActions;
     private CircularFifoQueue<Player> lastPlayersInAction;
 
-    public MatchEngineProvider(PlayingTeam homeTeam, PlayingTeam awayTeam) {
+    public MatchEngineProvider(Team homeTeam, Team awayTeam) {
         this.oponnents = new HashMap<>(2);
         oponnents.put(TeamSide.HomeTeam, homeTeam);
         oponnents.put(TeamSide.AwayTeam, awayTeam);
@@ -118,15 +115,15 @@ public class MatchEngineProvider extends Observable{
                 : TeamSide.HomeTeam;
     }
 
-    public PlayingTeam getHomeTeam() {
+    public Team getHomeTeam() {
         return oponnents.get(TeamSide.HomeTeam);
     }
 
-    public PlayingTeam getAwayTeam() {
+    public Team getAwayTeam() {
         return oponnents.get(TeamSide.AwayTeam);
     }
 
-    public PlayingTeam getTeam(TeamSide side) {
+    public Team getTeam(TeamSide side) {
         return oponnents.get(side);
     }
     

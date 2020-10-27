@@ -7,7 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
-import sk.badand.mafuti.model.Team;
+import sk.badand.mafuti.model.club.Team;
 import sk.badand.mafuti.ui.club.team.formation.FormationView;
 import sk.badand.mafuti.ui.club.team.players.PlayersPresenter;
 import sk.badand.mafuti.ui.club.team.players.PlayersView;

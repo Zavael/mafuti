@@ -3,14 +3,20 @@
  */
 package sk.badand.mafuti.match.engine;
 
+import sk.badand.mafuti.data.mock.MockTeam;
+import sk.badand.mafuti.model.club.Stadium;
+import sk.badand.mafuti.model.club.Team;
+import sk.badand.mafuti.model.match.Match;
+import sk.badand.mafuti.model.match.Player;
+import sk.badand.mafuti.model.match.PlayerStatistics;
+import sk.badand.mafuti.model.match.TeamMatchStats;
+import sk.badand.mafuti.model.match.result.Result;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
-
-import sk.badand.mafuti.model.match.*;
-import sk.badand.mafuti.model.match.result.Result;
 
 /**
  * @author abadinka
@@ -20,16 +26,16 @@ public class SimpleResult implements Result {
     private static final byte BEST_PLAYER_LIMIT = 5;
 
     private Match match;
-    protected PlayingTeam awayTeam;
-    protected PlayingTeam homeTeam;
+    protected Team awayTeam;
+    protected Team homeTeam;
     protected LocalDate playDate;
-    protected PlayableStadium stadium;
+    protected Stadium stadium;
     protected TeamMatchStats awayTeamStatistics;
     protected TeamMatchStats homeTeamStatistics;
     private List<PlayerStatistics> homePlayerStats;
     private List<PlayerStatistics> awayPlayerStats;
 
-    public SimpleResult(Match match, PlayingTeam homeTeam, PlayingTeam awayTeam, LocalDate playDate, PlayableStadium stadium, TeamMatchStats homeTeamStatistics, TeamMatchStats awayTeamStatistics) {
+    public SimpleResult(Match match, Team homeTeam, Team awayTeam, LocalDate playDate, Stadium stadium, TeamMatchStats homeTeamStatistics, TeamMatchStats awayTeamStatistics) {
         this.match = match;
         this.awayTeam = awayTeam;
         this.homeTeam = homeTeam;
@@ -53,12 +59,12 @@ public class SimpleResult implements Result {
 
     @Override
     public String getAwayTeamName() {
-        return awayTeam.getNameShort();
+        return awayTeam.getTeamName();
     }
 
     @Override
     public String getHomeTeamName() {
-        return homeTeam.getNameShort();
+        return homeTeam.getTeamName();
     }
 
     @Override
@@ -119,12 +125,12 @@ public class SimpleResult implements Result {
         createStats(getAwayGoals(), awayTeam, awayPlayerStats);
     }
 
-    private void createStats(int goalsToAssign, PlayingTeam team, List<PlayerStatistics> playerStats) {
+    private void createStats(int goalsToAssign, Team team, List<PlayerStatistics> playerStats) {
         while (goalsToAssign > 0) {
-            final Player scorer = team.getRandomScorer();
-            Player randomAssistant = team.getRandomAssistant();
+            final Player scorer = ((MockTeam)team).getRandomScorer();
+            Player randomAssistant = ((MockTeam)team).getRandomAssistant();
             while (scorer.equals(randomAssistant)) {
-                randomAssistant = team.getRandomAssistant();
+                randomAssistant = ((MockTeam)team).getRandomAssistant();
             }
             final Player assistant = randomAssistant;
             playerStats

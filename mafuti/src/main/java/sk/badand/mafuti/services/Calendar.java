@@ -4,12 +4,6 @@
 package sk.badand.mafuti.services;
 
 import java.time.LocalDate;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Stream;
-
-import sk.badand.mafuti.model.Team;
-import sk.badand.mafuti.model.match.Match;
 
 /**
  *

@@ -2,7 +2,7 @@ package sk.badand.mafuti.services;
 
 import sk.badand.mafuti.data.Data;
 import sk.badand.mafuti.model.Club;
-import sk.badand.mafuti.model.Team;
+import sk.badand.mafuti.model.club.Team;
 import sk.badand.mafuti.model.match.Player;
 
 import java.util.ArrayList;

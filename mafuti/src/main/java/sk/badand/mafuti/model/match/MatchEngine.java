@@ -3,11 +3,13 @@
  */
 package sk.badand.mafuti.model.match;
 
-import java.time.LocalDate;
-import java.util.Observer;
 import sk.badand.mafuti.match.engine.ObservableEvents;
+import sk.badand.mafuti.model.club.Stadium;
 import sk.badand.mafuti.model.common.Weather;
 import sk.badand.mafuti.model.match.result.Result;
+
+import java.time.LocalDate;
+import java.util.Observer;
 
 /**
  *
@@ -19,7 +21,7 @@ public interface MatchEngine {
 
     MatchEngine atDate(LocalDate date);
 
-    MatchEngine atStadium(PlayableStadium stadium);
+    MatchEngine atStadium(Stadium stadium);
 
     MatchEngine withObservers(ObservableEvents events, Observer... observers);
 

@@ -1,31 +1,28 @@
 package sk.badand.mafuti.model.league;
 
-import sk.badand.mafuti.model.Club;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import sk.badand.mafuti.model.club.Team;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by abadinka.
  */
+@RequiredArgsConstructor
 public class League {
     private final int id;
+    @Getter
     private final String name;
+    @Getter
     private final LeagueSystem leagueSystem; //FIXME is necessary?
-    private final List<Club> clubs;
+    @Getter
+    private List<Team> teams = new ArrayList<>();
 
-    public League(int id, String name, LeagueSystem leagueSystem, List<Club> clubs) {
-        this.id = id;
-        this.name = name;
-        this.leagueSystem = leagueSystem;
-        this.clubs = clubs;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public LeagueSystem getLeagueSystem() {
-        return leagueSystem;
+    public void addTeam(Team team) {
+        teams.add(team);
+        team.setLeague(this);
     }
 
     @Override
@@ -41,9 +38,5 @@ public class League {
     @Override
     public int hashCode() {
         return id;
-    }
-
-    public List<Club> getClubs() {
-        return clubs;
     }
 }

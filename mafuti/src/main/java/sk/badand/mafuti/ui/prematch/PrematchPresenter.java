@@ -4,20 +4,21 @@
 package sk.badand.mafuti.ui.prematch;
 
 import com.airhacks.afterburner.injection.Injector;
-import java.net.URL;
-import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javax.inject.Inject;
-import sk.badand.mafuti.model.match.Player;
-import sk.badand.mafuti.model.match.PlayingTeam;
+import sk.badand.mafuti.model.club.Team;
 import sk.badand.mafuti.model.match.PlayableMatch;
-import sk.badand.mafuti.ui.preparation.PreparationView;
+import sk.badand.mafuti.model.match.Player;
 import sk.badand.mafuti.ui.navigation.AbstractNavigator;
+import sk.badand.mafuti.ui.preparation.PreparationView;
+
+import javax.inject.Inject;
+import java.net.URL;
+import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * FXML Controller class
@@ -61,7 +62,7 @@ public class PrematchPresenter extends AbstractNavigator {
     public void showMatchTactic(ActionEvent event) {
         LOG.log(Level.FINE, "showMatchTactic");
         
-        Injector.setModelOrService(PlayingTeam.class, match.getManagerTeam());
+        Injector.setModelOrService(Team.class, match.getManagerTeam());
         
         navigator.load(new PreparationView());
     }

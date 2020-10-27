@@ -1,7 +1,7 @@
 package sk.badand.mafuti.data;
 
-import org.apache.commons.collections4.collection.AbstractCollectionDecorator;
 import sk.badand.mafuti.model.Club;
+import sk.badand.mafuti.model.club.Team;
 import sk.badand.mafuti.model.common.Nation;
 import sk.badand.mafuti.model.league.League;
 import sk.badand.mafuti.model.league.LeagueSystem;
@@ -9,11 +9,10 @@ import sk.badand.mafuti.model.match.Player;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class EmptyDataProvider implements DataProvider {
     @Override
-    public List<Club> getClubs(League league) {
+    public List<Team> getTeams(League league) {
         return new ArrayList<>();
     }
 

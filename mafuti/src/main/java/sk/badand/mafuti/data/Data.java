@@ -1,6 +1,7 @@
 package sk.badand.mafuti.data;
 
 import sk.badand.mafuti.model.Club;
+import sk.badand.mafuti.model.club.Team;
 import sk.badand.mafuti.model.league.League;
 import sk.badand.mafuti.model.league.LeagueSystem;
 
@@ -22,8 +23,8 @@ public class Data {
         return instance;
     }
 
-    public List<Club> getClubs(League league) {
-        return dataProvider.getClubs(league);
+    public List<Team> getTeams(League league) {
+        return dataProvider.getTeams(league);
     }
 
     public List<Club> getClubs() {

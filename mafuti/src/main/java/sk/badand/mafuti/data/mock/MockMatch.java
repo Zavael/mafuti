@@ -4,8 +4,12 @@
 package sk.badand.mafuti.data.mock;
 
 import sk.badand.mafuti.match.engine.SimpleMatchEngine;
+import sk.badand.mafuti.model.club.Stadium;
+import sk.badand.mafuti.model.club.Team;
 import sk.badand.mafuti.model.common.Weather;
-import sk.badand.mafuti.model.match.*;
+import sk.badand.mafuti.model.match.MatchEngine;
+import sk.badand.mafuti.model.match.PlayableMatch;
+import sk.badand.mafuti.model.match.Player;
 import sk.badand.mafuti.model.match.result.Result;
 
 import java.time.LocalDate;
@@ -24,12 +28,12 @@ public class MockMatch implements PlayableMatch {
 
     private static final int TOP_PLAYERS_COUNT = 5;
 
-    private PlayingTeam homeTeam;
-    private PlayingTeam awayTeam;
-    private final PlayableStadium stadium = new MockStadium();
+    private Team homeTeam;
+    private Team awayTeam;
+    private final Stadium stadium = new MockStadium();
     private final MatchEngine matchEngine;
 
-    public MockMatch(PlayingTeam homeTeam, PlayingTeam awayTeam) {
+    public MockMatch(Team homeTeam, Team awayTeam) {
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
         matchEngine = new SimpleMatchEngine(this.homeTeam, this.awayTeam);
@@ -47,12 +51,12 @@ public class MockMatch implements PlayableMatch {
 
     @Override
     public String getHomeTeamName() {
-        return homeTeam.getNameShort();
+        return homeTeam.getTeamName();
     }
 
     @Override
     public String getAwayTeamName() {
-        return awayTeam.getNameShort();
+        return awayTeam.getTeamName();
     }
 
     @Override
@@ -99,7 +103,7 @@ public class MockMatch implements PlayableMatch {
     }
 
     @Override
-    public PlayingTeam getManagerTeam() {
+    public Team getManagerTeam() {
         return homeTeam;
     }
 

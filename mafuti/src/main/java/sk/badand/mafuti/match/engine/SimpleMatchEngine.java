@@ -3,16 +3,19 @@
  */
 package sk.badand.mafuti.match.engine;
 
-import sk.badand.mafuti.model.match.*;
+import sk.badand.mafuti.model.club.Stadium;
+import sk.badand.mafuti.model.club.Team;
+import sk.badand.mafuti.model.common.Weather;
+import sk.badand.mafuti.model.match.Match;
+import sk.badand.mafuti.model.match.MatchEngine;
+import sk.badand.mafuti.model.match.TeamMatchStats;
+import sk.badand.mafuti.model.match.result.Result;
+import sk.badand.math.Randomizer;
 
 import java.time.LocalDate;
 import java.util.Observer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import sk.badand.mafuti.model.common.Weather;
-import sk.badand.mafuti.model.match.result.Result;
-import sk.badand.math.Randomizer;
 
 /**
  * @author abadinka
@@ -22,14 +25,14 @@ public class SimpleMatchEngine implements MatchEngine {
     private static final Logger LOG = Logger.getLogger(SimpleMatchEngine.class.getName());
     private static final Randomizer randomizer = new Randomizer();
 
-    private final PlayingTeam homeTeam;
-    private final PlayingTeam awayTeam;
+    private final Team homeTeam;
+    private final Team awayTeam;
     private Weather weather;
     private LocalDate playDate;
-    private PlayableStadium stadium;
+    private Stadium stadium;
     private Result result;
 
-    public SimpleMatchEngine(PlayingTeam homeTeam, PlayingTeam awayTeam) {
+    public SimpleMatchEngine(Team homeTeam, Team awayTeam) {
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
     }
@@ -47,7 +50,7 @@ public class SimpleMatchEngine implements MatchEngine {
     }
 
     @Override
-    public MatchEngine atStadium(PlayableStadium stadium) {
+    public MatchEngine atStadium(Stadium stadium) {
         this.stadium = stadium;
         return this;
     }

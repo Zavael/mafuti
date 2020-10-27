@@ -1,37 +1,32 @@
 package sk.badand.mafuti.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import sk.badand.mafuti.model.club.Stadium;
+import sk.badand.mafuti.model.club.Team;
+import sk.badand.mafuti.model.league.League;
+import sk.badand.mafuti.model.match.Player;
+
 import java.util.List;
 
-/**
- * Created by abadinka.
- */
-public class Club{
+@RequiredArgsConstructor
+@AllArgsConstructor
+@Getter
+public class Club {
     private final Object key;
+    private final String name; //FIXME use either this or teams.get(0).getName... its duplication
     private final Manager manager;
     private final List<Team> teams;
     private final List<Staff> staff;
+    @Setter
     private Budget budget;
-    private final String name;
+    @Setter
+    private Stadium stadium;
 
-    public Club(Object key, String name, Manager manager, List<Team> teams, List<Staff> staff, Budget budget) {
-        this.key = key;
-        this.name = name;
-        this.manager = manager;
-        this.teams = teams;
-        this.staff = staff;
-        this.budget = budget;
-    }
-
-    public List<Team> getTeams() {
-        return teams;
-    }
-
-    public int getBudget() {
+    public int getBudgetLeft() {
         return budget.getMoneyAmount();
-    }
-
-    public Manager getManager() {
-        return manager;
     }
 
     @Override
@@ -49,14 +44,6 @@ public class Club{
         return key.hashCode();
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public List<Staff> getStaff() {
-        return staff;
-    }
-
     @Override
     public String toString() {
         return "Club{" +
@@ -67,5 +54,26 @@ public class Club{
                 ", budget=" + budget +
                 ", name='" + name + '\'' +
                 '}';
+    }
+
+    public int getEstimateValue() {
+        return teams.parallelStream()
+                .map(team -> team.getPlayers().parallelStream()
+                        .map(Player::getEstimateValue)
+                        .mapToInt(Integer::intValue)
+                        .sum())
+                .mapToInt(Integer::intValue)
+                .sum();
+    }
+
+    public League getMainLeague() {
+        return teams.get(0).getLeague().orElse(null);
+    }
+
+    public void addTeam(Team team) {
+        if (teams.contains(team)) {
+            return;
+        }
+        teams.add(team);
     }
 }

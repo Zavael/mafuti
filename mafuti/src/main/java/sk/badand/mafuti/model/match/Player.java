@@ -6,14 +6,17 @@ package sk.badand.mafuti.model.match;
 import sk.badand.mafuti.model.common.Person;
 import sk.badand.mafuti.model.player.Injurable;
 
+import java.time.LocalDate;
+import java.time.Period;
+
 /**
- *
  * @author abadinka
  */
 public interface Player extends Person, Injurable {
 
     /**
      * Overall rating calculated from skills (for best position?)
+     *
      * @return
      */
     int getOverallRating();
@@ -40,5 +43,14 @@ public interface Player extends Person, Injurable {
         return 0;
     }
 
+    default int getAge(){
+        return Period.between(getBirthDate(), LocalDate.now()).getYears();
+    }
+
     PlayerPosition getCurrentPosition();
+
+    @Override
+    default int getEstimateValue() {
+        return getOverallRating() * 10000; //TODO recalculate with age, potential?, morale, form, etc
+    }
 }

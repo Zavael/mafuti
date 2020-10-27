@@ -9,6 +9,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import sk.badand.mafuti.model.Club;
+import sk.badand.mafuti.model.club.Team;
 import sk.badand.mafuti.model.common.Nation;
 import sk.badand.mafuti.model.league.Cup;
 import sk.badand.mafuti.model.league.League;
@@ -20,6 +21,7 @@ import sk.badand.mafuti.ui.factories.ListViewLeagueFactory;
 import javax.inject.Inject;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 /**
  * FXML Controller class
@@ -59,7 +61,10 @@ public class CompetitionsPresenter implements Initializable {
             if (newLeague != null) {
                 leagueNameLbl.setText(newLeague.getName());
                 clubsListView.getItems().clear();
-                clubsListView.getItems().addAll(newLeague.getClubs());
+                clubsListView.getItems().addAll(
+                        newLeague.getTeams().stream()
+                .map(Team::getClub)
+                .collect(Collectors.toList()));
             }
         });
 

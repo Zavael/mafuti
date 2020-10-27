@@ -4,11 +4,13 @@ import com.airhacks.afterburner.injection.Injector;
 import com.airhacks.afterburner.views.FXMLView;
 import javafx.scene.control.ButtonType;
 import sk.badand.mafuti.model.Club;
-import sk.badand.mafuti.model.Team;
+import sk.badand.mafuti.model.club.Team;
 import sk.badand.mafuti.model.match.PlayableMatch;
 import sk.badand.mafuti.services.CalendarService;
 import sk.badand.mafuti.services.UserService;
 import sk.badand.mafuti.services.inject.UsersClubHolder;
+import sk.badand.mafuti.ui.club.ClubPresenter;
+import sk.badand.mafuti.ui.club.ClubView;
 import sk.badand.mafuti.ui.club.staff.StaffView;
 import sk.badand.mafuti.ui.club.team.TeamPresenter;
 import sk.badand.mafuti.ui.club.team.TeamView;
@@ -182,5 +184,15 @@ public class MenuPresenter extends AbstractNavigator {
     public void showPersonal() {
         LOG.log(Level.FINE, "showPersonal");
         navigator.load(new ManagerView());
+    }
+
+    public void showClub() {
+        LOG.log(Level.FINE, "showClub");
+        ClubView clubView = new ClubView();
+        clubView.getPresenter(presenter -> {
+            ClubPresenter clubPresenter = (ClubPresenter) presenter;
+            clubPresenter.setClub(club);
+        });
+        navigator.load(clubView);
     }
 }

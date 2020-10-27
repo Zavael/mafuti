@@ -47,4 +47,6 @@ public interface Person extends Nameable {
     LocalDate getExpiration();
 
     PersonType getPersonType();
+
+    int getEstimateValue();
 }

@@ -13,6 +13,7 @@
 	<Button text="%btn.dashboard" onAction="#showDashboard"/>
 	<MenuButton text="%btn.team">
 		<items>
+			<MenuItem onAction="#showClub" text="%btn.club"/>
 			<MenuItem onAction="#showATeam" text="%btn.a-team"/>
 			<MenuItem onAction="#showBTeam" text="%btn.b-team"/>
 			<MenuItem onAction="#showYouthTeam" text="%btn.youth-team"/>

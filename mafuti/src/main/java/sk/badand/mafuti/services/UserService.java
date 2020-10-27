@@ -2,6 +2,7 @@ package sk.badand.mafuti.services;
 
 import sk.badand.mafuti.data.Data;
 import sk.badand.mafuti.model.Club;
+import sk.badand.mafuti.model.club.Team;
 
 import java.util.Optional;
 import java.util.logging.Logger;
@@ -18,8 +19,8 @@ public class UserService {
                 .findFirst()
                 .flatMap(system -> system.getLeagueLevels().stream().findFirst()
                         .flatMap(level -> level.getLeagues().stream().findFirst()
-                                .flatMap(league -> league.getClubs().stream().findFirst())
-                        )
-                );
+                                .flatMap(league -> league.getTeams().stream().findFirst())
+                        ))
+                .map(Team::getClub);
     }
 }

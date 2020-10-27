@@ -7,6 +7,7 @@ import com.airhacks.afterburner.injection.Injector;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.chart.PieChart;
+import javafx.scene.control.TableView;
 import sk.badand.mafuti.model.Club;
 import sk.badand.mafuti.services.CalendarService;
 import sk.badand.mafuti.services.ClubService;
@@ -28,6 +29,8 @@ public class DashboardPresenter extends AbstractNavigator {
 
     private static final Logger LOG = Logger.getLogger(DashboardPresenter.class.getName());
 
+    @FXML
+    TableView leagueTableList;
     @FXML
     PieChart chart;
     @Inject

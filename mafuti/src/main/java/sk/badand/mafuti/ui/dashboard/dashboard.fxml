@@ -15,57 +15,54 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox styleClass="mainFxmlClass" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.112-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.badand.mafuti.ui.dashboard.DashboardPresenter">
+<HBox styleClass="mainFxmlClass" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+      AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.112-ea" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="sk.badand.mafuti.ui.dashboard.DashboardPresenter">
 
-    <children>
-        <AnchorPane fx:id="content" HBox.hgrow="ALWAYS">
-            <padding>
-                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-            </padding>
-            <children>
-                <VBox spacing="20" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                    <children>
-                        <HBox styleClass="timeline" HBox.hgrow="ALWAYS">
-                            <children>
-                                <Label prefWidth="500" text="day -1" HBox.hgrow="ALWAYS" />
-                                <Label prefWidth="500" text="day 0" HBox.hgrow="ALWAYS" />
-                                <Label prefWidth="500" text="day +1" HBox.hgrow="ALWAYS" />
-                                <Label prefWidth="500" text="day +2" HBox.hgrow="ALWAYS" />
-                                <Label prefWidth="500" text="day +3" HBox.hgrow="ALWAYS" />
-                                <Label prefWidth="500" text="day +4" HBox.hgrow="ALWAYS" />
-                                <Label prefWidth="500" text="day +5" HBox.hgrow="ALWAYS" />
-                            </children>
-                        </HBox>
-                        <fx:include source="parts/mails.fxml" />
-                        <fx:include source="parts/mediaNews.fxml" />
-                        <HBox spacing="10">
-                            <!--Stats & misc-->
-                            <children>
-                                <TableView fx:id="leagueTableList" editable="false" focusTraversable="false">
-                                    <columns>
-                                        <TableColumn prefWidth="137" resizable="false" sortable="false" text="%title.club">                
-                                            <cellValueFactory>
-                                                <PropertyValueFactory property="name" />
-                                            </cellValueFactory>
-                                        </TableColumn>
-                                        <TableColumn fx:id="pointsColumn" resizable="false" sortType="ASCENDING" sortable="false">
-                                            <cellValueFactory>
-                                                <PropertyValueFactory property="points" />
-                                            </cellValueFactory>
-                                        </TableColumn>
-                                    </columns>
-                                    <sortOrder>
-                                        <fx:reference source="pointsColumn" />
-                                    </sortOrder>
-                                </TableView>
-                                <ListView focusTraversable="false" HBox.hgrow="ALWAYS" />
-                                <PieChart fx:id="chart" labelsVisible="false" legendSide="RIGHT" legendVisible="true">
-                                </PieChart>                                
-                            </children>
-                        </HBox>
-                    </children>
-                </VBox>
-            </children>
-        </AnchorPane>
-    </children>
+	<AnchorPane fx:id="content" HBox.hgrow="ALWAYS">
+		<padding>
+			<Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+		</padding>
+		<VBox spacing="10" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+		      AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+			<HBox styleClass="timeline" HBox.hgrow="ALWAYS">
+				<Label prefWidth="500" text="day -1" HBox.hgrow="ALWAYS"/>
+				<Label prefWidth="500" text="day 0" HBox.hgrow="ALWAYS"/>
+				<Label prefWidth="500" text="day +1" HBox.hgrow="ALWAYS"/>
+				<Label prefWidth="500" text="day +2" HBox.hgrow="ALWAYS"/>
+				<Label prefWidth="500" text="day +3" HBox.hgrow="ALWAYS"/>
+				<Label prefWidth="500" text="day +4" HBox.hgrow="ALWAYS"/>
+				<Label prefWidth="500" text="day +5" HBox.hgrow="ALWAYS"/>
+			</HBox>
+			<HBox spacing="10" VBox.vgrow="ALWAYS">
+				<VBox HBox.hgrow="ALWAYS">
+					<Label styleClass="header3" text="%lbl.mails"/>
+					<fx:include source="parts/mails.fxml"/>
+					<Label styleClass="header3" text="%lbl.mediaNews"/>
+					<fx:include source="parts/mediaNews.fxml"/>
+				</VBox>
+				<VBox HBox.hgrow="NEVER" minWidth="5">
+					<Label styleClass="header3" text="%lbl.table"/>
+					<TableView fx:id="leagueTableList" editable="false" focusTraversable="false">
+						<columns>
+							<TableColumn resizable="false" sortable="false" text="%title.club">
+								<cellValueFactory>
+									<PropertyValueFactory property="name"/>
+								</cellValueFactory>
+							</TableColumn>
+							<TableColumn fx:id="pointsColumn" resizable="false" sortType="ASCENDING" sortable="false">
+								<cellValueFactory>
+									<PropertyValueFactory property="points"/>
+								</cellValueFactory>
+							</TableColumn>
+						</columns>
+						<sortOrder>
+							<fx:reference source="pointsColumn"/>
+						</sortOrder>
+					</TableView>
+					<PieChart fx:id="chart" labelsVisible="false" legendSide="LEFT" legendVisible="true" maxWidth="100"/>
+				</VBox>
+			</HBox>
+		</VBox>
+	</AnchorPane>
 </HBox>

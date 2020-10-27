@@ -3,7 +3,7 @@ package sk.badand.mafuti.data.mock;
 import sk.badand.mafuti.model.Budget;
 import sk.badand.mafuti.model.Club;
 import sk.badand.mafuti.model.Staff;
-import sk.badand.mafuti.model.Team;
+import sk.badand.mafuti.model.club.Team;
 import sk.badand.math.Randomizer;
 import sk.badand.text.StrGenerator;
 
@@ -25,6 +25,6 @@ public class MockClub extends Club {
                     public int getMoneyAmount() {
                         return 15000;
                     }
-                });
+                }, new MockStadium());
     }
 }

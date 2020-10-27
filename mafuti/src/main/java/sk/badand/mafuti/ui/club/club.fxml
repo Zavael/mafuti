@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="sk.badand.mafuti.ui.club.ClubPresenter">
+	<padding>
+		<Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+	</padding>
+	<GridPane fx:id="clubInfoGrid" hgap="10" vgap="10">
+		<columnConstraints>
+			<ColumnConstraints halignment="RIGHT" hgrow="ALWAYS" maxWidth="5000"/>
+			<ColumnConstraints halignment="LEFT" hgrow="ALWAYS" maxWidth="5000"/>
+		</columnConstraints>
+<!--		<rowConstraints>-->
+<!--			<RowConstraints valignment="CENTER" vgrow="ALWAYS"/>-->
+<!--		</rowConstraints>-->
+		<Label text="%lbl.club" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="header3"/>
+		<Label text="%lbl.name" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+		<Label text="%lbl.manager" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+		<Label text="%lbl.stadium" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+		<Label text="%lbl.clubValue" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+		<Label text="%lbl.league" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+		<Label text="%lbl.players" GridPane.columnIndex="0" GridPane.rowIndex="6" styleClass="header3"/>
+		<Label text="%lbl.squadSize" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+		<Label text="%lbl.avgAge" GridPane.columnIndex="0" GridPane.rowIndex="8" />
+		<Label text="%lbl.secondTeam" GridPane.columnIndex="0" GridPane.rowIndex="9" />
+		<Label text="%lbl.youthTeam" GridPane.columnIndex="0" GridPane.rowIndex="10" />
+	</GridPane>
+</AnchorPane>

@@ -123,6 +123,11 @@ public class MockStaff implements Staff {
     }
 
     @Override
+    public int getEstimateValue() {
+        return rand.nextRandomInt(50000);
+    }
+
+    @Override
     public String toString() {
         return "MockStaff{" +
                 "lastName='" + lastName + '\'' +
