@@ -25,15 +25,6 @@
 		</padding>
 		<VBox spacing="10" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
 		      AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-			<HBox styleClass="timeline" HBox.hgrow="ALWAYS">
-				<Label prefWidth="500" text="day -1" HBox.hgrow="ALWAYS"/>
-				<Label prefWidth="500" text="day 0" HBox.hgrow="ALWAYS"/>
-				<Label prefWidth="500" text="day +1" HBox.hgrow="ALWAYS"/>
-				<Label prefWidth="500" text="day +2" HBox.hgrow="ALWAYS"/>
-				<Label prefWidth="500" text="day +3" HBox.hgrow="ALWAYS"/>
-				<Label prefWidth="500" text="day +4" HBox.hgrow="ALWAYS"/>
-				<Label prefWidth="500" text="day +5" HBox.hgrow="ALWAYS"/>
-			</HBox>
 			<HBox spacing="10" VBox.vgrow="ALWAYS">
 				<VBox HBox.hgrow="ALWAYS">
 					<Label styleClass="header3" text="%lbl.mails"/>
@@ -62,6 +53,15 @@
 					</TableView>
 					<PieChart fx:id="chart" labelsVisible="false" legendSide="LEFT" legendVisible="true" maxWidth="100"/>
 				</VBox>
+			</HBox>
+			<HBox styleClass="timeline" HBox.hgrow="ALWAYS">
+				<Label prefWidth="500" text="day -1" HBox.hgrow="ALWAYS"/>
+				<Label prefWidth="500" text="day 0" HBox.hgrow="ALWAYS"/>
+				<Label prefWidth="500" text="day +1" HBox.hgrow="ALWAYS"/>
+				<Label prefWidth="500" text="day +2" HBox.hgrow="ALWAYS"/>
+				<Label prefWidth="500" text="day +3" HBox.hgrow="ALWAYS"/>
+				<Label prefWidth="500" text="day +4" HBox.hgrow="ALWAYS"/>
+				<Label prefWidth="500" text="day +5" HBox.hgrow="ALWAYS"/>
 			</HBox>
 		</VBox>
 	</AnchorPane>

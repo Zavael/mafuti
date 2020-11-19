@@ -75,13 +75,13 @@ public class PreparationPresenter extends AbstractNavigator {
 
     public void showMatch() {
         LOG.log(Level.FINE, "showMatch");
-        navigator.load(new MatchView());
+        navigator.loadFull(new MatchView());
     }
 
     public void skipMatch() {
         LOG.log(Level.FINE, "skipMatch");
         match.play();
         Injector.setModelOrService(Result.class, match.result());
-        navigator.load(new PostmatchView());
+        navigator.loadFull(new PostmatchView());
     }
 }

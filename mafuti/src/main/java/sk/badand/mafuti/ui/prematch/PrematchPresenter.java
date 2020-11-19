@@ -64,7 +64,7 @@ public class PrematchPresenter extends AbstractNavigator {
         
         Injector.setModelOrService(Team.class, match.getManagerTeam());
         
-        navigator.load(new PreparationView());
+        navigator.loadFull(new PreparationView());
     }
 
     private void initControls(PlayableMatch match) {

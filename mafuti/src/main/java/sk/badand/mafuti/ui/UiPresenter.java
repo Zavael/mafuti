@@ -34,7 +34,8 @@ public class UiPresenter extends AbstractNavigator {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         menu.getChildren().add(new MenuView().getView());
-        navigator.init(content);
-        navigator.load(new IntroView());
+        navigator.initContent(content);
+        navigator.initMenu(menu);
+        navigator.loadFull(new IntroView());
     }
 }

@@ -66,10 +66,10 @@ public class MenuPresenter extends AbstractNavigator {
                         PlayableMatch managerMatch = calendarService.matchToday(club.getTeams().get(0)).get();
                         Injector.setModelOrService(PlayableMatch.class, managerMatch);
                         final PrematchView prematchView = new PrematchView();
-                        navigator.load(prematchView);
+                        navigator.loadFull(prematchView);
                     });
         } else {
-            navigator.load(new TimeprogressView());
+            navigator.loadFull(new TimeprogressView());
         }
     }
 

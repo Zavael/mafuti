@@ -4,20 +4,21 @@
 package sk.badand.mafuti.ui.match;
 
 import com.airhacks.afterburner.injection.Injector;
-import java.net.URL;
-import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javax.inject.Inject;
 import sk.badand.mafuti.model.match.PlayableMatch;
 import sk.badand.mafuti.model.match.result.Result;
 import sk.badand.mafuti.ui.navigation.AbstractNavigator;
 import sk.badand.mafuti.ui.postmatch.PostmatchView;
+
+import javax.inject.Inject;
+import java.net.URL;
+import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * FXML Controller class
@@ -78,7 +79,7 @@ public class MatchPresenter extends AbstractNavigator {
     public void showPostmatch() {
         LOG.log(Level.FINE, "showPostmatch");
         Injector.setModelOrService(Result.class, match.result());
-        navigator.load(new PostmatchView());
+        navigator.loadFull(new PostmatchView());
     }
 
     public void startMatch() {
