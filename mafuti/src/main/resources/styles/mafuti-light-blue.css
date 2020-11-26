@@ -44,6 +44,10 @@
     -fx-font-size: 35pt;
 }
 
+.club-icon:focused {
+    -fx-background-color: colorAccent;
+}
+
 /*******************************************************************************
  *                                                                             *
  * Button                                                                      *

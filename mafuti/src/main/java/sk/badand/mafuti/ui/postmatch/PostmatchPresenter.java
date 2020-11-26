@@ -4,20 +4,20 @@
 package sk.badand.mafuti.ui.postmatch;
 
 import com.airhacks.afterburner.injection.Injector;
-import java.net.URL;
-import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javax.inject.Inject;
-
 import sk.badand.mafuti.model.match.PlayableMatch;
 import sk.badand.mafuti.model.match.PlayerStatistics;
 import sk.badand.mafuti.model.match.result.Result;
 import sk.badand.mafuti.ui.dashboard.DashboardView;
 import sk.badand.mafuti.ui.navigation.AbstractNavigator;
+
+import javax.inject.Inject;
+import java.net.URL;
+import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * FXML Controller class
@@ -66,7 +66,6 @@ public class PostmatchPresenter extends AbstractNavigator {
     }
 
     private void initControls() {
-        // TODO
         homeGoals.setText(String.valueOf(matchResult.getHomeGoals()));
         awayGoals.setText(String.valueOf(matchResult.getAwayGoals()));
         homeTeamName.setText(matchResult.getHomeTeamName());

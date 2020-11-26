@@ -58,7 +58,6 @@ public class MatchPresenter extends AbstractNavigator {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
         homeGoals.setText("0");
         awayGoals.setText("0");
         playTime.setText("00:00");

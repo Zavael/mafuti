@@ -3,11 +3,9 @@ package sk.badand.mafuti.ui.menu;
 import com.airhacks.afterburner.injection.Injector;
 import com.airhacks.afterburner.views.FXMLView;
 import javafx.scene.control.ButtonType;
-import sk.badand.mafuti.model.Club;
 import sk.badand.mafuti.model.club.Team;
 import sk.badand.mafuti.model.match.PlayableMatch;
 import sk.badand.mafuti.services.CalendarService;
-import sk.badand.mafuti.services.UserService;
 import sk.badand.mafuti.services.inject.UsersClubHolder;
 import sk.badand.mafuti.ui.club.ClubPresenter;
 import sk.badand.mafuti.ui.club.ClubView;
@@ -45,25 +43,20 @@ public class MenuPresenter extends AbstractNavigator {
     @Inject
     CalendarService calendarService;
     @Inject
-    UserService userService;
-    Club club;
+    UsersClubHolder usersClubHolder;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        club = userService.getClub().get();
-
-        //FIXME temporary, users club has to be loaded on new game, load game, continue, not here
-        Injector.setModelOrService(UsersClubHolder.class, new UsersClubHolder(club));
     }
 
 
     public void processTime() {
         LOG.log(Level.FINE, "processTime");
-        if (calendarService.isTeamPlayingToday(club.getTeams().get(0))) {
+        if (calendarService.isTeamPlayingToday(usersClubHolder.getClub().getTeams().get(0))) {
             new QuestionDialog("yes or no").showAndWait()
                     .filter(result -> result == ButtonType.OK)
                     .ifPresent(result -> {
-                        PlayableMatch managerMatch = calendarService.matchToday(club.getTeams().get(0)).get();
+                        PlayableMatch managerMatch = calendarService.matchToday(usersClubHolder.getClub().getTeams().get(0)).get();
                         Injector.setModelOrService(PlayableMatch.class, managerMatch);
                         final PrematchView prematchView = new PrematchView();
                         navigator.loadFull(prematchView);
@@ -74,7 +67,7 @@ public class MenuPresenter extends AbstractNavigator {
     }
 
     private FXMLView initNewTeamView(String title, int teamPriority) {
-        Team team = club.getTeams().stream()
+        Team team = usersClubHolder.getClub().getTeams().stream()
                 .filter(foundteam -> foundteam.getPriority() == teamPriority)
                 .findFirst()
                 .get();
@@ -191,7 +184,7 @@ public class MenuPresenter extends AbstractNavigator {
         ClubView clubView = new ClubView();
         clubView.getPresenter(presenter -> {
             ClubPresenter clubPresenter = (ClubPresenter) presenter;
-            clubPresenter.setClub(club);
+            clubPresenter.setClub(usersClubHolder.getClub());
         });
         navigator.load(clubView);
     }

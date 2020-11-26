@@ -24,6 +24,10 @@ public class Data {
         return instance;
     }
 
+    public static void loadInstance() {
+        //TODO load from save file
+    }
+
     public List<Team> getTeams(League league) {
         return dataProvider.getTeams(league);
     }
@@ -35,6 +39,7 @@ public class Data {
     public List<LeagueSystem> getLeagueSystems() {
         return dataProvider.getLeagueSystems();
     }
+
     public List<Nation> getNations() {
         return dataProvider.getNations();
     }

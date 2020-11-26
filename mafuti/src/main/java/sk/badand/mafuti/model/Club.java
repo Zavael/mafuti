@@ -15,7 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 public class Club {
-    private final Object key;
+    private final String key;
     private final String name; //FIXME use either this or teams.get(0).getName... its duplication
     private final Manager manager;
     private final List<Team> teams;
@@ -48,11 +48,11 @@ public class Club {
     public String toString() {
         return "Club{" +
                 "key=" + key +
+                ", name='" + name +
                 ", manager=" + manager +
                 ", teams=" + teams +
                 ", staff=" + staff +
-                ", budget=" + budget +
-                ", name='" + name + '\'' +
+                ", budget=" + budget + '\'' +
                 '}';
     }
 

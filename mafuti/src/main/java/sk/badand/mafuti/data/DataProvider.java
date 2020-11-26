@@ -15,6 +15,7 @@ import java.util.List;
 interface DataProvider {
 
     List<Team> getTeams(League league);
+
     List<Club> getClubs();
 
     List<Player> getPlayers();

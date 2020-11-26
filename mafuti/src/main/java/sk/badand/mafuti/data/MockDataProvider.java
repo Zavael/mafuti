@@ -15,6 +15,7 @@ import sk.badand.mafuti.model.match.Player;
 import sk.badand.mafuti.model.match.PlayerPosition;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.logging.Level;
@@ -36,6 +37,7 @@ public class MockDataProvider implements DataProvider {
     private static final List<LeagueSystem> leagueSystems = new ArrayList<>();
 
     private static final List<Club> clubs = new ArrayList<>();
+    private static final HashMap<String, Club> clubsMap = new HashMap<>();
 
     static {
         LOG.fine("Generating countries...");
@@ -57,8 +59,12 @@ public class MockDataProvider implements DataProvider {
                             league2
                     ).collect(toList()))
             ).collect(toList())));
-            clubs.addAll(clubs1);
-            clubs.addAll(clubs2);
+            Stream.of(clubs1, clubs2)
+                    .flatMap(List::stream)
+                    .forEach(club -> {
+                        clubs.add(club);
+                        clubsMap.put(club.getKey(), club);
+                    });
         }
         LOG.log(Level.FINE, "Done. Created {0} nations", nations.size());
         LOG.log(Level.FINE, "Done. Created {0} league systems", leagueSystems.size());
