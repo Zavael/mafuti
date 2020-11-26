@@ -3,12 +3,14 @@
  */
 package sk.badand.mafuti.ui.intro;
 
+import sk.badand.mafuti.ui.dashboard.DashboardView;
+import sk.badand.mafuti.ui.navigation.AbstractNavigator;
+import sk.badand.mafuti.ui.newcareer.NewcareerView;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import sk.badand.mafuti.ui.dashboard.DashboardView;
-import sk.badand.mafuti.ui.navigation.AbstractNavigator;
 
 /**
  * FXML Controller class
@@ -33,6 +35,7 @@ public class IntroPresenter extends AbstractNavigator {
 
     public void newGame() {
         LOG.log(Level.FINE, "newGame");
+        navigator.loadFull(new NewcareerView());
     }
 
     public void loadGame() {

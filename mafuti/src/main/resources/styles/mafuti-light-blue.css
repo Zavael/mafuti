@@ -266,6 +266,7 @@
 .combo-box-base  {
     -fx-background-color: white;
     -fx-min-width: 150;
+    -fx-pref-width: 500;
     -fx-background-radius: 0;
     -fx-border-style: none;
     -fx-focus-color: transparent;
