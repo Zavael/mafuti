@@ -46,7 +46,7 @@ public class MockDataProvider implements DataProvider {
             nations.add(nation);
             League league1 = new League(10000 + i, nation.country + " league " + 1, null);
             League league2 = new League(11000 + i, nation.country + " league " + 2, null);
-            List<Club> clubs1 = generateClubs(6, league1);
+            List<Club> clubs1 = generateClubs(12, league1);
             List<Club> clubs2 = generateClubs(6, league2);
 
             leagueSystems.add(new LeagueSystem(i++, nation, Stream.of(
@@ -94,10 +94,9 @@ public class MockDataProvider implements DataProvider {
                 ).collect(toList());
 
                 MockTeam mockTeam = new MockTeam(mockClub, j, players);
-                league.addTeam(mockTeam);
                 mockClub.addTeam(mockTeam);
-
             }
+            league.addTeam(mockClub.getTeams().get(0));
             clubList.add(mockClub);
         }
         return clubList;
