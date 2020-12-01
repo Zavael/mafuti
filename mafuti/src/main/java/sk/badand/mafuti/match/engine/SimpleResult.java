@@ -3,7 +3,7 @@
  */
 package sk.badand.mafuti.match.engine;
 
-import sk.badand.mafuti.data.mock.MockTeam;
+import sk.badand.mafuti.services.data.mock.MockTeam;
 import sk.badand.mafuti.model.club.Stadium;
 import sk.badand.mafuti.model.club.Team;
 import sk.badand.mafuti.model.match.Match;

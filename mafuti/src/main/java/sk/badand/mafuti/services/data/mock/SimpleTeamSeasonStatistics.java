@@ -1,7 +1,7 @@
 /*
  * Copyright 2016 Andrej Badinka
  */
-package sk.badand.mafuti.data.mock;
+package sk.badand.mafuti.services.data.mock;
 
 import sk.badand.mafuti.model.match.TeamSeasonStatistics;
 

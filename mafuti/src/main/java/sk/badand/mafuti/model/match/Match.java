@@ -5,13 +5,14 @@ package sk.badand.mafuti.model.match;
 
 import sk.badand.mafuti.model.match.result.Result;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
  *
  * @author abadinka
  */
-public interface Match {
+public interface Match extends Serializable {
 
     String getAwayTeamName();
 

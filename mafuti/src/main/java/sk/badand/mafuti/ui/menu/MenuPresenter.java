@@ -2,10 +2,15 @@ package sk.badand.mafuti.ui.menu;
 
 import com.airhacks.afterburner.injection.Injector;
 import com.airhacks.afterburner.views.FXMLView;
+import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.layout.HBox;
+import javafx.stage.FileChooser;
 import sk.badand.mafuti.model.club.Team;
 import sk.badand.mafuti.model.match.PlayableMatch;
 import sk.badand.mafuti.services.CalendarService;
+import sk.badand.mafuti.services.GameService;
 import sk.badand.mafuti.services.inject.UsersClubHolder;
 import sk.badand.mafuti.ui.club.ClubPresenter;
 import sk.badand.mafuti.ui.club.ClubView;
@@ -33,6 +38,8 @@ import sk.badand.mafuti.ui.world.jobs.JobsView;
 import sk.badand.mafuti.util.QuestionDialog;
 
 import javax.inject.Inject;
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -40,8 +47,12 @@ import java.util.logging.Logger;
 
 public class MenuPresenter extends AbstractNavigator {
     private static final Logger LOG = Logger.getLogger(MenuPresenter.class.getName());
+    @FXML
+    public HBox menuHBox;
     @Inject
     CalendarService calendarService;
+    @Inject
+    GameService gameService;
     @Inject
     UsersClubHolder usersClubHolder;
 
@@ -53,7 +64,7 @@ public class MenuPresenter extends AbstractNavigator {
     public void processTime() {
         LOG.log(Level.FINE, "processTime");
         if (calendarService.isTeamPlayingToday(usersClubHolder.getClub().getTeams().get(0))) {
-            new QuestionDialog("yes or no").showAndWait()
+            new QuestionDialog("yes or no", Alert.AlertType.CONFIRMATION).showAndWait()
                     .filter(result -> result == ButtonType.OK)
                     .ifPresent(result -> {
                         PlayableMatch managerMatch = calendarService.matchToday(usersClubHolder.getClub().getTeams().get(0)).get();
@@ -187,5 +198,31 @@ public class MenuPresenter extends AbstractNavigator {
             clubPresenter.setClub(usersClubHolder.getClub());
         });
         navigator.load(clubView);
+    }
+
+    public void saveGame() {
+        LOG.log(Level.FINE, "saveGame");
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Save");
+        fileChooser.getExtensionFilters().add(
+                new FileChooser.ExtensionFilter("Mafuti save game files", ".mft")
+        );
+        File file = fileChooser.showSaveDialog(menuHBox.getParent().getScene().getWindow());
+        System.out.println("file:" + file.getAbsolutePath());
+        try {
+            gameService.saveGame(file);
+        } catch (IOException e) {
+            LOG.log(Level.SEVERE, "Exception while saving file to {0}, message:{1}", new Object[]{file.getAbsolutePath(), e});
+            new QuestionDialog("Cannot save file: " + e.getLocalizedMessage(), Alert.AlertType.ERROR)
+                    .showAndWait();
+        }
+    }
+
+    public void config() {
+        LOG.log(Level.FINE, "configuration");
+    }
+
+    public void exit() {
+        LOG.log(Level.FINE, "exit");
     }
 }

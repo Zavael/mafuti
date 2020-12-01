@@ -11,4 +11,6 @@ public interface Manager extends Staff {
     default PersonType getPersonType() {
         return PersonType.MANAGER;
     }
+
+    boolean isHuman();
 }

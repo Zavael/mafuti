@@ -70,6 +70,11 @@
 			<version>1.18.12</version>
 			<scope>compile</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.controlsfx</groupId>
+			<artifactId>controlsfx</artifactId>
+			<version>11.0.3</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<defaultGoal>clean package</defaultGoal>
@@ -80,27 +85,27 @@
 				<version>0.0.4</version>
 				<configuration>
 					<mainClass>${mainClass}</mainClass>
-<!--					<mainClass>${viewTesterClass}</mainClass>-->
+					<!--					<mainClass>${viewTesterClass}</mainClass>-->
 				</configuration>
 			</plugin>
-<!--			<plugin>-->
-<!--				<artifactId>maven-dependency-plugin</artifactId>-->
-<!--				<version>2.10</version>-->
-<!--				<executions>-->
-<!--					<execution>-->
-<!--						<id>unpack-dependencies</id>-->
-<!--						<phase>package</phase>-->
-<!--						<goals>-->
-<!--							<goal>unpack-dependencies</goal>-->
-<!--						</goals>-->
-<!--						<configuration>-->
-<!--							<excludeScope>system</excludeScope>-->
-<!--							<excludeGroupIds>junit,org.mockito,org.hamcrest</excludeGroupIds>-->
-<!--							<outputDirectory>${project.build.directory}/classes</outputDirectory>-->
-<!--						</configuration>-->
-<!--					</execution>-->
-<!--				</executions>-->
-<!--			</plugin>-->
+			<!--			<plugin>-->
+			<!--				<artifactId>maven-dependency-plugin</artifactId>-->
+			<!--				<version>2.10</version>-->
+			<!--				<executions>-->
+			<!--					<execution>-->
+			<!--						<id>unpack-dependencies</id>-->
+			<!--						<phase>package</phase>-->
+			<!--						<goals>-->
+			<!--							<goal>unpack-dependencies</goal>-->
+			<!--						</goals>-->
+			<!--						<configuration>-->
+			<!--							<excludeScope>system</excludeScope>-->
+			<!--							<excludeGroupIds>junit,org.mockito,org.hamcrest</excludeGroupIds>-->
+			<!--							<outputDirectory>${project.build.directory}/classes</outputDirectory>-->
+			<!--						</configuration>-->
+			<!--					</execution>-->
+			<!--				</executions>-->
+			<!--			</plugin>-->
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>

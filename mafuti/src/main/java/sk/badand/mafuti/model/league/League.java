@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import sk.badand.mafuti.model.club.Team;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,12 +12,11 @@ import java.util.List;
  * Created by abadinka.
  */
 @RequiredArgsConstructor
-public class League {
+public class League implements Serializable {
+    private static final long serialVersionUID = -1797290337003499505L;
     private final int id;
     @Getter
     private final String name;
-    @Getter
-    private final LeagueSystem leagueSystem; //FIXME is necessary?
     @Getter
     private List<Team> teams = new ArrayList<>();
 

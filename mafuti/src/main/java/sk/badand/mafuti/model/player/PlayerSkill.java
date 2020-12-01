@@ -1,9 +1,11 @@
 package sk.badand.mafuti.model.player;
 
+import java.io.Serializable;
+
 /**
  * Created by zavael on 25.10.2016.
  */
-public enum PlayerSkill {
+public enum PlayerSkill implements Serializable {
     ATTACKING(PlayerSkillType.POSITIONAL, "player.skill.att", "Att"),
     WING(PlayerSkillType.POSITIONAL, "player.skill.wng", "Wng"),
     PLAYMAKING(PlayerSkillType.POSITIONAL, "player.skill.pmg", "Pmg"),

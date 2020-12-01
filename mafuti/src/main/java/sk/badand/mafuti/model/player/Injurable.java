@@ -1,11 +1,11 @@
 package sk.badand.mafuti.model.player;
 
-import sk.badand.mafuti.model.common.Nameable;
+import java.io.Serializable;
 
 /**
  * Created by abadinka.
  */
-public interface Injurable {
+public interface Injurable extends Serializable {
     default boolean isInjured() {
         return FitnessStatus.INJURED.equals(getFitness().getStatus());
     }

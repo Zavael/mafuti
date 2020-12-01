@@ -8,7 +8,7 @@
 <HBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"
       xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
-      fx:controller="sk.badand.mafuti.ui.menu.MenuPresenter" styleClass="topmenu">
+      fx:controller="sk.badand.mafuti.ui.menu.MenuPresenter" styleClass="topmenu" fx:id="menuHBox">
 
 	<Button text="%btn.dashboard" onAction="#showDashboard"/>
 	<MenuButton text="%btn.team">
@@ -53,6 +53,13 @@
 		</items>
 	</MenuButton>
 	<Button onAction="#showPersonal" text="%btn.personal" />
+	<MenuButton text="%btn.game">
+		<items>
+			<MenuItem onAction="#saveGame" text="%btn.savegame" />
+			<MenuItem onAction="#config" text="%btn.config" />
+			<MenuItem onAction="#exit" text="%btn.exit" />
+		</items>
+	</MenuButton>
 	<Region HBox.hgrow="ALWAYS" />
 	<Button defaultButton="true" onAction="#processTime" text="%btn.continue" />
 </HBox>

@@ -1,12 +1,8 @@
-package sk.badand.mafuti.data;
+package sk.badand.mafuti.services.data.mock;
 
-import sk.badand.mafuti.data.mock.MockClub;
-import sk.badand.mafuti.data.mock.MockPlayer;
-import sk.badand.mafuti.data.mock.MockStaff;
-import sk.badand.mafuti.data.mock.MockTeam;
 import sk.badand.mafuti.model.Club;
+import sk.badand.mafuti.model.Game;
 import sk.badand.mafuti.model.Staff;
-import sk.badand.mafuti.model.club.Team;
 import sk.badand.mafuti.model.common.Nation;
 import sk.badand.mafuti.model.league.League;
 import sk.badand.mafuti.model.league.LeagueLevel;
@@ -15,9 +11,7 @@ import sk.badand.mafuti.model.match.Player;
 import sk.badand.mafuti.model.match.PlayerPosition;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
@@ -28,28 +22,23 @@ import static java.util.stream.Collectors.toList;
 /**
  * Created by abadinka.
  */
-public class MockDataProvider implements DataProvider {
-
+public class MockDataProvider {
     private static final Logger LOG = Logger.getLogger(MockDataProvider.class.getName());
+    private final Game game;
 
-    private static final List<Nation> nations = new ArrayList<>();
-
-    private static final List<LeagueSystem> leagueSystems = new ArrayList<>();
-
-    private static final List<Club> clubs = new ArrayList<>();
-    private static final HashMap<String, Club> clubsMap = new HashMap<>();
-
-    static {
-        LOG.fine("Generating countries...");
+    public MockDataProvider() {
+        LOG.fine("Generating game data...");
+        List<Nation> nations = Stream.of(
+                new Nation("SVK", "Slovakia"),
+                new Nation("CZE", "Czech republic"))
+                .collect(Collectors.toUnmodifiableList());
+        List<LeagueSystem> leagueSystems = new ArrayList<>(nations.size());
         int i = 1;
-        for (String country : Locale.getISOCountries()) {
-            Locale locale = new Locale("", country);
-            Nation nation = new Nation(locale.getISO3Country(), locale.getDisplayCountry());
-            nations.add(nation);
-            League league1 = new League(10000 + i, nation.country + " league " + 1, null);
-            League league2 = new League(11000 + i, nation.country + " league " + 2, null);
-            List<Club> clubs1 = generateClubs(12, league1);
-            List<Club> clubs2 = generateClubs(6, league2);
+        for (Nation nation : nations) {
+            League league1 = new League(10000 + i, nation.country + " league " + 1);
+            League league2 = new League(11000 + i, nation.country + " league " + 2);
+            generateClubs(12, league1);
+            generateClubs(6, league2);
 
             leagueSystems.add(new LeagueSystem(i++, nation, Stream.of(
                     new LeagueLevel(1000 + i, (byte) 2, Stream.of(
@@ -59,14 +48,8 @@ public class MockDataProvider implements DataProvider {
                             league2
                     ).collect(toList()))
             ).collect(toList())));
-            Stream.of(clubs1, clubs2)
-                    .flatMap(List::stream)
-                    .forEach(club -> {
-                        clubs.add(club);
-                        clubsMap.put(club.getKey(), club);
-                    });
         }
-        LOG.log(Level.FINE, "Done. Created {0} nations", nations.size());
+        this.game = new Game(leagueSystems);
         LOG.log(Level.FINE, "Done. Created {0} league systems", leagueSystems.size());
     }
 
@@ -108,28 +91,7 @@ public class MockDataProvider implements DataProvider {
         return clubList;
     }
 
-    @Override
-    public List<Team> getTeams(League league) {
-        return league.getTeams(); //FIXME ?? wtf
-    }
-
-    @Override
-    public List<Club> getClubs() {
-        return clubs;
-    }
-
-    @Override
-    public List<Player> getPlayers() {
-        return new ArrayList<>();
-    }
-
-    @Override
-    public List<Nation> getNations() {
-        return nations;
-    }
-
-    @Override
-    public List<LeagueSystem> getLeagueSystems() {
-        return leagueSystems;
+    public Game mockGame() {
+        return game;
     }
 }

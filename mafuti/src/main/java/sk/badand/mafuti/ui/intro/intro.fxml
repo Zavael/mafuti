@@ -5,7 +5,8 @@
 
 <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
           AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-          fx:controller="sk.badand.mafuti.ui.intro.IntroPresenter">
+          fx:controller="sk.badand.mafuti.ui.intro.IntroPresenter"
+          fx:id="rootPane">
 	<columnConstraints>
 		<ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="5000"/>
 	</columnConstraints>
@@ -14,7 +15,8 @@
 		<RowConstraints valignment="CENTER" vgrow="ALWAYS"/>
 		<RowConstraints/>
 	</rowConstraints>
-	<VBox maxHeight="100" maxWidth="200" spacing="1" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="intro, menu">
+	<VBox maxHeight="100" maxWidth="200" spacing="1" GridPane.columnIndex="0" GridPane.rowIndex="0"
+	      styleClass="intro, menu">
 		<alignment>CENTER</alignment>
 		<Button styleClass="biggerFont" mnemonicParsing="false" onAction="#continueGame" text="%btn.continue"/>
 		<Button styleClass="biggerFont" mnemonicParsing="false" onAction="#newGame" text="%btn.newGame"/>

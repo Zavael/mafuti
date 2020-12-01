@@ -1,9 +1,11 @@
 package sk.badand.mafuti.model.common;
 
+import java.io.Serializable;
+
 /**
  * Created by abadinka.
  */
-public interface Nameable {
+public interface Nameable extends Serializable {
     String firstName();
 
     String lastName();

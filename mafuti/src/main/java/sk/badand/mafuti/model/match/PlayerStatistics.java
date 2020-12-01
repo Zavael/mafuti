@@ -3,10 +3,13 @@
  */
 package sk.badand.mafuti.model.match;
 
+import java.io.Serializable;
+
 /**
  * @author abadinka
  */
-public class PlayerStatistics {
+public class PlayerStatistics implements Serializable {
+    private static final long serialVersionUID = -7875415488593283026L;
     private final Player player;
     private final Match match;
     private short goalsScored;

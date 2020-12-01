@@ -4,12 +4,15 @@
 
 package sk.badand.mafuti.model.match;
 
+import java.io.Serializable;
+
 /**
  *
  * @author abadinka
  */
-public class TeamMatchStats {
-    
+public class TeamMatchStats implements Serializable {
+
+    private static final long serialVersionUID = 2594827602372810224L;
     private short shotsBlocked = 0;
     private short shotsOnTarget = 0;
     private short shotsOffTarget = 0;

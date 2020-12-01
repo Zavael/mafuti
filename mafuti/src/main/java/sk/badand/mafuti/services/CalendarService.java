@@ -3,11 +3,11 @@
  */
 package sk.badand.mafuti.services;
 
-import sk.badand.mafuti.data.Data;
 import sk.badand.mafuti.model.club.Team;
 import sk.badand.mafuti.model.match.Match;
 import sk.badand.mafuti.model.match.PlayableMatch;
-import sk.badand.mafuti.data.mock.MockMatch;
+import sk.badand.mafuti.services.data.Data;
+import sk.badand.mafuti.services.data.mock.MockMatch;
 import sk.badand.math.OddsDecider;
 
 import java.time.LocalDate;
@@ -27,8 +27,7 @@ public class CalendarService {
     public Optional<PlayableMatch> matchToday(Team team) {
         return Optional.of(new MockMatch(
                 team,
-                data.getTeams(data.getLeagueSystems().get(0).getLeagueLevels().get(0).getLeagues().get(0))
-                        .get(0) //FIXME ugly calling sequence
+                team
         ));
     }
 

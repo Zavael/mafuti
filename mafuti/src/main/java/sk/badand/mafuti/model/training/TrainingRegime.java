@@ -2,13 +2,12 @@ package sk.badand.mafuti.model.training;
 
 import sk.badand.mafuti.model.player.PlayerSkill;
 
+import java.io.Serializable;
 import java.util.List;
 
-/**
- * Created by abadinka on 24.10.2016.
- */
-public class TrainingRegime {
+public class TrainingRegime implements Serializable {
 
+    private static final long serialVersionUID = -7912543464050033421L;
     private final TrainingType trainingType;
     private final List<PlayerSkill> affectedSkills;
 

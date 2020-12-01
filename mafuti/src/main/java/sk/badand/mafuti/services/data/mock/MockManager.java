@@ -1,5 +1,7 @@
-package sk.badand.mafuti.data.mock;
+package sk.badand.mafuti.services.data.mock;
 
+import lombok.Setter;
+import sk.badand.mafuti.model.Club;
 import sk.badand.mafuti.model.Manager;
 import sk.badand.mafuti.model.common.Morale;
 import sk.badand.mafuti.model.common.Nation;
@@ -7,14 +9,33 @@ import sk.badand.mafuti.model.common.Reputation;
 import sk.badand.math.Randomizer;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+import java.util.Optional;
 
 /**
  * Created by abadinka.
  */
 public class MockManager implements Manager {
     private static final Randomizer rand = new Randomizer();
+    private final String firstName;
+    private final String lastName;
+    private final LocalDate birthdate;
+    private final List<Nation> nationalities;
+    private final boolean isHuman;
     private short morale = (short) rand.nextRandomInt(Morale.MAX);
+    @Setter
+    private Club club;
+
+    public MockManager(String firstName, String lastName, LocalDate birthdate, Nation nation, boolean isHuman) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthdate = birthdate;
+        this.nationalities = new ArrayList<>();
+        this.nationalities.add(nation);
+        this.isHuman = isHuman;
+    }
 
     @Override
     public Object key() {
@@ -28,12 +49,12 @@ public class MockManager implements Manager {
 
     @Override
     public String firstName() {
-        return null;
+        return firstName;
     }
 
     @Override
     public String lastName() {
-        return null;
+        return lastName;
     }
 
     @Override
@@ -73,12 +94,12 @@ public class MockManager implements Manager {
 
     @Override
     public Collection<Nation> nationalities() {
-        return null;
+        return nationalities;
     }
 
     @Override
     public Nation getMainNationality() {
-        return null;
+        return nationalities.get(0);
     }
 
     @Override
@@ -99,5 +120,15 @@ public class MockManager implements Manager {
     @Override
     public int getEstimateValue() {
         return (int) rand.nextDouble(1,200) * 10000;
+    }
+
+    @Override
+    public Optional<Club> getClub() {
+        return Optional.ofNullable(club);
+    }
+
+    @Override
+    public boolean isHuman() {
+        return isHuman;
     }
 }

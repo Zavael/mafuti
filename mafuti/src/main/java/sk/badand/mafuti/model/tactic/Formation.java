@@ -1,14 +1,13 @@
 package sk.badand.mafuti.model.tactic;
 
-import sk.badand.mafuti.model.match.PlayerPosition;
-
-import java.util.List;
+import java.io.Serializable;
 
 /**
  * Created by abadinka.
  */
-public class Formation {
+public class Formation implements Serializable {
 
+    private static final long serialVersionUID = -3721740855844050147L;
     private final FormationType formationType;
     public final String affectOnTactic; //TODO
 

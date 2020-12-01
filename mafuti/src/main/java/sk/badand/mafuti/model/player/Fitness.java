@@ -1,9 +1,12 @@
 package sk.badand.mafuti.model.player;
 
+import java.io.Serializable;
+
 /**
  * Created by abadinka.
  */
-public class Fitness {
+public class Fitness implements Serializable {
+    private static final long serialVersionUID = 7911374086407284669L;
     public static final double INJURY_LEVEL = 60.0;
     public static final double TIREDNESS_LEVEL = 80.0;
     public static final int HEALING_RATE_PER_WEEK = 5; //TODO modify by player strength or other perks?

@@ -1,29 +1,25 @@
 package sk.badand.mafuti.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import sk.badand.mafuti.model.club.Stadium;
 import sk.badand.mafuti.model.club.Team;
 import sk.badand.mafuti.model.league.League;
 import sk.badand.mafuti.model.match.Player;
 
+import java.io.Serializable;
 import java.util.List;
 
-@RequiredArgsConstructor
 @AllArgsConstructor
-@Getter
-public class Club {
+@Data
+public class Club implements Serializable {
+    private static final long serialVersionUID = -8101123265621536781L;
     private final String key;
     private final String name; //FIXME use either this or teams.get(0).getName... its duplication
-    private final Manager manager;
+    private Manager manager;
     private final List<Team> teams;
     private final List<Staff> staff;
-    @Setter
     private Budget budget;
-    @Setter
-    private Stadium stadium;
+    private final Stadium stadium;
 
     public int getBudgetLeft() {
         return budget.getMoneyAmount();

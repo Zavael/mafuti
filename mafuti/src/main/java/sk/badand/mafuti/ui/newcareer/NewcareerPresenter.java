@@ -4,6 +4,8 @@ import com.airhacks.afterburner.injection.Injector;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
 import sk.badand.mafuti.model.Club;
 import sk.badand.mafuti.model.club.Team;
@@ -11,6 +13,7 @@ import sk.badand.mafuti.model.common.Nation;
 import sk.badand.mafuti.model.league.League;
 import sk.badand.mafuti.services.LeagueService;
 import sk.badand.mafuti.services.NationService;
+import sk.badand.mafuti.services.data.mock.MockManager;
 import sk.badand.mafuti.services.inject.UsersClubHolder;
 import sk.badand.mafuti.ui.dashboard.DashboardView;
 import sk.badand.mafuti.ui.extensions.ClubIconVBox;
@@ -25,13 +28,19 @@ import java.util.ResourceBundle;
 
 public class NewcareerPresenter extends AbstractNavigator {
     @FXML
-    public ComboBox<Nation> nationalityCombo;
-    @FXML
     public ComboBox<Nation> nationsCombo;
     @FXML
     public ComboBox<League> leaguesCombo;
     @FXML
     public FlowPane clubsFlowPane;
+    @FXML
+    public TextField firstName;
+    @FXML
+    public TextField lastName;
+    @FXML
+    public DatePicker birthdate;
+    @FXML
+    public ComboBox<Nation> nationalityCombo;
     @Inject
     private LeagueService leagueService;
     @Inject
@@ -86,8 +95,11 @@ public class NewcareerPresenter extends AbstractNavigator {
     }
 
     public void startGame(ActionEvent actionEvent) {
-        //FIXME temporary, users club has to be loaded on new game, load game, continue, not here
+        MockManager manager = new MockManager(firstName.getText(), lastName.getText(), birthdate.getValue(), nationalityCombo.getValue(), true);
+        manager.setClub(selectedClub);
+        selectedClub.setManager(manager);
         Injector.setModelOrService(UsersClubHolder.class, new UsersClubHolder(selectedClub));
+//            LOG.log(Level.SEVERE, "Exception in loading file from {0}, message:{1}", new Object[]{filePath, e});
 
         navigator.load(new DashboardView());
     }

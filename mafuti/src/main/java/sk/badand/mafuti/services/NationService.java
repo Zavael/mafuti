@@ -1,9 +1,11 @@
 package sk.badand.mafuti.services;
 
-import sk.badand.mafuti.data.Data;
 import sk.badand.mafuti.model.common.Nation;
+import sk.badand.mafuti.services.data.Data;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by abadinka.
@@ -11,20 +13,10 @@ import java.util.*;
 public class NationService {
 
     private final Data data = Data.getInstance();
-    private final List<Nation> nations = data.getNations();
-    private final HashMap<String, Nation> mappedNations = new HashMap<>(nations.size());
-
-    {
-        nations.forEach(nation -> {
-            mappedNations.put(nation.key, nation);
-        });
-    }
+    private final List<Nation> nations = new ArrayList<>();
+    private final HashMap<String, Nation> mappedNations = new HashMap<>();
 
     public List<Nation> getNations() {
-        return nations;
-    }
-
-    public Nation getNation(String key) {
-        return mappedNations.get(key);
+        return data.getNations();
     }
 }

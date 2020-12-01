@@ -11,6 +11,7 @@ import sk.badand.mafuti.model.league.League;
 import sk.badand.mafuti.model.match.Player;
 import sk.badand.mafuti.model.tactic.*;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,7 +21,9 @@ import java.util.Optional;
  */
 @RequiredArgsConstructor
 @Getter
-public class Team {
+public class Team implements Serializable {
+
+    private static final long serialVersionUID = 4802874656437462426L;
     private final Club club;
     private final Object key;
     private final String teamName;

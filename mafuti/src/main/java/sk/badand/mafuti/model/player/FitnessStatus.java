@@ -1,9 +1,11 @@
 package sk.badand.mafuti.model.player;
 
+import java.io.Serializable;
+
 /**
  * Created by abadinka.
  */
-public enum FitnessStatus {
+public enum FitnessStatus implements Serializable {
     HEALTHY("fitness.healthy", 1.0),
     TIRED("fitness.tired", 0.7), //TODO under 70% of condition some effects come to play
     INJURED("fitness.injured", 0.3);

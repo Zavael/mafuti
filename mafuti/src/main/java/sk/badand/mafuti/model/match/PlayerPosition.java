@@ -3,11 +3,13 @@
  */
 package sk.badand.mafuti.model.match;
 
+import java.io.Serializable;
+
 /**
  *
  * @author abadinka
  */
-public enum PlayerPosition {
+public enum PlayerPosition implements Serializable {
     STRIKER("player.pos.st", "ST", 0.5, 0.3),
     WINGER("player.pos.wg", "WG", 0.4, 0.5),
     MIDFIELDER("player.pos.cm", "CM", 0.4, 0.4),

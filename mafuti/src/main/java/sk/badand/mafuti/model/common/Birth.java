@@ -5,6 +5,7 @@
  */
 package sk.badand.mafuti.model.common;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -13,8 +14,9 @@ import java.util.Date;
  *
  * @author abadinka
  */
-public class Birth {
+public class Birth implements Serializable {
 
+    private static final long serialVersionUID = -4961538604538895862L;
     private final Calendar birthDate;
     private final SimpleDateFormat simpleFormat = new SimpleDateFormat("dd. MM. yyyy");
 

@@ -3,11 +3,13 @@
  */
 package sk.badand.mafuti.model.common;
 
+import java.io.Serializable;
+
 /**
  *
  * @author abadinka
  */
-public enum PersonType {
+public enum PersonType implements Serializable {
     PLAYER("person.type.player"),
     SCOUT("person.type.scout"),
     MANAGER("person.type.manager"),

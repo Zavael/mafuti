@@ -6,14 +6,14 @@ package sk.badand.mafuti.model.common;
 import sk.badand.mafuti.model.Club;
 import sk.badand.mafuti.model.club.SquadStatus;
 
+import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.Optional;
 
 /**
  *
  * @author abadinka
  */
-public interface Contract {
+public interface Contract extends Serializable {
     Person person();
 
     Club club();

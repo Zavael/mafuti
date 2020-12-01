@@ -6,13 +6,14 @@ package sk.badand.mafuti.model.match.result;
 import sk.badand.mafuti.model.match.PlayerStatistics;
 import sk.badand.mafuti.model.match.TeamMatchStats;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  *
  * @author abadinka
  */
-public interface Result {
+public interface Result extends Serializable {
 
     String getAwayTeamName();
 

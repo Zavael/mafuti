@@ -3,11 +3,13 @@
  */
 package sk.badand.mafuti.model.common;
 
+import java.io.Serializable;
+
 /**
  *
  * @author abadinka
  */
-public enum Weather {
+public enum Weather implements Serializable {
     SUNNY("weather.type.sunny"),
     PARTIAL("weather.type.partialCloudy"),
     CLOUDY("weather.type.cloudy"),

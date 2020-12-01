@@ -1,8 +1,9 @@
 /*
  * Copyright 2016 Andrej Badinka
  */
-package sk.badand.mafuti.data.mock;
+package sk.badand.mafuti.services.data.mock;
 
+import sk.badand.mafuti.model.Club;
 import sk.badand.mafuti.model.common.*;
 import sk.badand.mafuti.model.match.Player;
 import sk.badand.mafuti.model.match.PlayerPosition;
@@ -15,6 +16,7 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Optional;
 
 public final class MockPlayer implements Player {
 
@@ -149,6 +151,11 @@ public final class MockPlayer implements Player {
     @Override
     public PersonType getPersonType() {
         return PersonType.PLAYER;
+    }
+
+    @Override
+    public Optional<Club> getClub() {
+        return Optional.ofNullable(contract.club());
     }
 
     private String shortName() {

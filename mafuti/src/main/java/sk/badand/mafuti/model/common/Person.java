@@ -3,8 +3,11 @@
  */
 package sk.badand.mafuti.model.common;
 
+import sk.badand.mafuti.model.Club;
+
 import java.time.LocalDate;
 import java.util.Collection;
+import java.util.Optional;
 
 /**
  *
@@ -49,4 +52,6 @@ public interface Person extends Nameable {
     PersonType getPersonType();
 
     int getEstimateValue();
+
+    Optional<Club> getClub();
 }

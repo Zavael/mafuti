@@ -1,5 +1,6 @@
-package sk.badand.mafuti.data.mock;
+package sk.badand.mafuti.services.data.mock;
 
+import sk.badand.mafuti.model.Club;
 import sk.badand.mafuti.model.Staff;
 import sk.badand.mafuti.model.common.*;
 import sk.badand.math.Randomizer;
@@ -8,6 +9,7 @@ import sk.badand.text.StrGenerator;
 import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Optional;
 import java.util.UUID;
 
 /**
@@ -125,6 +127,11 @@ public class MockStaff implements Staff {
     @Override
     public int getEstimateValue() {
         return rand.nextRandomInt(50000);
+    }
+
+    @Override
+    public Optional<Club> getClub() {
+        return Optional.ofNullable(contract.club()); //FIXME define empty contract or optional
     }
 
     @Override

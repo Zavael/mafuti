@@ -8,7 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.TableView;
 import sk.badand.mafuti.services.CalendarService;
-import sk.badand.mafuti.services.ClubService;
+import sk.badand.mafuti.services.TeamService;
 import sk.badand.mafuti.services.inject.UsersClubHolder;
 import sk.badand.mafuti.ui.navigation.AbstractNavigator;
 
@@ -33,7 +33,7 @@ public class DashboardPresenter extends AbstractNavigator {
     @Inject
     CalendarService calendarService;
     @Inject
-    ClubService clubService;
+    TeamService teamService;
     @Inject
     UsersClubHolder usersClubHolder;
 

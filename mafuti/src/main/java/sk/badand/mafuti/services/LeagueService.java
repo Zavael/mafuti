@@ -1,9 +1,9 @@
 package sk.badand.mafuti.services;
 
-import sk.badand.mafuti.data.Data;
 import sk.badand.mafuti.model.common.Nation;
 import sk.badand.mafuti.model.league.League;
 import sk.badand.mafuti.model.league.LeagueSystem;
+import sk.badand.mafuti.services.data.Data;
 
 import java.util.HashMap;
 import java.util.List;
@@ -17,15 +17,6 @@ public class LeagueService {
     private final HashMap<Nation, List<League>> leagues = new HashMap<>();
 
     public LeagueService() {
-        data.getLeagueSystems().stream()
-                .forEach(leagueSystem -> {
-                    leagues.put(
-                            leagueSystem.getNation(),
-                            leagueSystem.getLeagueLevels().stream()
-                                    .flatMap(level -> level.getLeagues().stream())
-                                    .collect(Collectors.toList())
-                    );
-                });
     }
 
     public List<LeagueSystem> getLeagueSystems() {
@@ -40,6 +31,17 @@ public class LeagueService {
     }
 
     public List<League> getLeagues(Nation nation) {
+        if (leagues.isEmpty()) {
+            data.getLeagueSystems().stream()
+                    .forEach(leagueSystem -> {
+                        leagues.put(
+                                leagueSystem.getNation(),
+                                leagueSystem.getLeagueLevels().stream()
+                                        .flatMap(level -> level.getLeagues().stream())
+                                        .collect(Collectors.toList())
+                        );
+                    });
+        }
         return leagues.get(nation);
     }
 }

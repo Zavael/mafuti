@@ -3,14 +3,16 @@
  */
 package sk.badand.mafuti.model.common;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  *
  * @author abadinka
  */
-public class Nation {
+public class Nation implements Serializable {
 
+    private static final long serialVersionUID = 9093529382492155805L;
     public final String key;
     public final String country; //TODO: move to bundle?
 

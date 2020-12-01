@@ -1,9 +1,11 @@
 package sk.badand.mafuti.model.common;
 
+import java.io.Serializable;
+
 /**
  * Created by abadinka.
  */
-public enum Reputation {
+public enum Reputation implements Serializable {
     LOCAL("reputation.local"),
     REGIONAL("reputation.regional"),
     NATIONAL("reputation.national"),

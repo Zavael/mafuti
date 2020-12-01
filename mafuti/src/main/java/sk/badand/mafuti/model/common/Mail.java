@@ -3,12 +3,14 @@
  */
 package sk.badand.mafuti.model.common;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
  * @author abadinka
  */
-public class Mail {
+public class Mail implements Serializable {
+    private static final long serialVersionUID = -3912923818175978404L;
     //TODO maybe refactor to abstract class and few subclasses
     public final String subjectKey;
     public final String bodyKey;

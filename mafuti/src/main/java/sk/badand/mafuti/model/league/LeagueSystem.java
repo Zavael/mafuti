@@ -2,16 +2,19 @@ package sk.badand.mafuti.model.league;
 
 import sk.badand.mafuti.model.common.Nation;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by abadinka.
  */
-public class LeagueSystem {
+public class LeagueSystem implements Serializable {
 
+    private static final long serialVersionUID = 5620175648215622730L;
     private final int id;
     private final Nation nation;
     private final List<LeagueLevel> leagueLevels;
+
 
     public LeagueSystem(int id, Nation nation, List<LeagueLevel> leagueLevels) {
         this.id = id;

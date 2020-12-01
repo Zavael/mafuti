@@ -1,6 +1,8 @@
 package sk.badand.mafuti.model.common;
 
-public enum Morale {
+import java.io.Serializable;
+
+public enum Morale implements Serializable {
     ANGRY("morale.angry"),
     UNHAPPY("morale.unhappy"),
     NORMAL("morale.normal"),

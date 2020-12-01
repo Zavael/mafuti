@@ -1,12 +1,14 @@
 package sk.badand.mafuti.model.league;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by abadinka.
  */
-public class LeagueLevel {
+public class LeagueLevel implements Serializable {
 
+    private static final long serialVersionUID = -629534549716249973L;
     private final int id;
     private final byte promotedCount;
     private final List<League> leagues;
