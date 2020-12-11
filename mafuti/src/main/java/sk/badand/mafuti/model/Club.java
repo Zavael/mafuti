@@ -14,12 +14,12 @@ import java.util.List;
 public class Club implements Serializable {
     private static final long serialVersionUID = -8101123265621536781L;
     private final String key;
-    private final String name; //FIXME use either this or teams.get(0).getName... its duplication
+    private String name; //FIXME use either this or teams.get(0).getName... its duplication
     private Manager manager;
     private final List<Team> teams;
     private final List<Staff> staff;
     private Budget budget;
-    private final Stadium stadium;
+    private Stadium stadium;
 
     public int getBudgetLeft() {
         return budget.getMoneyAmount();

@@ -21,6 +21,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<mainClass>sk.badand.mafuti.Mafuti</mainClass>
 		<viewTesterClass>sk.badand.mafuti.ViewTester</viewTesterClass>
+		<editorClass>sk.badand.mafuti.Editor</editorClass>
 		<javafx.version>14</javafx.version>
 	</properties>
 
@@ -85,7 +86,8 @@
 				<version>0.0.4</version>
 				<configuration>
 					<mainClass>${mainClass}</mainClass>
-					<!--					<mainClass>${viewTesterClass}</mainClass>-->
+<!--					<mainClass>${editorClass}</mainClass>-->
+<!--					<mainClass>${viewTesterClass}</mainClass>-->
 				</configuration>
 			</plugin>
 			<!--			<plugin>-->

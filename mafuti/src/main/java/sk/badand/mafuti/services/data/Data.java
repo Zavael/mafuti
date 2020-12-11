@@ -9,6 +9,7 @@ import sk.badand.mafuti.model.league.LeagueLevel;
 import sk.badand.mafuti.model.league.LeagueSystem;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -38,6 +39,7 @@ public class Data {
     public List<Club> getClubs() {
         return getLeagueSystems().stream()
                 .map(LeagueSystem::getLeagueLevels)
+                .map(HashMap::values)
                 .flatMap(Collection::stream)
                 .map(LeagueLevel::getLeagues)
                 .flatMap(Collection::stream)

@@ -40,14 +40,20 @@ public class MockDataProvider {
             generateClubs(12, league1);
             generateClubs(6, league2);
 
-            leagueSystems.add(new LeagueSystem(i++, nation, Stream.of(
-                    new LeagueLevel(1000 + i, (byte) 2, Stream.of(
+            LeagueSystem leagueSystem = new LeagueSystem(i++, nation);
+            leagueSystem.getLeagueLevels().put(1, new LeagueLevel(
+                    1000 + i,
+                    (byte) 2,
+                    Stream.of(
                             league1
-                    ).collect(toList())),
-                    new LeagueLevel(1100 + i, (byte) 2, Stream.of(
+                    ).collect(toList())));
+            leagueSystem.getLeagueLevels().put(2, new LeagueLevel(
+                    1100 + i,
+                    (byte) 2,
+                    Stream.of(
                             league2
-                    ).collect(toList()))
-            ).collect(toList())));
+                    ).collect(toList())));
+            leagueSystems.add(leagueSystem);
         }
         this.game = new Game(leagueSystems);
         LOG.log(Level.FINE, "Done. Created {0} league systems", leagueSystems.size());

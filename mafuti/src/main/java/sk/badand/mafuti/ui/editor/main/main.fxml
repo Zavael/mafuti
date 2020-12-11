@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.beans.property.SimpleListProperty?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"
+      xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.badand.mafuti.ui.editor.main.MainPresenter">
+	<Label styleClass="header1" text="mafuti editor" />
+	<HBox spacing="10" VBox.vgrow="ALWAYS">
+		<VBox minWidth="120" spacing="5">
+			<HBox spacing="5" alignment="CENTER">
+				<Label text="Nation"/>
+				<ComboBox fx:id="nationsCombo" />
+				<Region HBox.hgrow="ALWAYS" />
+				<Button onAction="#reloadData" text="refresh" />
+			</HBox>
+			<HBox spacing="5">
+				<Label text="League level"/>
+				<ComboBox fx:id="leagueLevelsCombo"/>
+				<Region HBox.hgrow="ALWAYS" />
+				<Button fx:id="btnAddLeagueLevel" onAction="#addLeagueLevel" text="add" />
+			</HBox>
+			<HBox spacing="5">
+				<Label text="Leagues" />
+				<Region HBox.hgrow="ALWAYS" />
+				<Button fx:id="btnAddLeague" onAction="#addLeague" text="add" />
+			</HBox>
+			<ListView fx:id="leaguesListView" focusTraversable="false" prefHeight="70" />
+			<HBox spacing="5">
+				<Label text="cups" />
+				<Region HBox.hgrow="ALWAYS" />
+				<Button fx:id="btnAddCup" onAction="#addCup" text="add" />
+			</HBox>
+			<ListView fx:id="cupsListView" focusTraversable="false" prefHeight="70" />
+			<HBox spacing="5">
+				<Label text="clubs" />
+				<Region HBox.hgrow="ALWAYS" />
+				<Button fx:id="btnAddClub" onAction="#addClub" text="add" />
+			</HBox>
+			<ListView fx:id="clubsListView" focusTraversable="false" VBox.vgrow="ALWAYS" />
+		</VBox>
+		<VBox HBox.hgrow="ALWAYS" fx:id="clubPane" />
+	</HBox>
+</VBox>

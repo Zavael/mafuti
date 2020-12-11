@@ -1,47 +1,19 @@
 package sk.badand.mafuti.model.league;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import sk.badand.mafuti.model.common.Nation;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.HashMap;
 
-/**
- * Created by abadinka.
- */
+@Data
 public class LeagueSystem implements Serializable {
 
     private static final long serialVersionUID = 5620175648215622730L;
     private final int id;
+    @EqualsAndHashCode.Exclude
     private final Nation nation;
-    private final List<LeagueLevel> leagueLevels;
-
-
-    public LeagueSystem(int id, Nation nation, List<LeagueLevel> leagueLevels) {
-        this.id = id;
-        this.nation = nation;
-        this.leagueLevels = leagueLevels;
-    }
-
-    public Nation getNation() {
-        return nation;
-    }
-
-    public List<LeagueLevel> getLeagueLevels() {
-        return leagueLevels;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        LeagueSystem that = (LeagueSystem) o;
-
-        return id == that.id;
-    }
-
-    @Override
-    public int hashCode() {
-        return id;
-    }
+    @EqualsAndHashCode.Exclude
+    private final HashMap<Integer, LeagueLevel> leagueLevels = new HashMap<>(); //TODO consider HashMap<LeagueLevel, Collection<Leagues>>
 }

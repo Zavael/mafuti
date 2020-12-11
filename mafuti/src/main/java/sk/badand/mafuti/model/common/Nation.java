@@ -3,36 +3,18 @@
  */
 package sk.badand.mafuti.model.common;
 
-import java.io.Serializable;
-import java.util.Objects;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
-/**
- *
- * @author abadinka
- */
+import java.io.Serializable;
+
+@Data
 public class Nation implements Serializable {
 
     private static final long serialVersionUID = 9093529382492155805L;
     public final String key;
+    @EqualsAndHashCode.Exclude
     public final String country; //TODO: move to bundle?
-
-    public Nation(String key, String country) {
-        this.country = country;
-        this.key = key;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Nation nation = (Nation) o;
-        return key.equals(nation.key);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(key);
-    }
 
     /*
     public static void main(String[] args) {

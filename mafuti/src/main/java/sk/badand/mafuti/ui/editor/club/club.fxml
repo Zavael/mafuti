@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+          AnchorPane.topAnchor="0.0" styleClass="bordered"
+          hgap="10" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="sk.badand.mafuti.ui.editor.club.ClubPresenter">
+	<columnConstraints>
+		<ColumnConstraints hgrow="ALWAYS"/>
+		<ColumnConstraints hgrow="ALWAYS"/>
+	</columnConstraints>
+	<rowConstraints>
+		<RowConstraints/>
+		<RowConstraints/>
+		<RowConstraints/>
+		<RowConstraints/>
+	</rowConstraints>
+	<HBox spacing="10" GridPane.columnSpan="2">
+		<Label text="Club name" HBox.hgrow="ALWAYS"/>
+		<TextField fx:id="clubName"/>
+	</HBox>
+	<HBox spacing="10" GridPane.columnSpan="2" GridPane.rowIndex="1">
+		<Label text="Budget" HBox.hgrow="ALWAYS"/>
+		<TextField/>
+	</HBox>
+	<AnchorPane GridPane.rowIndex="2">
+		<fx:include source="partials/manager.fxml"/>
+	</AnchorPane>
+	<TabPane GridPane.columnIndex="1" GridPane.rowIndex="2" tabClosingPolicy="UNAVAILABLE">
+		<tabs>
+			<Tab text="Stadium">
+				<fx:include source="partials/stadium.fxml"/>
+			</Tab>
+			<Tab text="Office">
+				<fx:include source="partials/office.fxml"/>
+			</Tab>
+			<Tab text="Physio base">
+				<fx:include source="partials/physio-base.fxml"/>
+			</Tab>
+			<Tab text="Training base">
+				<fx:include source="partials/training-base.fxml"/>
+			</Tab>
+			<Tab text="Youth academy">
+				<fx:include source="partials/training-base.fxml"/>
+			</Tab>
+		</tabs>
+	</TabPane>
+	<VBox spacing="5" GridPane.rowIndex="3" GridPane.vgrow="ALWAYS" GridPane.columnSpan="2">
+		<ComboBox/>
+		<VBox>
+			<HBox>
+				<Label text="team name"/>
+				<TextField/>
+				<Button mnemonicParsing="false" text="update"/>
+			</HBox>
+			<HBox>
+				<Label text="players"/>
+				<Button mnemonicParsing="false" text="add"/>
+				<Button mnemonicParsing="false" text="edit"/>
+				<Button mnemonicParsing="false" text="move"/>
+				<Button mnemonicParsing="false" text="delete"/>
+			</HBox>
+		</VBox>
+	</VBox>
+</GridPane>

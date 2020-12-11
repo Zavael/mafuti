@@ -7,9 +7,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-/**
- * Created by abadinka.
- */
 public class NationService {
 
     private final Data data = Data.getInstance();

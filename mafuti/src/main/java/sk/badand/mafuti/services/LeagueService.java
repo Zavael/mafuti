@@ -5,8 +5,10 @@ import sk.badand.mafuti.model.league.League;
 import sk.badand.mafuti.model.league.LeagueSystem;
 import sk.badand.mafuti.services.data.Data;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
@@ -23,11 +25,19 @@ public class LeagueService {
         return data.getLeagueSystems();
     }
 
-    public LeagueSystem getLeagueSystem(Nation nation) {
+    public Optional<LeagueSystem> getLeagueSystem(Nation nation) {
         return data.getLeagueSystems().parallelStream()
                 .filter(leagueSystem -> leagueSystem.getNation().equals(nation))
-                .findFirst()
-                .get();
+                .findFirst();
+    }
+
+    public LeagueSystem initOrGetLeagueSystem(Nation forNation) {
+        return getLeagueSystem(forNation)
+                .orElseGet(() -> {
+                    LeagueSystem leagueSystem = new LeagueSystem(forNation.hashCode(), forNation);
+                    data.getLeagueSystems().add(leagueSystem);
+                    return leagueSystem;
+                });
     }
 
     public List<League> getLeagues(Nation nation) {
@@ -36,12 +46,12 @@ public class LeagueService {
                     .forEach(leagueSystem -> {
                         leagues.put(
                                 leagueSystem.getNation(),
-                                leagueSystem.getLeagueLevels().stream()
+                                leagueSystem.getLeagueLevels().values().stream()
                                         .flatMap(level -> level.getLeagues().stream())
                                         .collect(Collectors.toList())
                         );
                     });
         }
-        return leagues.get(nation);
+        return leagues.getOrDefault(nation, Collections.emptyList());
     }
 }

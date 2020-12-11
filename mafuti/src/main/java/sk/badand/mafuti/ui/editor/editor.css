@@ -1,0 +1,8 @@
+.combo-box-base  {
+    -fx-min-width: 100;
+    -fx-pref-width: 150;
+}
+
+.button {
+    -fx-min-width: 100;
+}
