@@ -5,7 +5,7 @@ import lombok.Data;
 
 @AllArgsConstructor
 @Data
-public class Stadium implements Facility {
+public class Stadium extends Facility {
 
     private static final long serialVersionUID = -7450305917367959716L;
     private String name;
